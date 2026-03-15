@@ -1,0 +1,35 @@
+:root {
+  --font-sans: 'Bricolage Grotesque Variable';
+  --font-display: 'Instrument Serif';
+
+  --color-ink: 42 20 14;
+  --color-smoke: 247 234 216;
+  --color-bronze: 243 162 41;
+  --color-ember: 197 72 46;
+
+  --bg-main: #2a140e;
+  --bg-elevated: rgba(43, 21, 14, 0.84);
+  --bg-soft: rgba(69, 33, 19, 0.56);
+  --surface-border: rgba(247, 234, 216, 0.16);
+  --surface-border-strong: rgba(243, 162, 41, 0.36);
+  --text-primary: #f7ead8;
+  --text-secondary: rgba(247, 234, 216, 0.76);
+  --text-muted: rgba(247, 234, 216, 0.54);
+  --bronze-main: #f3a229;
+  --bronze-soft: rgba(243, 162, 41, 0.14);
+  --bronze-strong: #ffd17b;
+
+  --shadow-deep: 0 28px 100px rgba(0, 0, 0, 0.45);
+  --shadow-bronze: 0 18px 44px rgba(243, 162, 41, 0.16);
+  --shadow-hero: 0 42px 140px rgba(31, 9, 4, 0.54);
+  --shadow-soft: 0 18px 60px rgba(0, 0, 0, 0.22);
+
+  --radius-panel: 2rem;
+  --radius-card: 1.4rem;
+  --radius-frame: 1.8rem;
+  --radius-pill: 999px;
+
+  --container-main: min(100% - 1.6rem, 90rem);
+  --section-gap: clamp(5rem, 10vw, 8.75rem);
+  --content-gap: clamp(1.2rem, 2.5vw, 2rem);
+}

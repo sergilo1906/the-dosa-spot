@@ -1,0 +1,93 @@
+---
+import type { BusinessBrief } from '../../types/business';
+import AboutSection from '../sections/AboutSection.astro';
+import CredibilitySection from '../sections/CredibilitySection.astro';
+import CtaSection from '../sections/CtaSection.astro';
+import FaqSection from '../sections/FaqSection.astro';
+import FooterSection from '../sections/FooterSection.astro';
+import GallerySection from '../sections/GallerySection.astro';
+import HeroSection from '../sections/HeroSection.astro';
+import ServicesSection from '../sections/ServicesSection.astro';
+
+interface Props {
+  business: BusinessBrief;
+  preset: {
+    heroVariant: import('../../types/business').HeroVariant;
+    servicesVariant: import('../../types/business').ServicesVariant;
+    galleryVariant: import('../../types/business').GalleryVariant;
+    ctaVariant: import('../../types/business').CtaVariant;
+  };
+}
+
+const { business, preset } = Astro.props;
+const featuredItems =
+  business.featuredItems.length > 0
+    ? business.featuredItems
+    : business.services.slice(0, 4).map((item) => ({
+        title: item.priceLabel ?? item.title,
+        summary: item.summary,
+        accent: item.accent,
+        imageSrc: null,
+        imageAlt: item.title,
+      }));
+const highlightChips = [
+  business.display.ratingLabel,
+  business.primaryCategory,
+  ...business.serviceModes.slice(0, 2),
+  business.display.location,
+].filter(Boolean);
+const heroNote =
+  business.reviewHighlights.length > 0
+    ? 'A quick look at the plates and trust signals people notice first.'
+    : 'A quick look at the food, menu highlights, and local visit details.';
+const popularPicks = featuredItems.map((item) => ({
+  eyebrow: item.accent ?? 'Popular pick',
+  title: item.title,
+  body: item.summary,
+  imageSrc: item.imageSrc ?? null,
+  imageAlt: item.imageAlt ?? item.title,
+}));
+---
+
+<div class="landing-shell">
+  <HeroSection business={business} variant={preset.heroVariant} />
+  <section class="section-shell landing-marquee-shell" aria-label="Popular dishes">
+    <div class="landing-marquee panel-luxe panel-luxe--soft" data-reveal-group>
+      <div class="landing-marquee__meta" data-reveal-item>
+        <div class="landing-marquee__intro">
+          <p class="detail-label">Popular dishes</p>
+          <p class="landing-marquee__title">A quick look at the plates people come back for.</p>
+        </div>
+        <p class="landing-marquee__note">{heroNote}</p>
+      </div>
+        <div class="landing-marquee__cards" data-reveal-item>
+          {popularPicks.map((card) => (
+          <article class="landing-marquee__card landing-marquee__card--visual panel-luxe panel-luxe--soft">
+            {card.imageSrc && (
+              <figure class="landing-marquee__media">
+                <img src={card.imageSrc} alt={card.imageAlt} loading="lazy" />
+              </figure>
+            )}
+            <div class="landing-marquee__copy">
+              <p class="detail-label">{card.eyebrow}</p>
+              <h3>{card.title}</h3>
+              <p>{card.body}</p>
+            </div>
+          </article>
+          ))}
+        </div>
+      <div class="landing-marquee__chips" data-reveal-item>
+        {highlightChips.slice(0, 5).map((hint) => (
+          <span class="brand-chip">{hint}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+  {business.sectionEligibility.services && <ServicesSection business={business} variant={preset.servicesVariant} />}
+  {business.sectionEligibility.credibility && <CredibilitySection business={business} />}
+  <AboutSection business={business} />
+  {business.sectionEligibility.gallery && <GallerySection business={business} variant={preset.galleryVariant} />}
+  {business.sectionEligibility.faq && <FaqSection business={business} />}
+  <CtaSection business={business} variant={preset.ctaVariant} />
+  <FooterSection business={business} />
+</div>

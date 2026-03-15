@@ -1,0 +1,81 @@
+---
+import SectionHeading from '../ui/SectionHeading.astro';
+import type { BusinessBrief, ServicesVariant } from '../../types/business';
+
+interface Props {
+  business: BusinessBrief;
+  variant: ServicesVariant;
+}
+
+const { business, variant } = Astro.props;
+const menuBenefits = [
+  business.primaryCategory ?? 'South Indian kitchen',
+  'Easy to scan on mobile',
+  'Ready to expand into a full menu later',
+];
+---
+
+<section class="section-shell" id="menu">
+  <div class="section-grid section-grid--split services-intro">
+    <SectionHeading
+      eyebrow="Menu highlights"
+      indexLabel="02"
+      title="From crisp dosas to quick plates and sweet finishes."
+      body="A short edit of popular categories and standout dishes from the kitchen, arranged for fast reading on mobile."
+    />
+    <aside class="services-note panel-luxe panel-luxe--soft" data-reveal-group>
+      <p class="detail-label" data-reveal-item>Kitchen focus</p>
+      <p class="services-note__title" data-reveal-item>Four confirmed favourites, arranged like a clear menu.</p>
+      <p data-reveal-item>
+        {business.services.length} menu categories led by the dishes already confirmed, so the page feels useful and easy to
+        trust without overcrowding the choice.
+      </p>
+    </aside>
+  </div>
+
+  {variant === 'signature-grid' && (
+    <div class="service-grid" data-reveal-group>
+      {business.services.map((service, index) => (
+        <article class:list={['service-card panel-luxe', index === 0 && 'service-card--featured']} data-reveal-item data-hover-lift>
+          <div class="service-card__index">0{index + 1}</div>
+          {service.accent && <p class="service-accent">{service.accent}</p>}
+          <h3>{service.title}</h3>
+          <p>{service.summary}</p>
+          {(service.duration || service.priceLabel) && (
+            <div class="service-meta">
+              {service.duration && <span>{service.duration}</span>}
+              {service.priceLabel && <span>{service.priceLabel}</span>}
+            </div>
+          )}
+        </article>
+      ))}
+    </div>
+  )}
+
+  {variant === 'editorial-rows' && (
+    <div class="service-rows panel-luxe" data-reveal-group>
+      {business.services.map((service, index) => (
+        <article class="service-row" data-reveal-item>
+          <div class="service-row__index">0{index + 1}</div>
+          <div class="service-row__copy">
+            <div class="service-row__meta">
+              <h3>{service.title}</h3>
+              {service.accent && <span>{service.accent}</span>}
+            </div>
+            <p>{service.summary}</p>
+          </div>
+          <div class="service-row__time">{service.priceLabel ?? service.duration ?? 'Featured now'}</div>
+        </article>
+      ))}
+    </div>
+  )}
+
+  <div class="services-proof panel-luxe panel-luxe--soft" data-reveal-group>
+    <p class="detail-label" data-reveal-item>Menu cues</p>
+    <div class="services-proof__list" data-reveal-item>
+      {menuBenefits.map((benefit) => (
+        <span class="flag-pill">{benefit}</span>
+      ))}
+    </div>
+  </div>
+</section>

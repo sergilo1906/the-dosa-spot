@@ -1,0 +1,73 @@
+---
+import SectionHeading from '../ui/SectionHeading.astro';
+import type { BusinessBrief } from '../../types/business';
+
+interface Props {
+  business: BusinessBrief;
+}
+
+const { business } = Astro.props;
+const trustSignals = [
+  ...business.reviewHighlights.slice(0, 4),
+  ...business.proofPoints.slice(0, 2),
+].slice(0, 5);
+const visitDetails = [
+  business.primaryCategory,
+  business.display.location,
+  business.phone,
+  ...business.serviceModes,
+].filter(Boolean);
+const ratingValue =
+  typeof business.ratingValue === 'number' ? business.ratingValue.toFixed(1) : String(business.services.length).padStart(2, '0');
+const ratingContext =
+  typeof business.reviewCount === 'number'
+    ? `Based on ${business.reviewCount} reviews.`
+    : 'Built around the strongest local trust signals available.';
+const trustSummary = [
+  typeof business.ratingValue === 'number' && typeof business.reviewCount === 'number'
+    ? `${business.ratingValue.toFixed(1)} rating from ${business.reviewCount} reviews`
+    : `${String(business.services.length).padStart(2, '0')} confirmed menu highlights`,
+  ...business.proofPoints.slice(0, 2),
+];
+---
+
+<section class="section-shell" id="reviews">
+  <div class="credibility-panel panel-luxe">
+    <div class="section-grid section-grid--split credibility-intro">
+      <SectionHeading
+        eyebrow="Reviews & trust"
+        indexLabel="03"
+        title="Tasty food, friendly staff, quick service, and a stronger reason to stop in."
+        body="The trust layer here is simple and real: a 4.6 rating, 610 reviews, and repeated praise for flavour, speed, staff, and overall experience."
+      />
+
+      <div class="credibility-score panel-luxe panel-luxe--soft" data-reveal-group>
+        <p class="detail-label" data-reveal-item>Google rating</p>
+        <p class="credibility-score__value" data-reveal-item>{ratingValue}</p>
+        <p data-reveal-item>{ratingContext}</p>
+      </div>
+    </div>
+
+    <div class="credibility-stack" data-reveal-group>
+      <div class="credibility-card panel-luxe panel-luxe--soft" data-reveal-item>
+        <p class="detail-label">What people mention</p>
+        <ul class="proof-list">
+          {trustSignals.map((point) => (
+            <li>{point}</li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="credibility-card panel-luxe" data-reveal-item>
+        <p class="detail-label">Visit details</p>
+        <ul class="proof-list">
+          {visitDetails.length > 0 ? (
+            visitDetails.map((detail) => <li>{detail}</li>)
+          ) : (
+            trustSummary.map((detail) => <li>{detail}</li>)
+          )}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

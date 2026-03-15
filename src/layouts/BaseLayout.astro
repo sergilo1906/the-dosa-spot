@@ -1,0 +1,42 @@
+---
+import BaseHead from '../components/head/BaseHead.astro';
+import { siteConfig } from '../lib/seo/site';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  robots: string;
+  ogImage: string;
+  jsonLd?: Record<string, unknown>[];
+}
+
+const { title, description, canonical, robots, ogImage, jsonLd = [] } = Astro.props;
+---
+
+<!doctype html>
+<html lang={siteConfig.languageTag} class="theme-noir-bronze">
+  <head>
+    <BaseHead
+      title={title}
+      description={description}
+      canonical={canonical}
+      robots={robots}
+      ogImage={ogImage}
+      jsonLd={jsonLd}
+    />
+  </head>
+  <body>
+    <div class="site-noise" aria-hidden="true"></div>
+    <div class="site-ambient site-ambient--one" aria-hidden="true"></div>
+    <div class="site-ambient site-ambient--two" aria-hidden="true"></div>
+    <div class="site-grid" aria-hidden="true"></div>
+    <main class="site-shell">
+      <slot />
+    </main>
+    <script>
+      import '../lib/motion/boot.ts';
+    </script>
+  </body>
+</html>

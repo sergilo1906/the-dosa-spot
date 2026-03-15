@@ -1,0 +1,27 @@
+---
+import DemoLanding from '../components/demo/DemoLanding.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getBusinessForPreset, getDefaultPreset } from '../data/presets';
+import { buildPageMeta } from '../lib/seo/meta';
+import { buildStructuredData } from '../lib/seo/jsonld';
+
+const preset = getDefaultPreset();
+const business = getBusinessForPreset(preset);
+const meta = buildPageMeta({
+  business,
+  preset,
+  pathname: '/',
+});
+const jsonLd = buildStructuredData(business, meta.canonical);
+---
+
+<BaseLayout
+  title={meta.title}
+  description={meta.description}
+  canonical={meta.canonical}
+  robots={meta.robots}
+  ogImage={meta.ogImage}
+  jsonLd={jsonLd}
+>
+  <DemoLanding business={business} preset={preset} />
+</BaseLayout>

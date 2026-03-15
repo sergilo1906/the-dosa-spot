@@ -1,0 +1,25 @@
+<svg width="1000" height="1400" viewBox="0 0 1000 1400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1000" height="1400" rx="38" fill="#0A0A0A"/>
+  <rect x="40" y="40" width="920" height="1320" rx="28" fill="url(#paint0_linear)" stroke="#7F5534"/>
+  <rect x="92" y="92" width="816" height="1216" rx="24" stroke="rgba(239,229,213,0.14)"/>
+  <path d="M315 1068C342 830 437 628 500 628C563 628 658 830 685 1068" stroke="#E9D5B8" stroke-width="2.5" opacity="0.82"/>
+  <path d="M390 584C399 478 441 398 500 398C559 398 601 478 610 584" stroke="#B98652" stroke-width="3"/>
+  <path d="M430 500C445 468 468 450 500 450C532 450 555 468 570 500" stroke="#E9D5B8" stroke-width="2"/>
+  <path d="M438 640H562" stroke="#B98652" stroke-width="3"/>
+  <path d="M392 724H608" stroke="#E9D5B8" stroke-width="1.5" opacity="0.7"/>
+  <path d="M354 950H646" stroke="#E9D5B8" stroke-width="1.5" opacity="0.56"/>
+  <path d="M198 236H804" stroke="#B98652" stroke-width="1.5" opacity="0.72"/>
+  <path d="M198 1162H804" stroke="#B98652" stroke-width="1.5" opacity="0.72"/>
+  <circle cx="500" cy="700" r="248" stroke="rgba(185,134,82,0.24)" stroke-width="1.5"/>
+  <circle cx="500" cy="700" r="330" stroke="rgba(239,229,213,0.08)" stroke-width="1.5"/>
+  <text x="130" y="168" fill="#EFE5D5" font-family="Georgia, serif" font-size="86" letter-spacing="-2">Black Quay</text>
+  <text x="130" y="240" fill="#B98652" font-family="Arial, sans-serif" font-size="30" letter-spacing="11">ATELIER / CORK / SAMPLE</text>
+  <text x="130" y="1260" fill="#EFE5D5" font-family="Arial, sans-serif" font-size="28" letter-spacing="5">QUIET PRECISION / MODERN GROOMING / NOIR BRONZE</text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="126" y1="108" x2="850" y2="1260" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#151515"/>
+      <stop offset="0.58" stop-color="#0D0D0D"/>
+      <stop offset="1" stop-color="#19140F"/>
+    </linearGradient>
+  </defs>
+</svg>

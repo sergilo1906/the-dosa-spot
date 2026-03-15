@@ -1,0 +1,19 @@
+<svg width="1400" height="900" viewBox="0 0 1400 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1400" height="900" rx="32" fill="#0A0A0A"/>
+  <rect x="90" y="90" width="1220" height="720" rx="28" fill="#111111" stroke="#8E6646"/>
+  <path d="M184 660H1218" stroke="#B98652" stroke-width="2.2"/>
+  <path d="M196 260H506" stroke="#EFE5D5" stroke-width="1.5" opacity="0.58"/>
+  <path d="M196 324H606" stroke="#B98652" stroke-width="2"/>
+  <path d="M196 388H530" stroke="#EFE5D5" stroke-width="1.5" opacity="0.58"/>
+  <circle cx="988" cy="386" r="170" fill="url(#paint0_radial)" opacity="0.3"/>
+  <circle cx="988" cy="386" r="238" stroke="rgba(239,229,213,0.1)" stroke-width="1.5"/>
+  <path d="M930 328L1046 444" stroke="#EFE5D5" stroke-width="2"/>
+  <path d="M1046 328L930 444" stroke="#B98652" stroke-width="2"/>
+  <text x="124" y="760" fill="#EFE5D5" font-family="Arial, sans-serif" font-size="26" letter-spacing="5">SUPPORT PANEL / REDUCED INPUTS / STILL DESIGNED TO IMPRESS ON MOBILE</text>
+  <defs>
+    <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(988 386) rotate(90) scale(170)">
+      <stop stop-color="#B98652"/>
+      <stop offset="1" stop-color="#B98652" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

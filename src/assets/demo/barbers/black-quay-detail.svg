@@ -1,0 +1,21 @@
+<svg width="1000" height="1200" viewBox="0 0 1000 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1000" height="1200" rx="32" fill="#0C0C0C"/>
+  <path d="M0 1020L1000 300" stroke="url(#paint0_linear)" stroke-width="2"/>
+  <path d="M0 1120L1000 400" stroke="rgba(239,229,213,0.12)" stroke-width="1.5"/>
+  <path d="M86 968H364" stroke="#EFE5D5" stroke-width="1.5" opacity="0.62"/>
+  <path d="M86 1022H502" stroke="#B98652" stroke-width="2"/>
+  <path d="M86 1076H412" stroke="#EFE5D5" stroke-width="1.5" opacity="0.62"/>
+  <circle cx="732" cy="314" r="172" stroke="#B98652" stroke-width="2"/>
+  <circle cx="732" cy="314" r="232" stroke="rgba(239,229,213,0.1)" stroke-width="1.5"/>
+  <path d="M668 264L790 386" stroke="#EFE5D5" stroke-width="2.2"/>
+  <path d="M790 264L668 386" stroke="#B98652" stroke-width="2.2"/>
+  <text x="86" y="168" fill="#EFE5D5" font-family="Georgia, serif" font-size="74">Detail Study</text>
+  <text x="86" y="232" fill="#B98652" font-family="Arial, sans-serif" font-size="26" letter-spacing="8">TRIM / TEXTURE / LINE CONTROL</text>
+  <text x="86" y="1142" fill="#EFE5D5" font-family="Arial, sans-serif" font-size="24" letter-spacing="4">SAMPLE SUPPORT VISUAL / NOT PHOTOGRAPHY / LOCAL DEMO SYSTEM</text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="156" y1="1020" x2="936" y2="362" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#B98652"/>
+      <stop offset="1" stop-color="#EFE5D5"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,0 +1,33 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1000" rx="32" fill="#0A0A0A"/>
+  <rect x="80" y="110" width="420" height="650" rx="28" fill="#121212" stroke="#7D5436"/>
+  <rect x="550" y="80" width="500" height="760" rx="30" fill="#111111" stroke="#B98652"/>
+  <rect x="1110" y="160" width="410" height="580" rx="28" fill="#121212" stroke="#7D5436"/>
+  <rect x="602" y="136" width="396" height="650" rx="20" stroke="rgba(239,229,213,0.16)"/>
+  <path d="M760 780C760 676 818 592 894 592C970 592 1028 676 1028 780" stroke="#E9D5B8" stroke-width="2.2"/>
+  <path d="M620 828H980" stroke="#B98652" stroke-width="3"/>
+  <circle cx="800" cy="332" r="152" fill="url(#paint0_radial)" opacity="0.38"/>
+  <circle cx="290" cy="330" r="110" fill="url(#paint1_radial)" opacity="0.2"/>
+  <circle cx="1288" cy="420" r="130" fill="url(#paint2_radial)" opacity="0.16"/>
+  <path d="M218 196H362" stroke="#EFE5D5" stroke-width="1.5" opacity="0.6"/>
+  <path d="M1260 226H1376" stroke="#EFE5D5" stroke-width="1.5" opacity="0.6"/>
+  <path d="M660 238H940" stroke="#EFE5D5" stroke-width="1.5" opacity="0.56"/>
+  <path d="M690 320H910" stroke="#B98652" stroke-width="2"/>
+  <path d="M688 402H912" stroke="#B98652" stroke-width="2"/>
+  <path d="M132 886H1468" stroke="#B98652" stroke-width="2" opacity="0.7"/>
+  <text x="120" y="916" fill="#EFE5D5" font-family="Arial, sans-serif" font-size="28" letter-spacing="5">MOCK INTERIOR PANEL / CORK BARBER DEMO / EDITORIAL SUPPORT VISUAL</text>
+  <defs>
+    <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(800 332) rotate(90) scale(152)">
+      <stop stop-color="#B98652"/>
+      <stop offset="1" stop-color="#B98652" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="paint1_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(290 330) rotate(90) scale(110)">
+      <stop stop-color="#EFE5D5"/>
+      <stop offset="1" stop-color="#EFE5D5" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="paint2_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1288 420) rotate(90) scale(130)">
+      <stop stop-color="#B98652"/>
+      <stop offset="1" stop-color="#B98652" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

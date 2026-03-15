@@ -1,0 +1,282 @@
+---
+import ActionLink from '../ui/ActionLink.astro';
+import type { BusinessBrief, HeroVariant } from '../../types/business';
+
+interface Props {
+  business: BusinessBrief;
+  variant: HeroVariant;
+}
+
+const { business, variant } = Astro.props;
+const supportingAssets = business.galleryAssets.slice(0, 3);
+const primaryImage = business.primaryImage;
+const orderHref = business.display.orderHref ?? '#location';
+const directionsHref = business.display.directionsHref ?? '#location';
+const callHref = business.display.callHref ?? '#location';
+const menuHref = business.display.menuHref ?? '#menu';
+const ghostWord = business.businessName.split(' ')[1] ?? business.businessName.split(' ')[0] ?? business.businessName;
+const categoryLabel = business.primaryCategory ?? 'Local restaurant';
+const ratingLabel =
+  typeof business.ratingValue === 'number'
+    ? `${business.ratingValue.toFixed(1)} rating`
+    : business.display.ratingLabel ?? `${String(business.services.length).padStart(2, '0')} menu highlights`;
+const reviewsLabel =
+  typeof business.reviewCount === 'number' ? `${business.reviewCount} reviews` : `${business.featuredItems.length} popular dishes`;
+const serviceModeLabel =
+  business.serviceModes.length > 0 ? business.serviceModes.join(' / ') : 'Dine-in / Delivery / Pickup';
+const addressLabel = business.address ?? business.display.location;
+const headlineCue = business.brandHints[0] ?? categoryLabel;
+const detailCue = business.atmosphereKeywords[0] ?? business.materialFinish;
+const heroFacts = [ratingLabel, reviewsLabel, serviceModeLabel].filter(Boolean);
+const heroTags =
+  business.featuredItems.length > 0
+    ? business.featuredItems.slice(0, 4).map((item) => item.title)
+    : business.brandHints.slice(0, 4);
+const heroBandItems =
+  business.reviewHighlights.length > 0 ? business.reviewHighlights.slice(0, 3) : business.proofPoints.slice(0, 3);
+const heroBandNotes = [categoryLabel, addressLabel, serviceModeLabel].filter(Boolean).slice(0, 3);
+const quickLinksForPrimary = [
+  { label: 'Call', href: callHref },
+  { label: 'View Menu', href: menuHref },
+].filter((item) => Boolean(item.href));
+const quickLinksForPoster = [
+  { label: 'Call', href: callHref },
+  { label: 'Get Directions', href: directionsHref },
+].filter((item) => Boolean(item.href));
+---
+
+<section class:list={['section-shell hero-section', `hero-section--${variant}`]} id="top">
+  {variant === 'cinematic-split' && (
+    <div class="hero-layout hero-layout--cinematic">
+      <div class="hero-copy" data-reveal-group>
+        <div class="hero-topline" data-reveal-item>
+          <span class="hero-runline">{categoryLabel}</span>
+          <span class="hero-divider" aria-hidden="true"></span>
+          <span class="hero-runline">{business.city}</span>
+          <span class="hero-divider" aria-hidden="true"></span>
+          <span class="hero-runline">{headlineCue}</span>
+        </div>
+        <div class="hero-title-stack">
+          <p class="hero-pretitle hero-pretitle--hero" data-reveal-item>
+            {business.businessName}
+          </p>
+          <h1 class="hero-title" data-hero-line>
+            {business.tagline}
+          </h1>
+          <p class="hero-ghost-word" aria-hidden="true">
+            {ghostWord}
+          </p>
+        </div>
+        <p class="hero-description" data-hero-line>
+          {business.shortDescription}
+        </p>
+        <div class="hero-actions" data-reveal-item>
+          <ActionLink href={orderHref}>Order Online</ActionLink>
+          <ActionLink href={directionsHref} variant="ghost">
+            Get Directions
+          </ActionLink>
+        </div>
+        <div class="hero-link-rail" data-reveal-item>
+          {quickLinksForPrimary.map((item) => (
+            <a href={item.href} class="flag-pill">
+              {item.label}
+            </a>
+          ))}
+        </div>
+        <div class="hero-facts" data-reveal-item>
+          {heroFacts.map((fact) => (
+            <span class="hero-fact">{fact}</span>
+          ))}
+        </div>
+        <ul class="hero-tags" data-reveal-item>
+          {heroTags.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="hero-visual-stack" data-hero-visual>
+        <div class="hero-visual-halo" aria-hidden="true"></div>
+        {primaryImage && (
+          <figure class="hero-frame hero-frame--primary" data-hover-lift>
+            <img src={primaryImage.src} alt={primaryImage.alt} loading="eager" />
+            <figcaption class="hero-frame__overlay">
+              <p>{categoryLabel} in Cork</p>
+              <span>{addressLabel}</span>
+            </figcaption>
+          </figure>
+        )}
+        <aside class="hero-note panel-luxe" data-hover-lift>
+          <p class="hero-note__eyebrow">House note</p>
+          <p class="hero-note__title">Crisp dosas, warm plates, quick local rhythm.</p>
+          <p>{business.heroSignature}</p>
+        </aside>
+        <div class="hero-mini-grid">
+          {supportingAssets.slice(0, 2).map((asset) => (
+            <figure class="hero-frame hero-frame--support" data-hover-lift>
+              <img src={asset.src} alt={asset.alt} loading="lazy" />
+              <figcaption class="hero-frame__caption">
+                <span>{asset.treatment ?? 'restaurant detail'}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </div>
+  )}
+
+  {variant === 'immersive-poster' && (
+    <div class="hero-layout hero-layout--poster panel-luxe">
+      <div class="hero-poster-copy" data-reveal-group>
+        <div class="hero-topline" data-reveal-item>
+          <span class="hero-runline">{business.city}</span>
+          <span class="hero-divider" aria-hidden="true"></span>
+          <span class="hero-runline">{categoryLabel}</span>
+          <span class="hero-divider" aria-hidden="true"></span>
+          <span class="hero-runline">{detailCue}</span>
+        </div>
+        <div class="hero-title-stack">
+          <p class="hero-pretitle hero-pretitle--hero" data-reveal-item>
+            {business.businessName}
+          </p>
+          <h1 class="hero-title hero-title--poster" data-hero-line>
+            {business.tagline}
+          </h1>
+          <p class="hero-ghost-word hero-ghost-word--poster" aria-hidden="true">
+            {ghostWord}
+          </p>
+        </div>
+        <p class="hero-description hero-description--poster" data-hero-line>
+          {business.shortDescription}
+        </p>
+        <div class="hero-actions" data-reveal-item>
+          <ActionLink href={orderHref}>Order Online</ActionLink>
+          <ActionLink href={menuHref} variant="ghost">
+            View Menu
+          </ActionLink>
+        </div>
+        <div class="hero-link-rail" data-reveal-item>
+          {quickLinksForPoster.map((item) => (
+            <a href={item.href} class="flag-pill">
+              {item.label}
+            </a>
+          ))}
+        </div>
+        <div class="hero-poster-note panel-luxe panel-luxe--soft" data-reveal-item>
+          <p class="detail-label">Restaurant feel</p>
+          <p>{business.heroSignature}</p>
+        </div>
+      </div>
+
+      <div class="hero-poster-stage" data-hero-visual>
+        {primaryImage && (
+          <figure class="hero-frame hero-frame--poster-main" data-hover-lift>
+            <img src={primaryImage.src} alt={primaryImage.alt} loading="eager" />
+            <figcaption class="hero-frame__overlay">
+              <p>{business.imageTreatment}</p>
+              <span>{business.photographyStyle}</span>
+            </figcaption>
+          </figure>
+        )}
+        <div class="hero-poster-stack">
+          {supportingAssets.slice(0, 2).map((asset) => (
+            <figure class="hero-frame hero-frame--poster-side" data-hover-lift>
+              <img src={asset.src} alt={asset.alt} loading="lazy" />
+              <figcaption class="hero-frame__caption">
+                <span>{asset.treatment ?? 'restaurant detail'}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+        <aside class="hero-poster-aside panel-luxe panel-luxe--soft" data-hover-lift>
+          <p class="detail-label">Food mood</p>
+          <p class="hero-note__title">Warm plates, brighter colour, quicker appetite.</p>
+          <p>{business.photographyStyle}</p>
+        </aside>
+      </div>
+    </div>
+  )}
+
+  {variant === 'monolith-stack' && (
+    <div class="hero-layout hero-layout--monolith panel-luxe">
+      <div class="hero-monolith-copy" data-reveal-group>
+        <div class="hero-topline" data-reveal-item>
+          <span class="hero-runline">{business.city}</span>
+          <span class="hero-divider" aria-hidden="true"></span>
+          <span class="hero-runline">{categoryLabel}</span>
+          <span class="hero-divider" aria-hidden="true"></span>
+          <span class="hero-runline">{addressLabel}</span>
+        </div>
+        <div class="hero-title-stack">
+          <p class="hero-pretitle hero-pretitle--hero" data-reveal-item>
+            {business.businessName}
+          </p>
+          <h1 class="hero-title hero-title--monolith" data-hero-line>
+            {business.tagline}
+          </h1>
+          <p class="hero-ghost-word hero-ghost-word--monolith" aria-hidden="true">
+            {ghostWord}
+          </p>
+        </div>
+        <p class="hero-description" data-hero-line>
+          {business.shortDescription}
+        </p>
+        <div class="hero-facts hero-facts--compact" data-reveal-item>
+          {heroFacts.slice(0, 2).map((fact) => (
+            <span class="hero-fact">{fact}</span>
+          ))}
+        </div>
+      </div>
+
+      <div class="hero-monolith-grid" data-hero-visual>
+        {primaryImage && (
+          <figure class="hero-frame hero-frame--monolith" data-hover-lift>
+            <img src={primaryImage.src} alt={primaryImage.alt} loading="eager" />
+            <figcaption class="hero-frame__overlay">
+              <p>{business.imageTreatment}</p>
+              <span>{business.heroSignature}</span>
+            </figcaption>
+          </figure>
+        )}
+        <div class="hero-proof panel-luxe panel-luxe--soft" data-hover-lift>
+          <p class="hero-note__eyebrow">People come back for</p>
+          <ul class="proof-list">
+            {(business.reviewHighlights.length > 0 ? business.reviewHighlights : business.proofPoints).map((point) => (
+              <li>{point}</li>
+            ))}
+          </ul>
+        </div>
+        <div class="hero-actions hero-actions--stacked">
+          <ActionLink href={orderHref}>Order Online</ActionLink>
+          <ActionLink href={directionsHref} variant="ghost">
+            Get Directions
+          </ActionLink>
+          <div class="hero-link-rail">
+            {quickLinksForPrimary.map((item) => (
+              <a href={item.href} class="flag-pill">
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  )}
+
+  <div class="hero-band panel-luxe panel-luxe--soft" data-reveal-group>
+    <div class="hero-band__intro" data-reveal-item>
+      <p class="detail-label">Why people come back</p>
+      <p class="hero-band__title">{business.display.ratingLabel ?? categoryLabel}</p>
+    </div>
+    <div class="hero-band__items" data-reveal-item>
+      {heroBandItems.map((point) => (
+        <span class="brand-chip">{point}</span>
+      ))}
+    </div>
+    <div class="hero-band__note" data-reveal-item>
+      {heroBandNotes.map((item) => (
+        <span>{item}</span>
+      ))}
+    </div>
+  </div>
+</section>

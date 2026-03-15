@@ -1,0 +1,18 @@
+<svg width="1400" height="900" viewBox="0 0 1400 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1400" height="900" rx="32" fill="#0B0B0B"/>
+  <rect x="92" y="126" width="1216" height="648" rx="28" fill="#111111" stroke="#7B5335"/>
+  <path d="M218 674H1180" stroke="#B98652" stroke-width="2.5"/>
+  <path d="M260 674V546C260 502 296 466 340 466H460C504 466 540 502 540 546V674" stroke="#EFE5D5" stroke-width="2.2"/>
+  <path d="M860 674V520C860 486 888 458 922 458H1078C1112 458 1140 486 1140 520V674" stroke="#EFE5D5" stroke-width="2.2"/>
+  <rect x="610" y="188" width="184" height="260" rx="24" fill="#0C0C0C" stroke="#B98652"/>
+  <circle cx="702" cy="318" r="84" fill="url(#paint0_radial)" opacity="0.46"/>
+  <path d="M196 248H420" stroke="#EFE5D5" stroke-width="1.5" opacity="0.48"/>
+  <path d="M962 230H1186" stroke="#EFE5D5" stroke-width="1.5" opacity="0.48"/>
+  <text x="124" y="820" fill="#EFE5D5" font-family="Arial, sans-serif" font-size="28" letter-spacing="5">ATMOSPHERE PANEL / WAITING AREA / QUIET LUXURY / MOCK EDITORIAL VISUAL</text>
+  <defs>
+    <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(702 318) rotate(90) scale(84)">
+      <stop stop-color="#B98652"/>
+      <stop offset="1" stop-color="#B98652" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

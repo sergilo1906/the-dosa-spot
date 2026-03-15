@@ -1,0 +1,80 @@
+---
+import ActionLink from '../ui/ActionLink.astro';
+import type { BusinessBrief, CtaVariant } from '../../types/business';
+
+interface Props {
+  business: BusinessBrief;
+  variant: CtaVariant;
+}
+
+const { business, variant } = Astro.props;
+const hasOrderLink = Boolean(business.display.orderHref);
+const orderHref = business.display.orderHref ?? '#location';
+const directionsHref = business.display.directionsHref ?? '#location';
+const callHref = business.display.callHref ?? '#location';
+const menuHref = business.display.menuHref ?? '#menu';
+const serviceModes = business.serviceModes.length > 0 ? business.serviceModes : ['Dine-in', 'Delivery', 'Pickup'];
+---
+
+<section class="section-shell" id="location">
+  {variant === 'visit-studio' && (
+    <div class="cta-panel cta-panel--visit panel-luxe" data-reveal-group>
+      <div class="cta-copy" data-reveal-item>
+        <p class="section-eyebrow">Location & contact</p>
+        <h2 class="cta-title">Find {business.businessName} on Washington Street.</h2>
+        <p class="cta-body">
+          Stop in for dine-in, call for pickup, or use directions for the quickest route through Cork city centre.
+        </p>
+        <div class="cta-actions">
+          <ActionLink href={orderHref}>Order Online</ActionLink>
+          <ActionLink href={directionsHref} variant="ghost">
+            Get Directions
+          </ActionLink>
+        </div>
+        <div class="flag-list">
+          <a href={callHref} class="flag-pill">
+            Call
+          </a>
+          <a href={menuHref} class="flag-pill">
+            View Menu
+          </a>
+        </div>
+      </div>
+      <div class="cta-card-stack" data-reveal-item>
+        <div class="cta-card panel-luxe panel-luxe--soft">
+          <p class="detail-label">Visit</p>
+          <h3>{business.display.location}</h3>
+          <p>{business.phone ?? 'Phone line will be added here soon.'}</p>
+        </div>
+        <div class="cta-card panel-luxe panel-luxe--soft">
+          <p class="detail-label">Service modes</p>
+          <p>{serviceModes.join(' / ')}</p>
+          <div class="flag-list">
+            <span class="flag-pill">{hasOrderLink ? 'Order online available' : 'Call for pickup or delivery details'}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  )}
+
+  {variant === 'book-consult' && (
+    <div class="cta-panel cta-panel--consult panel-luxe" data-reveal-group>
+      <div class="cta-copy" data-reveal-item>
+        <p class="section-eyebrow">Order & visit</p>
+        <h2 class="cta-title">Quick South Indian food, easy local collection, and a clear route in.</h2>
+        <p class="cta-body">Use the buttons below to order, call ahead, or open directions without losing the menu context.</p>
+        <div class="cta-actions">
+          <ActionLink href={orderHref}>Order Online</ActionLink>
+          <ActionLink href={callHref} variant="ghost">
+            Call
+          </ActionLink>
+        </div>
+      </div>
+      <div class="cta-card panel-luxe panel-luxe--soft" data-reveal-item>
+        <p class="detail-label">Visit details</p>
+        <h3>{business.display.location}</h3>
+        <p>{business.display.ratingLabel ?? business.heroSignature}</p>
+      </div>
+    </div>
+  )}
+</section>

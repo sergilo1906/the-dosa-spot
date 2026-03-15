@@ -1,0 +1,24 @@
+---
+interface Props {
+  href: string;
+  variant?: 'primary' | 'ghost';
+  className?: string;
+}
+
+const { href, variant = 'primary', className = '' } = Astro.props;
+const opensNewTab = href.startsWith('http');
+---
+
+<a
+  href={href}
+  class:list={[variant === 'ghost' ? 'button-ghost' : 'button-luxe', className]}
+  target={opensNewTab ? '_blank' : undefined}
+  rel={opensNewTab ? 'noreferrer' : undefined}
+>
+  <span class="button-shell">
+    <span class="button-label">
+      <slot />
+    </span>
+    <span class="button-icon" aria-hidden="true"></span>
+  </span>
+</a>

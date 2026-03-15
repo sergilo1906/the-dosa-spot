@@ -1,0 +1,12 @@
+<svg width="1000" height="1400" viewBox="0 0 1000 1400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1000" height="1400" rx="38" fill="#0C0C0C"/>
+  <rect x="54" y="54" width="892" height="1292" rx="28" fill="#121212" stroke="#8E6646"/>
+  <rect x="126" y="126" width="748" height="1148" rx="24" stroke="rgba(239,229,213,0.12)"/>
+  <path d="M278 996C312 842 396 716 500 716C604 716 688 842 722 996" stroke="#E9D5B8" stroke-width="2.3" opacity="0.8"/>
+  <path d="M350 638H650" stroke="#B98652" stroke-width="2.5"/>
+  <path d="M350 584C382 500 430 456 500 456C570 456 618 500 650 584" stroke="#B98652" stroke-width="2.5"/>
+  <circle cx="500" cy="560" r="186" stroke="rgba(185,134,82,0.28)" stroke-width="1.5"/>
+  <text x="126" y="192" fill="#EFE5D5" font-family="Georgia, serif" font-size="70">Northside Social</text>
+  <text x="126" y="252" fill="#B98652" font-family="Arial, sans-serif" font-size="24" letter-spacing="8">LEANER SAMPLE / SOFTER FOOTPRINT / CORK</text>
+  <text x="126" y="1218" fill="#EFE5D5" font-family="Arial, sans-serif" font-size="24" letter-spacing="4">INCOMPLETE DATA / CONTROLLED DEGRADATION / PREMIUM COMPOSITION</text>
+</svg>

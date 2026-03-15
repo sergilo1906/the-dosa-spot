@@ -1,0 +1,25 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#090909"/>
+  <rect x="40" y="40" width="1120" height="550" rx="30" fill="url(#panel)" stroke="#7B5335"/>
+  <circle cx="930" cy="276" r="164" fill="url(#halo)" opacity="0.34"/>
+  <circle cx="930" cy="276" r="228" stroke="#2E241A" stroke-width="1.5"/>
+  <path d="M874 218L986 330" stroke="#EFE5D5" stroke-width="2.2"/>
+  <path d="M986 218L874 330" stroke="#B98652" stroke-width="2.2"/>
+  <text x="96" y="154" fill="#D7AB79" font-family="Arial, sans-serif" font-size="28" letter-spacing="8">PREMIUM BARBER / CORK, IRELAND</text>
+  <text x="96" y="250" fill="#EFE5D5" font-family="Georgia, serif" font-size="86">Black Quay Atelier</text>
+  <text x="96" y="334" fill="#EFE5D5" font-family="Georgia, serif" font-size="54">Quiet precision, tailored cuts, and a darker studio atmosphere.</text>
+  <text x="96" y="428" fill="#EFE5D5" font-family="Arial, sans-serif" font-size="34">A premium barber studio shaped around measured appointments,</text>
+  <text x="96" y="472" fill="#EFE5D5" font-family="Arial, sans-serif" font-size="34">beard detail, and a calmer first impression.</text>
+  <text x="96" y="542" fill="#B98652" font-family="Arial, sans-serif" font-size="28" letter-spacing="5">SIGNATURE CUT / BEARD DETAIL / STUDIO RITUAL</text>
+  <defs>
+    <linearGradient id="panel" x1="88" y1="78" x2="1086" y2="536" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#141414"/>
+      <stop offset="0.6" stop-color="#0D0D0D"/>
+      <stop offset="1" stop-color="#19120D"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(930 276) rotate(90) scale(164)">
+      <stop stop-color="#B98652"/>
+      <stop offset="1" stop-color="#B98652" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

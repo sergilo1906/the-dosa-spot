@@ -1,0 +1,33 @@
+---
+import ActionLink from '../components/ui/ActionLink.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { buildPageMeta } from '../lib/seo/meta';
+import { getBusinessForPreset, getDefaultPreset } from '../data/presets';
+
+const preset = getDefaultPreset();
+const business = getBusinessForPreset(preset);
+const meta = buildPageMeta({
+  business,
+  preset,
+  pathname: '/404/',
+  noindex: true,
+});
+---
+
+<BaseLayout
+  title="Page not found | The Dosa Spot"
+  description="The requested page could not be found."
+  canonical={meta.canonical}
+  robots="noindex, nofollow"
+  ogImage={meta.ogImage}
+  jsonLd={[]}
+>
+  <section class="section-shell">
+    <div class="error-panel panel-luxe">
+      <p class="section-eyebrow">404</p>
+      <h1 class="hero-title hero-title--monolith">Page not found.</h1>
+      <p class="hero-description">Return to The Dosa Spot and continue browsing the restaurant from the homepage.</p>
+      <ActionLink href="/">Back to the homepage</ActionLink>
+    </div>
+  </section>
+</BaseLayout>

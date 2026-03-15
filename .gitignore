@@ -1,0 +1,39 @@
+# build output
+dist/
+
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.report.html
+*.report.json
+lighthouse-report.html
+.devserver.job
+
+# firebase
+.firebase/
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+
+# jetbrains setting folder
+.idea/
+
+# local reference archive
+system_prompts_leaks-main (1).zip
+imagenes-contact-sheet.jpg
+
+# editor settings
+.vscode/

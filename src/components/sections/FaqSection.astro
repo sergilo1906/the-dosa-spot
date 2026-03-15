@@ -1,0 +1,39 @@
+---
+import SectionHeading from '../ui/SectionHeading.astro';
+import type { BusinessBrief } from '../../types/business';
+
+interface Props {
+  business: BusinessBrief;
+}
+
+const { business } = Astro.props;
+---
+
+<section class="section-shell" id="faq">
+  <div class="section-grid section-grid--split faq-grid">
+    <div class="faq-side">
+      <SectionHeading
+        eyebrow="FAQ"
+        indexLabel="06"
+        title="A few quick questions before you order or stop in."
+        body="Short answers on first picks, service modes, and finding the restaurant on Washington Street."
+      />
+      <aside class="faq-aside panel-luxe panel-luxe--soft" data-reveal-group>
+        <p class="detail-label" data-reveal-item>Good to know</p>
+        <p data-reveal-item>
+          The goal here is simple: clearer food decisions, clearer local details, and no invented information where the final
+          menu or hours are still being confirmed.
+        </p>
+      </aside>
+    </div>
+
+    <div class="faq-list panel-luxe" data-reveal-group>
+      {business.faqItems.map((item) => (
+        <details class="faq-item" data-reveal-item>
+          <summary>{item.question}</summary>
+          <p>{item.answer}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

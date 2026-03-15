@@ -1,0 +1,46 @@
+---
+import type { DemoPreset } from '../../types/business';
+
+interface Props {
+  presets: DemoPreset[];
+  activeSlug: string;
+}
+
+const { presets, activeSlug } = Astro.props;
+const activePreset = presets.find((preset) => preset.slug === activeSlug) ?? presets[0];
+const roleLabels: Record<string, string> = {
+  primary: 'Present first',
+  secondary: 'Show second',
+  fallback: 'Keep as fallback',
+};
+const activeRoleLabel = activePreset.presentationRole ? roleLabels[activePreset.presentationRole] : 'Preset';
+---
+
+<details class="preset-dock">
+  <summary class="preset-dock__summary" aria-label="Demo preset switcher">
+    <span class="preset-dock__dot" aria-hidden="true"></span>
+    <div class="preset-dock__compact">
+      <span class="preset-dock__eyebrow">Owner demo</span>
+      <strong>{activePreset.label}</strong>
+    </div>
+    <span class="preset-dock__toggle">{activeRoleLabel}</span>
+  </summary>
+
+  <div class="preset-dock__list">
+    {presets.map((preset) => {
+      const href = preset.isDefault ? '/' : `/demo/${preset.slug}/`;
+
+      return (
+        <a
+          href={href}
+          class:list={['preset-pill', preset.slug === activeSlug && 'preset-pill--active']}
+          aria-current={preset.slug === activeSlug ? 'page' : undefined}
+        >
+          {preset.presentationRole && <small class="preset-pill__role">{roleLabels[preset.presentationRole]}</small>}
+          <span>{preset.label}</span>
+          <small>{preset.ownerNarrative ?? preset.featuredNote ?? preset.description}</small>
+        </a>
+      );
+    })}
+  </div>
+</details>
