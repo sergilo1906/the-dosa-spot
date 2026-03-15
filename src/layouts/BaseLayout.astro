@@ -26,13 +26,14 @@ const { title, description, canonical, robots, ogImage, jsonLd = [] } = Astro.pr
       ogImage={ogImage}
       jsonLd={jsonLd}
     />
-  </head>
+</head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <div class="site-noise" aria-hidden="true"></div>
     <div class="site-ambient site-ambient--one" aria-hidden="true"></div>
     <div class="site-ambient site-ambient--two" aria-hidden="true"></div>
     <div class="site-grid" aria-hidden="true"></div>
-    <main class="site-shell">
+    <main class="site-shell" id="main-content">
       <slot />
     </main>
     <script>

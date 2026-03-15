@@ -29,6 +29,8 @@ const featuredItems =
         accent: item.accent,
         imageSrc: null,
         imageAlt: item.title,
+        imageWidth: null,
+        imageHeight: null,
       }));
 const heroNote = business.reviewHighlights.length > 0 ? 'Three plates worth seeing before you scroll.' : 'A quick read of the food people notice first.';
 const popularPicks = featuredItems.slice(0, 3).map((item) => ({
@@ -37,6 +39,8 @@ const popularPicks = featuredItems.slice(0, 3).map((item) => ({
   body: item.summary,
   imageSrc: item.imageSrc ?? null,
   imageAlt: item.imageAlt ?? item.title,
+  imageWidth: item.imageWidth ?? undefined,
+  imageHeight: item.imageHeight ?? undefined,
 }));
 ---
 
@@ -47,7 +51,7 @@ const popularPicks = featuredItems.slice(0, 3).map((item) => ({
       <div class="landing-marquee__meta" data-reveal-item>
         <div class="landing-marquee__intro">
           <p class="detail-label">Popular dishes</p>
-          <p class="landing-marquee__title">A quick look at the plates people come back for.</p>
+          <h2 class="landing-marquee__title">A quick look at the plates people come back for.</h2>
         </div>
         <p class="landing-marquee__note">{heroNote}</p>
       </div>
@@ -56,7 +60,14 @@ const popularPicks = featuredItems.slice(0, 3).map((item) => ({
           <article class="landing-marquee__card landing-marquee__card--visual panel-luxe panel-luxe--soft">
             {card.imageSrc && (
               <figure class="landing-marquee__media">
-                <img src={card.imageSrc} alt={card.imageAlt} loading="lazy" />
+                <img
+                  src={card.imageSrc}
+                  alt={card.imageAlt}
+                  width={card.imageWidth}
+                  height={card.imageHeight}
+                  loading="lazy"
+                  decoding="async"
+                />
               </figure>
             )}
             <div class="landing-marquee__copy">

@@ -26,8 +26,13 @@ const meta = buildPageMeta({
     <div class="error-panel panel-luxe">
       <p class="section-eyebrow">404</p>
       <h1 class="hero-title hero-title--monolith">Page not found.</h1>
-      <p class="hero-description">Return to The Dosa Spot and continue browsing the restaurant from the homepage.</p>
-      <ActionLink href="/">Back to the homepage</ActionLink>
+      <p class="hero-description">That page is not here. Head back to the homepage or jump straight to the menu.</p>
+      <div class="hero-actions">
+        <ActionLink href="/">Back Home</ActionLink>
+        <ActionLink href="/#menu" variant="ghost">
+          View Menu
+        </ActionLink>
+      </div>
     </div>
   </section>
 </BaseLayout>

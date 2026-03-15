@@ -63,7 +63,14 @@ function frameRatio(asset: ImageAsset) {
           {displayedGalleryAssets.map((asset) => (
             <article class="embla__slide" data-hover-lift>
               <figure class:list={['gallery-frame', frameRatio(asset)]}>
-                <img src={asset.src} alt={asset.alt} loading="lazy" />
+                <img
+                  src={asset.src}
+                  alt={asset.alt}
+                  width={asset.width ?? undefined}
+                  height={asset.height ?? undefined}
+                  loading="lazy"
+                  decoding="async"
+                />
                 <figcaption class="gallery-frame__overlay">
                   <span>{asset.treatment ?? 'Restaurant detail'}</span>
                 </figcaption>
@@ -79,7 +86,14 @@ function frameRatio(asset: ImageAsset) {
     <div class="gallery-mosaic" data-reveal-group>
       {displayedGalleryAssets.map((asset) => (
         <figure class:list={['gallery-frame', frameRatio(asset), 'gallery-frame--mosaic']} data-reveal-item data-hover-lift>
-          <img src={asset.src} alt={asset.alt} loading="lazy" />
+          <img
+            src={asset.src}
+            alt={asset.alt}
+            width={asset.width ?? undefined}
+            height={asset.height ?? undefined}
+            loading="lazy"
+            decoding="async"
+          />
           <figcaption class="gallery-frame__overlay">
             <span>{asset.treatment ?? 'restaurant detail'}</span>
           </figcaption>

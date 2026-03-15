@@ -15,6 +15,10 @@ const ratingContext =
   typeof business.reviewCount === 'number'
     ? `Based on ${business.reviewCount} reviews.`
     : 'Built around the strongest local trust signals available.';
+const trustBody =
+  typeof business.reviewCount === 'number'
+    ? `${ratingValue} from ${business.reviewCount} reviews, with repeated mentions of the food, the speed, and the staff.`
+    : 'A short trust read based on the clearest local signals available.';
 ---
 
 <section class="section-shell" id="reviews">
@@ -24,7 +28,7 @@ const ratingContext =
         eyebrow="Reviews & trust"
         indexLabel="03"
         title="A strong first impression, backed by real reviews."
-        body="4.6 from 610 reviews, with repeated mentions of the food, the speed, and the staff."
+        body={trustBody}
       />
 
       <div class="credibility-score panel-luxe panel-luxe--soft" data-reveal-group>

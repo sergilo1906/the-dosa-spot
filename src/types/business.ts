@@ -43,6 +43,8 @@ export interface FeaturedItem {
   accent?: string | null;
   imageSrc?: string | null;
   imageAlt?: string | null;
+  imageWidth?: number | null;
+  imageHeight?: number | null;
 }
 
 export interface FaqItem {
@@ -64,6 +66,8 @@ export interface ImageAsset {
   kind: ImageKind;
   ratio: ImageRatio;
   treatment?: string | null;
+  width?: number | null;
+  height?: number | null;
 }
 
 export interface BusinessBriefInput {

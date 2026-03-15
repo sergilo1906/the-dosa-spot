@@ -79,9 +79,17 @@ const secondaryAction = hasOrderLink
         <div class="hero-visual-halo" aria-hidden="true"></div>
         {primaryImage && (
           <figure class="hero-frame hero-frame--primary" data-hover-lift>
-            <img src={primaryImage.src} alt={primaryImage.alt} loading="eager" />
+            <img
+              src={primaryImage.src}
+              alt={primaryImage.alt}
+              width={primaryImage.width ?? undefined}
+              height={primaryImage.height ?? undefined}
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
+            />
             <figcaption class="hero-frame__overlay">
-              <p>{categoryLabel} in Cork</p>
+              <p>{categoryLabel} in {business.city}</p>
               <span>{addressLabel}</span>
             </figcaption>
           </figure>
@@ -95,7 +103,14 @@ const secondaryAction = hasOrderLink
           <div class="hero-mini-grid">
             {supportingAssets.map((asset) => (
               <figure class="hero-frame hero-frame--support" data-hover-lift>
-                <img src={asset.src} alt={asset.alt} loading="lazy" />
+                <img
+                  src={asset.src}
+                  alt={asset.alt}
+                  width={asset.width ?? undefined}
+                  height={asset.height ?? undefined}
+                  loading="lazy"
+                  decoding="async"
+                />
                 <figcaption class="hero-frame__caption">
                   <span>{asset.treatment ?? 'restaurant detail'}</span>
                 </figcaption>
@@ -144,7 +159,15 @@ const secondaryAction = hasOrderLink
       <div class="hero-poster-stage" data-hero-visual>
         {primaryImage && (
           <figure class="hero-frame hero-frame--poster-main" data-hover-lift>
-            <img src={primaryImage.src} alt={primaryImage.alt} loading="eager" />
+            <img
+              src={primaryImage.src}
+              alt={primaryImage.alt}
+              width={primaryImage.width ?? undefined}
+              height={primaryImage.height ?? undefined}
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
+            />
             <figcaption class="hero-frame__overlay">
               <p>{business.imageTreatment}</p>
               <span>{business.photographyStyle}</span>
@@ -155,7 +178,14 @@ const secondaryAction = hasOrderLink
           <div class="hero-poster-stack">
             {supportingAssets.map((asset) => (
               <figure class="hero-frame hero-frame--poster-side" data-hover-lift>
-                <img src={asset.src} alt={asset.alt} loading="lazy" />
+                <img
+                  src={asset.src}
+                  alt={asset.alt}
+                  width={asset.width ?? undefined}
+                  height={asset.height ?? undefined}
+                  loading="lazy"
+                  decoding="async"
+                />
                 <figcaption class="hero-frame__caption">
                   <span>{asset.treatment ?? 'restaurant detail'}</span>
                 </figcaption>
@@ -204,7 +234,15 @@ const secondaryAction = hasOrderLink
       <div class="hero-monolith-grid" data-hero-visual>
         {primaryImage && (
           <figure class="hero-frame hero-frame--monolith" data-hover-lift>
-            <img src={primaryImage.src} alt={primaryImage.alt} loading="eager" />
+            <img
+              src={primaryImage.src}
+              alt={primaryImage.alt}
+              width={primaryImage.width ?? undefined}
+              height={primaryImage.height ?? undefined}
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
+            />
             <figcaption class="hero-frame__overlay">
               <p>{business.imageTreatment}</p>
               <span>{business.heroSignature}</span>

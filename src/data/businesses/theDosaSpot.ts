@@ -27,6 +27,8 @@ export const theDosaSpotInput: BusinessBriefInput = {
       accent: 'Signature dosa',
       imageSrc: '/demo/restaurants/the-dosa-spot-real/dish-dosa.jpg',
       imageAlt: 'A dosa served on a tray with chutneys at The Dosa Spot.',
+      imageWidth: 860,
+      imageHeight: 1120,
     },
     {
       title: 'Batura Chole Bhature',
@@ -34,6 +36,8 @@ export const theDosaSpotInput: BusinessBriefInput = {
       accent: 'Popular plate',
       imageSrc: '/demo/restaurants/the-dosa-spot-real/dish-chole-bhature.jpg',
       imageAlt: 'A plated chole bhature-style meal with curries and bread.',
+      imageWidth: 860,
+      imageHeight: 1120,
     },
     {
       title: 'Gulab Jamun',
@@ -41,6 +45,8 @@ export const theDosaSpotInput: BusinessBriefInput = {
       accent: 'Sweet finish',
       imageSrc: '/demo/restaurants/the-dosa-spot-real/dish-gulab-jamun.jpg',
       imageAlt: 'Gulab jamun served warm in syrup.',
+      imageWidth: 860,
+      imageHeight: 1120,
     },
     {
       title: 'Vegetable Noodles',
@@ -48,6 +54,8 @@ export const theDosaSpotInput: BusinessBriefInput = {
       accent: 'Quick favourite',
       imageSrc: '/demo/restaurants/the-dosa-spot-real/dish-vegetable-noodles.jpg',
       imageAlt: 'A bowl of vegetable noodles served hot.',
+      imageWidth: 860,
+      imageHeight: 1120,
     },
   ],
   services: [
@@ -103,6 +111,8 @@ export const theDosaSpotInput: BusinessBriefInput = {
       kind: 'hero',
       ratio: 'portrait',
       treatment: 'table spread',
+      width: 860,
+      height: 1120,
     },
     {
       id: 'dish-dosa',
@@ -111,6 +121,8 @@ export const theDosaSpotInput: BusinessBriefInput = {
       kind: 'detail',
       ratio: 'landscape',
       treatment: 'signature dosa',
+      width: 860,
+      height: 1120,
     },
     {
       id: 'dish-gulab-jamun',
@@ -119,6 +131,8 @@ export const theDosaSpotInput: BusinessBriefInput = {
       kind: 'detail',
       ratio: 'portrait',
       treatment: 'sweet finish',
+      width: 860,
+      height: 1120,
     },
     {
       id: 'gallery-curry-naan',
@@ -127,6 +141,8 @@ export const theDosaSpotInput: BusinessBriefInput = {
       kind: 'gallery',
       ratio: 'landscape',
       treatment: 'curry & naan',
+      width: 860,
+      height: 1120,
     },
     {
       id: 'gallery-starter-bowl',
@@ -135,6 +151,8 @@ export const theDosaSpotInput: BusinessBriefInput = {
       kind: 'gallery',
       ratio: 'landscape',
       treatment: 'starter bowl',
+      width: 860,
+      height: 1120,
     },
     {
       id: 'gallery-spicy-noodles',
@@ -143,6 +161,8 @@ export const theDosaSpotInput: BusinessBriefInput = {
       kind: 'gallery',
       ratio: 'landscape',
       treatment: 'spicy noodles',
+      width: 860,
+      height: 1120,
     },
     {
       id: 'dish-chole-bhature',
@@ -151,6 +171,8 @@ export const theDosaSpotInput: BusinessBriefInput = {
       kind: 'gallery',
       ratio: 'portrait',
       treatment: 'popular plate',
+      width: 860,
+      height: 1120,
     },
     {
       id: 'dish-vegetable-noodles',
@@ -159,6 +181,8 @@ export const theDosaSpotInput: BusinessBriefInput = {
       kind: 'detail',
       ratio: 'portrait',
       treatment: 'quick noodles',
+      width: 860,
+      height: 1120,
     },
   ],
   brandHints: ['crisp dosa', 'warm plates', 'quick local stop'],

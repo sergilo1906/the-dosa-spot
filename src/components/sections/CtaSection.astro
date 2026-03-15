@@ -37,7 +37,13 @@ const secondaryAction = hasOrderLink ? { label: 'Get Directions', href: directio
         <div class="cta-card panel-luxe panel-luxe--soft">
           <p class="detail-label">Visit</p>
           <h3>{business.display.location}</h3>
-          <p>{business.phone ?? 'Phone line will be added here soon.'}</p>
+          {business.phone && business.display.callHref ? (
+            <a class="cta-card__link" href={business.display.callHref}>
+              {business.phone}
+            </a>
+          ) : (
+            <p>Phone line will be added here soon.</p>
+          )}
         </div>
         <div class="cta-card panel-luxe panel-luxe--soft">
           <p class="detail-label">Service modes</p>
@@ -64,6 +70,11 @@ const secondaryAction = hasOrderLink ? { label: 'Get Directions', href: directio
       <div class="cta-card panel-luxe panel-luxe--soft" data-reveal-item>
         <p class="detail-label">Visit details</p>
         <h3>{business.display.location}</h3>
+        {business.phone && business.display.callHref && (
+          <a class="cta-card__link" href={business.display.callHref}>
+            {business.phone}
+          </a>
+        )}
         <p>{business.display.ratingLabel ?? business.heroSignature}</p>
       </div>
     </div>
