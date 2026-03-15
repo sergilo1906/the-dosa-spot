@@ -7,28 +7,14 @@ interface Props {
 }
 
 const { business } = Astro.props;
-const trustSignals = [
-  ...business.reviewHighlights.slice(0, 4),
-  ...business.proofPoints.slice(0, 2),
-].slice(0, 5);
-const visitDetails = [
-  business.primaryCategory,
-  business.display.location,
-  business.phone,
-  ...business.serviceModes,
-].filter(Boolean);
+const trustSignals = (business.reviewHighlights.length > 0 ? business.reviewHighlights : business.proofPoints).slice(0, 4);
+const visitDetails = [business.display.location, business.phone, business.serviceModes.join(' / ')].filter(Boolean);
 const ratingValue =
   typeof business.ratingValue === 'number' ? business.ratingValue.toFixed(1) : String(business.services.length).padStart(2, '0');
 const ratingContext =
   typeof business.reviewCount === 'number'
     ? `Based on ${business.reviewCount} reviews.`
     : 'Built around the strongest local trust signals available.';
-const trustSummary = [
-  typeof business.ratingValue === 'number' && typeof business.reviewCount === 'number'
-    ? `${business.ratingValue.toFixed(1)} rating from ${business.reviewCount} reviews`
-    : `${String(business.services.length).padStart(2, '0')} confirmed menu highlights`,
-  ...business.proofPoints.slice(0, 2),
-];
 ---
 
 <section class="section-shell" id="reviews">
@@ -37,8 +23,8 @@ const trustSummary = [
       <SectionHeading
         eyebrow="Reviews & trust"
         indexLabel="03"
-        title="Tasty food, friendly staff, quick service, and a stronger reason to stop in."
-        body="The trust layer here is simple and real: a 4.6 rating, 610 reviews, and repeated praise for flavour, speed, staff, and overall experience."
+        title="A strong first impression, backed by real reviews."
+        body="4.6 from 610 reviews, with repeated mentions of the food, the speed, and the staff."
       />
 
       <div class="credibility-score panel-luxe panel-luxe--soft" data-reveal-group>
@@ -61,11 +47,7 @@ const trustSummary = [
       <div class="credibility-card panel-luxe" data-reveal-item>
         <p class="detail-label">Visit details</p>
         <ul class="proof-list">
-          {visitDetails.length > 0 ? (
-            visitDetails.map((detail) => <li>{detail}</li>)
-          ) : (
-            trustSummary.map((detail) => <li>{detail}</li>)
-          )}
+          {visitDetails.map((detail) => <li>{detail}</li>)}
         </ul>
       </div>
     </div>

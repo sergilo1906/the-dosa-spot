@@ -7,9 +7,8 @@ export const theDosaSpotInput: BusinessBriefInput = {
   businessName: 'The Dosa Spot',
   niche: 'restaurant',
   primaryCategory: 'South Indian restaurant',
-  tagline: 'South Indian restaurant in Cork for crisp dosas, warm plates, and quick local favourites.',
-  shortDescription:
-    'A warm Cork restaurant on Washington Street serving dosa-led South Indian food with dine-in, delivery, and pickup options built for fast local decisions.',
+  tagline: 'Crisp dosas and warm South Indian plates on Washington Street.',
+  shortDescription: 'A welcoming Cork stop for dosas, street plates, dine-in, pickup, and delivery.',
   city: 'Cork',
   country: 'Ireland',
   address: '35 Washington St, Centre, Cork, T12 DHX2',
@@ -24,28 +23,28 @@ export const theDosaSpotInput: BusinessBriefInput = {
   featuredItems: [
     {
       title: 'Paneer Potato Masala Dosa',
-      summary: 'A crisp dosa built around paneer and potato masala for the kind of first order people remember.',
+      summary: 'A crisp dosa with paneer and potato masala. A strong first order.',
       accent: 'Signature dosa',
       imageSrc: '/demo/restaurants/the-dosa-spot-real/dish-dosa.jpg',
       imageAlt: 'A dosa served on a tray with chutneys at The Dosa Spot.',
     },
     {
       title: 'Batura Chole Bhature',
-      summary: 'A richer street-plate favourite that brings warm spice, comfort, and a fuller table feel.',
+      summary: 'A richer, more filling plate when you want something warmer and heavier.',
       accent: 'Popular plate',
       imageSrc: '/demo/restaurants/the-dosa-spot-real/dish-chole-bhature.jpg',
       imageAlt: 'A plated chole bhature-style meal with curries and bread.',
     },
     {
       title: 'Gulab Jamun',
-      summary: 'A softer sweet finish that rounds out the menu with warmth rather than heaviness.',
+      summary: 'A soft, syrupy finish if you want dessert without overdoing it.',
       accent: 'Sweet finish',
       imageSrc: '/demo/restaurants/the-dosa-spot-real/dish-gulab-jamun.jpg',
       imageAlt: 'Gulab jamun served warm in syrup.',
     },
     {
       title: 'Vegetable Noodles',
-      summary: 'A quicker savoury option that suits lunch stops, takeaway orders, and easy evening meals.',
+      summary: 'A quicker savoury option for lunch, takeaway, and easy evening orders.',
       accent: 'Quick favourite',
       imageSrc: '/demo/restaurants/the-dosa-spot-real/dish-vegetable-noodles.jpg',
       imageAlt: 'A bowl of vegetable noodles served hot.',
@@ -54,25 +53,25 @@ export const theDosaSpotInput: BusinessBriefInput = {
   services: [
     {
       title: 'Dosas',
-      summary: 'The headline section of the menu, led here by Paneer Potato Masala Dosa and built for crisp texture and warm masala.',
+      summary: "Start here for the restaurant's clearest signature: crisp dosa with warm masala.",
       priceLabel: 'Paneer Potato Masala Dosa',
       accent: 'Signature pick',
     },
     {
       title: 'Street Plates',
-      summary: 'Comfort-led plates and more filling favourites, including Batura Chole Bhature for a richer stop-in order.',
+      summary: 'Heavier, comfort-led favourites, including Batura Chole Bhature.',
       priceLabel: 'Batura Chole Bhature',
       accent: 'Most ordered',
     },
     {
       title: 'Sweets',
-      summary: 'A shorter sweet finish with Gulab Jamun giving the menu a softer close without overcomplicating it.',
+      summary: 'A short dessert finish led by Gulab Jamun.',
       priceLabel: 'Gulab Jamun',
       accent: 'Dessert note',
     },
     {
       title: 'Noodles & Quick Plates',
-      summary: 'Faster savoury options like Vegetable Noodles for lunch runs, takeaway pickups, and easy weeknight orders.',
+      summary: 'Fast savoury options for lunch runs, pickup, and easy weeknight orders.',
       priceLabel: 'Vegetable Noodles',
       accent: 'Fast favourite',
     },
@@ -80,29 +79,21 @@ export const theDosaSpotInput: BusinessBriefInput = {
   faqItems: [
     {
       question: 'What should I try if it is my first visit?',
-      answer:
-        'Paneer Potato Masala Dosa is the clearest place to start if you want the restaurant signature first, while Batura Chole Bhature is the stronger pick if you want something richer and more filling.',
+      answer: 'Start with the Paneer Potato Masala Dosa. If you want something heavier, go for the Batura Chole Bhature.',
     },
     {
       question: 'Can I dine in, collect, or order for delivery?',
-      answer:
-        'Yes. The Dosa Spot offers dine-in, delivery, and pickup so the same menu works for a quick city-centre meal or an easier order back home.',
-    },
-    {
-      question: 'Is there something quick for lunch or a faster evening order?',
-      answer:
-        'Vegetable Noodles and the lighter quick plates are the easiest options when you want something fast, warm, and easy to carry through the day.',
+      answer: 'Yes. The Dosa Spot offers dine-in, delivery, and pickup.',
     },
     {
       question: 'Where is The Dosa Spot located?',
-      answer:
-        'You can find The Dosa Spot at 35 Washington St, Centre, Cork, T12 DHX2, right in the city for quick stop-ins, pickup, and local delivery routes.',
+      answer: 'You can find it at 35 Washington St, Centre, Cork, T12 DHX2.',
     },
   ],
   realReviews: [],
   ratingValue: 4.6,
   reviewCount: 610,
-  reviewHighlights: ['Very tasty food', 'Friendly staff', 'Quick service', 'Dosa stands out', 'Great overall experience'],
+  reviewHighlights: ['Very tasty food', 'Friendly staff', 'Quick service', 'Dosa stands out'],
   serviceModes: ['Dine-in', 'Delivery', 'Pickup'],
   imageAssets: [
     {
@@ -170,10 +161,10 @@ export const theDosaSpotInput: BusinessBriefInput = {
       treatment: 'quick noodles',
     },
   ],
-  brandHints: ['crisp dosa', 'warm spice colour', 'quick local favourite', 'south indian kitchen'],
+  brandHints: ['crisp dosa', 'warm plates', 'quick local stop'],
   brandColors: ['#2a140e', '#f3a229', '#c5482e', '#f7ead8'],
   toneHints: ['welcoming', 'clear', 'fresh', 'local'],
-  visualMood: 'Warm South Indian kitchen with bright plates and modern local energy',
+  visualMood: 'Warm South Indian kitchen with bright plates and quick local energy',
   seoTitle: 'The Dosa Spot | South Indian Restaurant in Cork',
   seoDescription:
     'The Dosa Spot is a South Indian restaurant on Washington Street in Cork with dine-in, delivery, and pickup options, known for crisp dosas, quick service, and warm local favourites.',
@@ -184,16 +175,16 @@ export const theDosaSpotInput: BusinessBriefInput = {
   },
   desiredLuxuryLevel: 'high',
   visualIntensity: 'bold',
-  photographyStyle: 'Real food photography with warm tabletop light, quick service energy, and an honest local feel.',
-  atmosphereKeywords: ['golden dosa', 'spice warmth', 'city-centre stop-in', 'bright plated colour'],
+  photographyStyle: 'Real food photography with warm tabletop light and an honest local feel.',
+  atmosphereKeywords: ['golden dosa', 'spice warmth', 'city-centre stop-in'],
   preferredContrast: 'balanced',
   sectionDensityPreference: 'balanced',
   proofPoints: [
-    '4.6 rating across 610 reviews.',
-    'Known for tasty food, quick service, and friendly staff.',
-    'Dine-in, delivery, and pickup all available.',
+    '4.6 rating from 610 reviews.',
+    'Known for tasty food and quick service.',
+    'Dine-in, delivery, and pickup available.',
   ],
-  heroSignature: 'A warm Cork restaurant built around crisp dosas, quick local service, and food that looks real the moment you land on the page.',
+  heroSignature: 'A warm Washington Street stop for crisp dosas, quick service, and food that looks genuinely worth ordering.',
   materialFinish: 'Warm cream, saffron, tamarind red, and leaf green accents.',
-  imageTreatment: 'Real tabletop photography with warm colour, honest plating, and a quick city-food rhythm.',
+  imageTreatment: 'Warm tabletop photography with clean, food-first framing.',
 };

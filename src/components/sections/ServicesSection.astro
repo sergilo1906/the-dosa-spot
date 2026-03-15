@@ -8,11 +8,6 @@ interface Props {
 }
 
 const { business, variant } = Astro.props;
-const menuBenefits = [
-  business.primaryCategory ?? 'South Indian kitchen',
-  'Easy to scan on mobile',
-  'Ready to expand into a full menu later',
-];
 ---
 
 <section class="section-shell" id="menu">
@@ -20,16 +15,13 @@ const menuBenefits = [
     <SectionHeading
       eyebrow="Menu highlights"
       indexLabel="02"
-      title="From crisp dosas to quick plates and sweet finishes."
-      body="A short edit of popular categories and standout dishes from the kitchen, arranged for fast reading on mobile."
+      title="A tighter read of the dishes people notice first."
+      body="The essentials, edited for quick scanning."
     />
     <aside class="services-note panel-luxe panel-luxe--soft" data-reveal-group>
       <p class="detail-label" data-reveal-item>Kitchen focus</p>
-      <p class="services-note__title" data-reveal-item>Four confirmed favourites, arranged like a clear menu.</p>
-      <p data-reveal-item>
-        {business.services.length} menu categories led by the dishes already confirmed, so the page feels useful and easy to
-        trust without overcrowding the choice.
-      </p>
+      <p class="services-note__title" data-reveal-item>Four dishes, easy to scan.</p>
+      <p data-reveal-item>A clean first read of the menu without turning the page into a full list.</p>
     </aside>
   </div>
 
@@ -69,13 +61,4 @@ const menuBenefits = [
       ))}
     </div>
   )}
-
-  <div class="services-proof panel-luxe panel-luxe--soft" data-reveal-group>
-    <p class="detail-label" data-reveal-item>Menu cues</p>
-    <div class="services-proof__list" data-reveal-item>
-      {menuBenefits.map((benefit) => (
-        <span class="flag-pill">{benefit}</span>
-      ))}
-    </div>
-  </div>
 </section>

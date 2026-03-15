@@ -7,7 +7,6 @@ interface Props {
 }
 
 const { business } = Astro.props;
-const swatches = business.brandColors.slice(0, 3);
 const serviceModeCopy: Record<string, string> = {
   'Dine-in': 'Warm plates and quick city-centre stop-ins when you want to eat in.',
   Delivery: 'A smoother route into South Indian favourites when dinner needs to arrive fast.',
@@ -24,13 +23,13 @@ const serviceCards =
     <SectionHeading
       eyebrow="Service options"
       indexLabel="04"
-      title="Dine in, collect, or order for delivery across Cork."
-      body="The Dosa Spot is built for quick Washington Street stop-ins as well as easier pickup and delivery when you want the same food at home."
+      title="Dine in, pick up, or get it delivered."
+      body="The next step stays clear whether you are stopping in or taking food home."
     />
     <aside class="about-intro-card panel-luxe panel-luxe--soft" data-reveal-group>
       <p class="detail-label" data-reveal-item>Restaurant note</p>
-      <p class="about-intro-card__title" data-reveal-item>Food-first, fast-moving, and local.</p>
-      <p data-reveal-item>{business.heroSignature}</p>
+      <p class="about-intro-card__title" data-reveal-item>Three clear ways to order.</p>
+      <p data-reveal-item>Quick to understand on mobile, and just as clear when you are walking by.</p>
     </aside>
   </div>
 
@@ -38,12 +37,8 @@ const serviceCards =
     <div class="about-main">
       <div class="about-copy" data-reveal-item>
         <p>
-          {business.businessName} is set up for a real Cork restaurant rhythm: quick decisions, warm plates, and a clearer path
-          whether you are stopping in, collecting food, or ordering for delivery.
-        </p>
-        <p>
-          The layout keeps the food first, the local details obvious, and the service modes easy to scan so the next step feels
-          immediate on mobile as well as desktop.
+          {business.businessName} works best when the next step is obvious: stop in, call ahead, or head straight over from the
+          city centre.
         </p>
       </div>
       <div class="about-details">
@@ -52,20 +47,6 @@ const serviceCards =
             <p class="detail-label">{item}</p>
             <p>{serviceModeCopy[item] ?? 'A clear service route built around quicker local food decisions.'}</p>
           </div>
-        ))}
-      </div>
-    </div>
-
-    <div class="about-footer">
-      <div class="about-swatches" data-reveal-item>
-        {swatches.map((swatch) => (
-          <span class="about-swatch" style={`background:${swatch}`}></span>
-        ))}
-      </div>
-
-      <div class="brand-hints brand-hints--about" data-reveal-item>
-        {business.brandHints.map((hint) => (
-          <span class="brand-chip">{hint}</span>
         ))}
       </div>
     </div>

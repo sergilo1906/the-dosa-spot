@@ -10,11 +10,19 @@ interface Props {
 const { business, variant } = Astro.props;
 
 const galleryAssets = business.galleryAssets.length > 0 ? business.galleryAssets : business.imageAssets;
-const fallbackPanels = business.reviewHighlights.map((point, index) => ({
-  id: `fallback-${index}`,
-  title: point,
-  eyebrow: business.atmosphereKeywords[index] ?? 'Restaurant note',
-}));
+const preferredGalleryOrder = [
+  'dish-dosa',
+  'gallery-curry-naan',
+  'dish-chole-bhature',
+  'dish-gulab-jamun',
+  'dish-vegetable-noodles',
+];
+const curatedGalleryAssets =
+  preferredGalleryOrder
+    .map((id) => galleryAssets.find((asset) => asset.id === id))
+    .filter((asset): asset is ImageAsset => Boolean(asset))
+    .slice(0, 5);
+const displayedGalleryAssets = curatedGalleryAssets.length > 0 ? curatedGalleryAssets : galleryAssets.slice(0, 5);
 
 function frameRatio(asset: ImageAsset) {
   switch (asset.ratio) {
@@ -35,12 +43,12 @@ function frameRatio(asset: ImageAsset) {
     <SectionHeading
       eyebrow="Gallery"
       indexLabel="05"
-      title="Food first, with warm tables and quick city-centre energy."
-      body="The visual world should make the food feel immediate: warmer colour, plated detail, and enough atmosphere to trust the stop-in, delivery, or pickup."
+      title="A tighter look at the food and the table."
+      body="Fewer images, chosen to make the food feel immediate."
     />
     <aside class="gallery-intro-card panel-luxe panel-luxe--soft" data-reveal-group>
       <p class="detail-label" data-reveal-item>Restaurant mood</p>
-      <p class="gallery-intro-card__title" data-reveal-item>Bright plates, warm surfaces, quick local rhythm.</p>
+      <p class="gallery-intro-card__title" data-reveal-item>Warm plates, clean framing.</p>
       <p data-reveal-item>{business.photographyStyle}</p>
     </aside>
   </div>
@@ -48,16 +56,11 @@ function frameRatio(asset: ImageAsset) {
   {variant === 'atmosphere-carousel' && (
     <div class="gallery-carousel panel-luxe" data-embla>
       <div class="gallery-carousel__header" data-reveal-group>
-        <p class="detail-label" data-reveal-item>Around the table</p>
-        <div class="gallery-carousel__chips" data-reveal-item>
-          {business.brandHints.slice(0, 3).map((hint) => (
-            <span class="brand-chip">{hint}</span>
-          ))}
-        </div>
+        <p class="detail-label" data-reveal-item>Selected plates</p>
       </div>
       <div class="embla__viewport" data-embla-viewport>
         <div class="embla__container">
-          {galleryAssets.map((asset) => (
+          {displayedGalleryAssets.map((asset) => (
             <article class="embla__slide" data-hover-lift>
               <figure class:list={['gallery-frame', frameRatio(asset)]}>
                 <img src={asset.src} alt={asset.alt} loading="lazy" />
@@ -65,18 +68,6 @@ function frameRatio(asset: ImageAsset) {
                   <span>{asset.treatment ?? 'Restaurant detail'}</span>
                 </figcaption>
               </figure>
-              <div class="gallery-frame__caption">
-                <p>{asset.treatment ?? 'Restaurant detail'}</p>
-                <span>{business.imageTreatment}</span>
-              </div>
-            </article>
-          ))}
-          {fallbackPanels.map((panel) => (
-            <article class="embla__slide" data-hover-lift>
-              <div class="gallery-fallback panel-luxe panel-luxe--soft">
-                <p class="detail-label">{panel.eyebrow}</p>
-                <h3>{panel.title}</h3>
-              </div>
             </article>
           ))}
         </div>
@@ -86,24 +77,13 @@ function frameRatio(asset: ImageAsset) {
 
   {variant === 'frames-mosaic' && (
     <div class="gallery-mosaic" data-reveal-group>
-      <article class="gallery-manifesto panel-luxe panel-luxe--soft" data-reveal-item>
-        <p class="detail-label">Kitchen note</p>
-        <h3>{business.visualMood}</h3>
-        <p>{business.heroSignature}</p>
-      </article>
-      {galleryAssets.map((asset) => (
+      {displayedGalleryAssets.map((asset) => (
         <figure class:list={['gallery-frame', frameRatio(asset), 'gallery-frame--mosaic']} data-reveal-item data-hover-lift>
           <img src={asset.src} alt={asset.alt} loading="lazy" />
           <figcaption class="gallery-frame__overlay">
             <span>{asset.treatment ?? 'restaurant detail'}</span>
           </figcaption>
         </figure>
-      ))}
-      {fallbackPanels.map((panel) => (
-        <article class="gallery-fallback panel-luxe panel-luxe--soft" data-reveal-item data-hover-lift>
-          <p class="detail-label">{panel.eyebrow}</p>
-          <h3>{panel.title}</h3>
-        </article>
       ))}
     </div>
   )}

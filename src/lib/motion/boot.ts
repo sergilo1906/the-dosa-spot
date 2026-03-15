@@ -170,8 +170,29 @@ function initEmbla() {
   });
 }
 
+function initAccordion() {
+  const accordions = Array.from(document.querySelectorAll<HTMLElement>('[data-accordion]'));
+
+  accordions.forEach((accordion) => {
+    const items = Array.from(accordion.querySelectorAll<HTMLDetailsElement>('details'));
+
+    items.forEach((item) => {
+      item.addEventListener('toggle', () => {
+        if (!item.open) return;
+
+        items.forEach((otherItem) => {
+          if (otherItem !== item) {
+            otherItem.open = false;
+          }
+        });
+      });
+    });
+  });
+}
+
 initLenis();
 initHeroReveal();
 initRevealObserver();
 initHoverLift();
 initEmbla();
+initAccordion();

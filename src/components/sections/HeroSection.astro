@@ -8,41 +8,35 @@ interface Props {
 }
 
 const { business, variant } = Astro.props;
-const supportingAssets = business.galleryAssets.slice(0, 3);
+const supportingAssets = business.galleryAssets.slice(0, 1);
 const primaryImage = business.primaryImage;
+const hasOrderLink = Boolean(business.display.orderHref);
 const orderHref = business.display.orderHref ?? '#location';
 const directionsHref = business.display.directionsHref ?? '#location';
-const callHref = business.display.callHref ?? '#location';
 const menuHref = business.display.menuHref ?? '#menu';
 const ghostWord = business.businessName.split(' ')[1] ?? business.businessName.split(' ')[0] ?? business.businessName;
 const categoryLabel = business.primaryCategory ?? 'Local restaurant';
-const ratingLabel =
-  typeof business.ratingValue === 'number'
-    ? `${business.ratingValue.toFixed(1)} rating`
-    : business.display.ratingLabel ?? `${String(business.services.length).padStart(2, '0')} menu highlights`;
-const reviewsLabel =
-  typeof business.reviewCount === 'number' ? `${business.reviewCount} reviews` : `${business.featuredItems.length} popular dishes`;
+const ratingSummary =
+  business.display.ratingLabel ??
+  (typeof business.ratingValue === 'number' && typeof business.reviewCount === 'number'
+    ? `${business.ratingValue.toFixed(1)} from ${business.reviewCount} reviews`
+    : null);
 const serviceModeLabel =
   business.serviceModes.length > 0 ? business.serviceModes.join(' / ') : 'Dine-in / Delivery / Pickup';
 const addressLabel = business.address ?? business.display.location;
-const headlineCue = business.brandHints[0] ?? categoryLabel;
-const detailCue = business.atmosphereKeywords[0] ?? business.materialFinish;
-const heroFacts = [ratingLabel, reviewsLabel, serviceModeLabel].filter(Boolean);
-const heroTags =
-  business.featuredItems.length > 0
-    ? business.featuredItems.slice(0, 4).map((item) => item.title)
-    : business.brandHints.slice(0, 4);
-const heroBandItems =
-  business.reviewHighlights.length > 0 ? business.reviewHighlights.slice(0, 3) : business.proofPoints.slice(0, 3);
-const heroBandNotes = [categoryLabel, addressLabel, serviceModeLabel].filter(Boolean).slice(0, 3);
-const quickLinksForPrimary = [
-  { label: 'Call', href: callHref },
-  { label: 'View Menu', href: menuHref },
-].filter((item) => Boolean(item.href));
-const quickLinksForPoster = [
-  { label: 'Call', href: callHref },
-  { label: 'Get Directions', href: directionsHref },
-].filter((item) => Boolean(item.href));
+const heroFacts = [ratingSummary, serviceModeLabel].filter(Boolean).slice(0, 2);
+const heroToplineItems = [categoryLabel, business.city].filter(Boolean);
+const monolithToplineItems = [categoryLabel, addressLabel].filter(Boolean).slice(0, 2);
+const featuredPick = business.featuredItems[0];
+const supportEyebrow = featuredPick?.accent ?? 'First pick';
+const supportTitle = featuredPick?.title ?? business.businessName;
+const supportCopy = featuredPick?.summary ?? business.heroSignature;
+const primaryAction = hasOrderLink
+  ? { label: 'Order Online', href: orderHref }
+  : { label: 'Get Directions', href: directionsHref };
+const secondaryAction = hasOrderLink
+  ? { label: 'Get Directions', href: directionsHref }
+  : { label: 'View Menu', href: menuHref };
 ---
 
 <section class:list={['section-shell hero-section', `hero-section--${variant}`]} id="top">
@@ -50,11 +44,9 @@ const quickLinksForPoster = [
     <div class="hero-layout hero-layout--cinematic">
       <div class="hero-copy" data-reveal-group>
         <div class="hero-topline" data-reveal-item>
-          <span class="hero-runline">{categoryLabel}</span>
-          <span class="hero-divider" aria-hidden="true"></span>
-          <span class="hero-runline">{business.city}</span>
-          <span class="hero-divider" aria-hidden="true"></span>
-          <span class="hero-runline">{headlineCue}</span>
+          {heroToplineItems.map((item) => (
+            <span class="hero-runline">{item}</span>
+          ))}
         </div>
         <div class="hero-title-stack">
           <p class="hero-pretitle hero-pretitle--hero" data-reveal-item>
@@ -71,28 +63,16 @@ const quickLinksForPoster = [
           {business.shortDescription}
         </p>
         <div class="hero-actions" data-reveal-item>
-          <ActionLink href={orderHref}>Order Online</ActionLink>
-          <ActionLink href={directionsHref} variant="ghost">
-            Get Directions
+          <ActionLink href={primaryAction.href}>{primaryAction.label}</ActionLink>
+          <ActionLink href={secondaryAction.href} variant="ghost">
+            {secondaryAction.label}
           </ActionLink>
-        </div>
-        <div class="hero-link-rail" data-reveal-item>
-          {quickLinksForPrimary.map((item) => (
-            <a href={item.href} class="flag-pill">
-              {item.label}
-            </a>
-          ))}
         </div>
         <div class="hero-facts" data-reveal-item>
           {heroFacts.map((fact) => (
             <span class="hero-fact">{fact}</span>
           ))}
         </div>
-        <ul class="hero-tags" data-reveal-item>
-          {heroTags.map((item) => (
-            <li>{item}</li>
-          ))}
-        </ul>
       </div>
 
       <div class="hero-visual-stack" data-hero-visual>
@@ -107,20 +87,22 @@ const quickLinksForPoster = [
           </figure>
         )}
         <aside class="hero-note panel-luxe" data-hover-lift>
-          <p class="hero-note__eyebrow">House note</p>
-          <p class="hero-note__title">Crisp dosas, warm plates, quick local rhythm.</p>
-          <p>{business.heroSignature}</p>
+          <p class="hero-note__eyebrow">{supportEyebrow}</p>
+          <p class="hero-note__title">{supportTitle}</p>
+          <p>{supportCopy}</p>
         </aside>
-        <div class="hero-mini-grid">
-          {supportingAssets.slice(0, 2).map((asset) => (
-            <figure class="hero-frame hero-frame--support" data-hover-lift>
-              <img src={asset.src} alt={asset.alt} loading="lazy" />
-              <figcaption class="hero-frame__caption">
-                <span>{asset.treatment ?? 'restaurant detail'}</span>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
+        {supportingAssets.length > 0 && (
+          <div class="hero-mini-grid">
+            {supportingAssets.map((asset) => (
+              <figure class="hero-frame hero-frame--support" data-hover-lift>
+                <img src={asset.src} alt={asset.alt} loading="lazy" />
+                <figcaption class="hero-frame__caption">
+                  <span>{asset.treatment ?? 'restaurant detail'}</span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   )}
@@ -129,11 +111,9 @@ const quickLinksForPoster = [
     <div class="hero-layout hero-layout--poster panel-luxe">
       <div class="hero-poster-copy" data-reveal-group>
         <div class="hero-topline" data-reveal-item>
-          <span class="hero-runline">{business.city}</span>
-          <span class="hero-divider" aria-hidden="true"></span>
-          <span class="hero-runline">{categoryLabel}</span>
-          <span class="hero-divider" aria-hidden="true"></span>
-          <span class="hero-runline">{detailCue}</span>
+          {heroToplineItems.map((item) => (
+            <span class="hero-runline">{item}</span>
+          ))}
         </div>
         <div class="hero-title-stack">
           <p class="hero-pretitle hero-pretitle--hero" data-reveal-item>
@@ -150,21 +130,14 @@ const quickLinksForPoster = [
           {business.shortDescription}
         </p>
         <div class="hero-actions" data-reveal-item>
-          <ActionLink href={orderHref}>Order Online</ActionLink>
-          <ActionLink href={menuHref} variant="ghost">
-            View Menu
+          <ActionLink href={primaryAction.href}>{primaryAction.label}</ActionLink>
+          <ActionLink href={secondaryAction.href} variant="ghost">
+            {secondaryAction.label}
           </ActionLink>
         </div>
-        <div class="hero-link-rail" data-reveal-item>
-          {quickLinksForPoster.map((item) => (
-            <a href={item.href} class="flag-pill">
-              {item.label}
-            </a>
-          ))}
-        </div>
         <div class="hero-poster-note panel-luxe panel-luxe--soft" data-reveal-item>
-          <p class="detail-label">Restaurant feel</p>
-          <p>{business.heroSignature}</p>
+          <p class="detail-label">{supportEyebrow}</p>
+          <p>{supportCopy}</p>
         </div>
       </div>
 
@@ -178,19 +151,21 @@ const quickLinksForPoster = [
             </figcaption>
           </figure>
         )}
-        <div class="hero-poster-stack">
-          {supportingAssets.slice(0, 2).map((asset) => (
-            <figure class="hero-frame hero-frame--poster-side" data-hover-lift>
-              <img src={asset.src} alt={asset.alt} loading="lazy" />
-              <figcaption class="hero-frame__caption">
-                <span>{asset.treatment ?? 'restaurant detail'}</span>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
+        {supportingAssets.length > 0 && (
+          <div class="hero-poster-stack">
+            {supportingAssets.map((asset) => (
+              <figure class="hero-frame hero-frame--poster-side" data-hover-lift>
+                <img src={asset.src} alt={asset.alt} loading="lazy" />
+                <figcaption class="hero-frame__caption">
+                  <span>{asset.treatment ?? 'restaurant detail'}</span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        )}
         <aside class="hero-poster-aside panel-luxe panel-luxe--soft" data-hover-lift>
           <p class="detail-label">Food mood</p>
-          <p class="hero-note__title">Warm plates, brighter colour, quicker appetite.</p>
+          <p class="hero-note__title">{supportTitle}</p>
           <p>{business.photographyStyle}</p>
         </aside>
       </div>
@@ -201,11 +176,9 @@ const quickLinksForPoster = [
     <div class="hero-layout hero-layout--monolith panel-luxe">
       <div class="hero-monolith-copy" data-reveal-group>
         <div class="hero-topline" data-reveal-item>
-          <span class="hero-runline">{business.city}</span>
-          <span class="hero-divider" aria-hidden="true"></span>
-          <span class="hero-runline">{categoryLabel}</span>
-          <span class="hero-divider" aria-hidden="true"></span>
-          <span class="hero-runline">{addressLabel}</span>
+          {monolithToplineItems.map((item) => (
+            <span class="hero-runline">{item}</span>
+          ))}
         </div>
         <div class="hero-title-stack">
           <p class="hero-pretitle hero-pretitle--hero" data-reveal-item>
@@ -222,7 +195,7 @@ const quickLinksForPoster = [
           {business.shortDescription}
         </p>
         <div class="hero-facts hero-facts--compact" data-reveal-item>
-          {heroFacts.slice(0, 2).map((fact) => (
+          {heroFacts.map((fact) => (
             <span class="hero-fact">{fact}</span>
           ))}
         </div>
@@ -241,42 +214,18 @@ const quickLinksForPoster = [
         <div class="hero-proof panel-luxe panel-luxe--soft" data-hover-lift>
           <p class="hero-note__eyebrow">People come back for</p>
           <ul class="proof-list">
-            {(business.reviewHighlights.length > 0 ? business.reviewHighlights : business.proofPoints).map((point) => (
+            {(business.reviewHighlights.length > 0 ? business.reviewHighlights : business.proofPoints).slice(0, 3).map((point) => (
               <li>{point}</li>
             ))}
           </ul>
         </div>
         <div class="hero-actions hero-actions--stacked">
-          <ActionLink href={orderHref}>Order Online</ActionLink>
-          <ActionLink href={directionsHref} variant="ghost">
-            Get Directions
+          <ActionLink href={primaryAction.href}>{primaryAction.label}</ActionLink>
+          <ActionLink href={secondaryAction.href} variant="ghost">
+            {secondaryAction.label}
           </ActionLink>
-          <div class="hero-link-rail">
-            {quickLinksForPrimary.map((item) => (
-              <a href={item.href} class="flag-pill">
-                {item.label}
-              </a>
-            ))}
-          </div>
         </div>
       </div>
     </div>
   )}
-
-  <div class="hero-band panel-luxe panel-luxe--soft" data-reveal-group>
-    <div class="hero-band__intro" data-reveal-item>
-      <p class="detail-label">Why people come back</p>
-      <p class="hero-band__title">{business.display.ratingLabel ?? categoryLabel}</p>
-    </div>
-    <div class="hero-band__items" data-reveal-item>
-      {heroBandItems.map((point) => (
-        <span class="brand-chip">{point}</span>
-      ))}
-    </div>
-    <div class="hero-band__note" data-reveal-item>
-      {heroBandNotes.map((item) => (
-        <span>{item}</span>
-      ))}
-    </div>
-  </div>
 </section>

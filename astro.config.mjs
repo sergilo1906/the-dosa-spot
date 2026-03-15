@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  site: 'https://cork-premium-barber-demo.web.app',
+  site: 'https://barber-pro-6fdf6.web.app',
   integrations: [
     tailwind({
       applyBaseStyles: false,

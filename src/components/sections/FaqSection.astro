@@ -7,28 +7,19 @@ interface Props {
 }
 
 const { business } = Astro.props;
+const faqItems = business.faqItems.slice(0, 3);
 ---
 
 <section class="section-shell" id="faq">
-  <div class="section-grid section-grid--split faq-grid">
-    <div class="faq-side">
-      <SectionHeading
-        eyebrow="FAQ"
-        indexLabel="06"
-        title="A few quick questions before you order or stop in."
-        body="Short answers on first picks, service modes, and finding the restaurant on Washington Street."
-      />
-      <aside class="faq-aside panel-luxe panel-luxe--soft" data-reveal-group>
-        <p class="detail-label" data-reveal-item>Good to know</p>
-        <p data-reveal-item>
-          The goal here is simple: clearer food decisions, clearer local details, and no invented information where the final
-          menu or hours are still being confirmed.
-        </p>
-      </aside>
-    </div>
-
-    <div class="faq-list panel-luxe" data-reveal-group>
-      {business.faqItems.map((item) => (
+  <div class="faq-stack">
+    <SectionHeading
+      eyebrow="FAQ"
+      indexLabel="06"
+      title="Three quick questions people usually ask."
+      body="Start with the signature dish, service modes, and where to find the restaurant."
+    />
+    <div class="faq-list panel-luxe" data-reveal-group data-accordion>
+      {faqItems.map((item) => (
         <details class="faq-item" data-reveal-item>
           <summary>{item.question}</summary>
           <p>{item.answer}</p>

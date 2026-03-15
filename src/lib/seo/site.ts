@@ -1,5 +1,5 @@
 export const siteConfig = {
-  siteUrl: 'https://cork-premium-barber-demo.web.app',
+  siteUrl: 'https://barber-pro-6fdf6.web.app',
   siteName: 'The Dosa Spot',
   locale: 'en_IE',
   languageTag: 'en-IE',
