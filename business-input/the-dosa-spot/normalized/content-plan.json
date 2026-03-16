@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "fileKind": "content-plan",
+  "businessSlug": "the-dosa-spot",
+  "updatedAt": "2026-03-16T15:21:57.207Z",
+  "primaryGoal": "visit",
+  "conversionFocus": "Lead with directions because location is verified and stronger than any unconfirmed digital route.",
+  "tone": [
+    "welcoming",
+    "clear",
+    "fresh",
+    "local"
+  ],
+  "primaryCta": {
+    "key": "get-directions",
+    "label": "Get Directions",
+    "reason": "Directions are the strongest truthful action in the current source set."
+  },
+  "secondaryCtas": [
+    {
+      "key": "view-menu",
+      "label": "View Menu",
+      "reason": "Menu access remains useful even when the source set is still light on external links."
+    },
+    {
+      "key": "call",
+      "label": "Call",
+      "reason": "Phone supports practical follow-up and pickup questions."
+    }
+  ],
+  "fallbackRules": [
+    {
+      "when": "A verified order link is missing",
+      "useActionKey": "get-directions",
+      "reason": "Do not fabricate an order path when the source set does not support it."
+    },
+    {
+      "when": "A first-party website is missing",
+      "useActionKey": "view-menu",
+      "reason": "Keep the next step inside the landing page when no verified website exists."
+    }
+  ],
+  "recommendedSections": [
+    {
+      "id": "hero",
+      "enabled": true,
+      "priority": "high",
+      "reason": "The hero should immediately state the offer and local context."
+    },
+    {
+      "id": "popular-items",
+      "enabled": true,
+      "priority": "high",
+      "reason": "Featured items are available and should surface early."
+    },
+    {
+      "id": "services",
+      "enabled": true,
+      "priority": "medium",
+      "reason": "The offer has enough structure for a clean scan route."
+    },
+    {
+      "id": "credibility",
+      "enabled": true,
+      "priority": "high",
+      "reason": "Rating, proof points, or both are available as trust anchors."
+    },
+    {
+      "id": "about",
+      "enabled": true,
+      "priority": "medium",
+      "reason": "Practical positioning and service modes help explain the business quickly."
+    },
+    {
+      "id": "gallery",
+      "enabled": true,
+      "priority": "medium",
+      "reason": "Approved real images are available and should reinforce truthfulness."
+    },
+    {
+      "id": "faq",
+      "enabled": true,
+      "priority": "medium",
+      "reason": "FAQ can reduce first-visit friction when supported by actual answers."
+    },
+    {
+      "id": "cta",
+      "enabled": true,
+      "priority": "high",
+      "reason": "The page should close with the strongest truthful action."
+    },
+    {
+      "id": "footer",
+      "enabled": true,
+      "priority": "low",
+      "reason": "Footer reinforces contact and local trust signals."
+    }
+  ],
+  "messaging": {
+    "heroFocus": "South Indian restaurant, Paneer Potato Masala Dosa, Cork",
+    "offerFocus": "Paneer Potato Masala Dosa",
+    "trustFocus": "4.6 rating, 610 reviews, and repeated praise for very tasty food and friendly staff.",
+    "galleryFocus": "Use approved real images and keep decorative filler out.",
+    "locationFocus": "35 Washington St, Centre, Cork, T12 DHX2."
+  },
+  "contentPriorities": [
+    "Paneer Potato Masala Dosa",
+    "Dine-in",
+    "Cork",
+    "610 reviews",
+    "Very tasty food"
+  ]
+}

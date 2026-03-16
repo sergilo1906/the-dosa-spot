@@ -1,5 +1,16 @@
-import type { BusinessBrief } from '../../types/business';
+import type { BusinessBrief, BusinessNiche } from '../../types/business';
 import { siteConfig } from './site';
+
+const SCHEMA_TYPE_BY_NICHE: Record<BusinessNiche, string> = {
+  barbershop: 'HairSalon',
+  restaurant: 'Restaurant',
+  'cafe-bakery-takeaway': 'CafeOrCoffeeShop',
+  'personal-care': 'BeautySalon',
+  'retail-shop': 'Store',
+  'fitness-wellness': 'SportsActivityLocation',
+  'clinic-health': 'MedicalBusiness',
+  'local-service': 'ProfessionalService',
+};
 
 function compactObject<T>(value: T): T {
   if (Array.isArray(value)) {
@@ -30,7 +41,7 @@ export function buildStructuredData(business: BusinessBrief, canonical: string) 
   const website = compactObject({
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: siteConfig.siteName,
+    name: business.businessName,
     url: siteConfig.siteUrl,
     inLanguage: siteConfig.languageTag,
   });
@@ -45,7 +56,7 @@ export function buildStructuredData(business: BusinessBrief, canonical: string) 
     email: business.email ?? undefined,
   });
 
-  const businessType = business.niche === 'restaurant' ? 'Restaurant' : 'HairSalon';
+  const businessType = SCHEMA_TYPE_BY_NICHE[business.niche] ?? 'LocalBusiness';
   const servesCuisine =
     business.niche === 'restaurant' && business.primaryCategory
       ? business.primaryCategory.replace(/\s+restaurant$/i, '').trim()

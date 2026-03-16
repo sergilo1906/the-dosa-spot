@@ -1,0 +1,830 @@
+{
+  "schemaVersion": 1,
+  "fileKind": "reconciliation-report",
+  "businessSlug": "the-dosa-spot",
+  "updatedAt": "2026-03-16T15:21:57.207Z",
+  "sourcePriority": [
+    {
+      "id": "manual-profile",
+      "label": "Structured manual profile",
+      "weight": 100,
+      "description": "Highest-priority manual source for confirmed facts and prepared content."
+    },
+    {
+      "id": "intake-seed",
+      "label": "Intake seed",
+      "weight": 90,
+      "description": "Business seed entered at package root with early confirmed fields and preferences."
+    },
+    {
+      "id": "maps-link-file",
+      "label": "Maps link file",
+      "weight": 85,
+      "description": "Direct maps link captured in the raw intake package."
+    },
+    {
+      "id": "support-review-summary",
+      "label": "Review summary doc",
+      "weight": 70,
+      "description": "Support document that preserves rating and recurring trust themes."
+    },
+    {
+      "id": "support-menu-summary",
+      "label": "Menu summary doc",
+      "weight": 65,
+      "description": "Support document that preserves offer categories and highlighted items."
+    },
+    {
+      "id": "input-manifest",
+      "label": "Input manifest",
+      "weight": 60,
+      "description": "Manifest metadata describing what files exist and what the package is missing."
+    },
+    {
+      "id": "intake-notes",
+      "label": "Intake notes",
+      "weight": 45,
+      "description": "Freeform notes used for caveats, CTA truthfulness, and data gaps."
+    },
+    {
+      "id": "image-map",
+      "label": "Image map",
+      "weight": 35,
+      "description": "Reference layer for available visual assets and current runtime roles."
+    },
+    {
+      "id": "inference",
+      "label": "Inference",
+      "weight": 10,
+      "description": "Lowest-priority derived fallback when the source set is incomplete."
+    }
+  ],
+  "fields": [
+    {
+      "path": "identity.businessName",
+      "state": "verified",
+      "value": "The Dosa Spot",
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile",
+        "intake-seed"
+      ],
+      "reason": "Resolved from Structured manual profile.",
+      "notes": null
+    },
+    {
+      "path": "identity.slug",
+      "state": "verified",
+      "value": "the-dosa-spot",
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile",
+        "intake-seed"
+      ],
+      "reason": "Resolved from Structured manual profile.",
+      "notes": null
+    },
+    {
+      "path": "identity.niche",
+      "state": "verified",
+      "value": "restaurant",
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile",
+        "intake-seed"
+      ],
+      "reason": "Resolved from Structured manual profile.",
+      "notes": null
+    },
+    {
+      "path": "identity.primaryCategory",
+      "state": "verified",
+      "value": "South Indian restaurant",
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile",
+        "intake-seed"
+      ],
+      "reason": "Resolved from Structured manual profile.",
+      "notes": null
+    },
+    {
+      "path": "identity.secondaryCategories",
+      "state": "inferred",
+      "value": [
+        "Indian restaurant",
+        "Takeaway restaurant"
+      ],
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile",
+        "intake-seed"
+      ],
+      "reason": "Secondary categories are shaped for reuse and taxonomy, not copied verbatim from a canonical listing.",
+      "notes": "Secondary categories are shaped for reuse and taxonomy, not copied verbatim from a canonical listing."
+    },
+    {
+      "path": "location.city",
+      "state": "verified",
+      "value": "Cork",
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile",
+        "intake-seed"
+      ],
+      "reason": "Resolved from Structured manual profile.",
+      "notes": null
+    },
+    {
+      "path": "location.country",
+      "state": "verified",
+      "value": "Ireland",
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile",
+        "intake-seed"
+      ],
+      "reason": "Resolved from Structured manual profile.",
+      "notes": null
+    },
+    {
+      "path": "location.district",
+      "state": "verified",
+      "value": "Centre",
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile"
+      ],
+      "reason": "Resolved from Structured manual profile.",
+      "notes": null
+    },
+    {
+      "path": "location.addressLine",
+      "state": "verified",
+      "value": "35 Washington St, Centre, Cork, T12 DHX2",
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile"
+      ],
+      "reason": "Resolved from Structured manual profile.",
+      "notes": null
+    },
+    {
+      "path": "location.plusCode",
+      "state": "missing",
+      "value": null,
+      "chosenSourceId": null,
+      "sourceIds": [],
+      "reason": "Plus code is not stored in the current source set.",
+      "notes": null
+    },
+    {
+      "path": "location.coordinates",
+      "state": "missing",
+      "value": null,
+      "chosenSourceId": null,
+      "sourceIds": [
+        "manual-profile"
+      ],
+      "reason": "Coordinates have not been captured yet.",
+      "notes": "Coordinates have not been captured yet."
+    },
+    {
+      "path": "contact.phone",
+      "state": "verified",
+      "value": "(021) 241 7603",
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile"
+      ],
+      "reason": "Resolved from Structured manual profile.",
+      "notes": null
+    },
+    {
+      "path": "contact.whatsapp",
+      "state": "missing",
+      "value": null,
+      "chosenSourceId": null,
+      "sourceIds": [
+        "manual-profile"
+      ],
+      "reason": "No WhatsApp route is verified in the current source set.",
+      "notes": "No WhatsApp route is verified in the current source set."
+    },
+    {
+      "path": "contact.email",
+      "state": "missing",
+      "value": null,
+      "chosenSourceId": null,
+      "sourceIds": [
+        "manual-profile"
+      ],
+      "reason": "No email address is verified in the current source set.",
+      "notes": "No email address is verified in the current source set."
+    },
+    {
+      "path": "contact.website",
+      "state": "missing",
+      "value": null,
+      "chosenSourceId": null,
+      "sourceIds": [
+        "manual-profile"
+      ],
+      "reason": "No first-party website is verified in the current source set.",
+      "notes": "No first-party website is verified in the current source set."
+    },
+    {
+      "path": "contact.orderUrl",
+      "state": "missing",
+      "value": null,
+      "chosenSourceId": null,
+      "sourceIds": [
+        "manual-profile"
+      ],
+      "reason": "No ordering URL is verified in the current source set.",
+      "notes": "No ordering URL is verified in the current source set."
+    },
+    {
+      "path": "contact.menuUrl",
+      "state": "missing",
+      "value": null,
+      "chosenSourceId": null,
+      "sourceIds": [
+        "manual-profile"
+      ],
+      "reason": "No public external menu URL is verified in the current source set.",
+      "notes": "No public external menu URL is verified in the current source set."
+    },
+    {
+      "path": "contact.mapsUrl",
+      "state": "verified",
+      "value": "https://www.google.com/maps/search/?api=1&query=35%20Washington%20St%2C%20Centre%2C%20Cork%2C%20T12%20DHX2%2C%20Cork%2C%20Ireland",
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile",
+        "maps-link-file",
+        "intake-seed"
+      ],
+      "reason": "Resolved from Structured manual profile.",
+      "notes": null
+    },
+    {
+      "path": "contact.socialLinks",
+      "state": "missing",
+      "value": null,
+      "chosenSourceId": null,
+      "sourceIds": [],
+      "reason": "No social links are stored in the source set.",
+      "notes": null
+    },
+    {
+      "path": "contact.externalPlatforms",
+      "state": "missing",
+      "value": null,
+      "chosenSourceId": null,
+      "sourceIds": [],
+      "reason": "No external platform links are stored in the source set.",
+      "notes": null
+    },
+    {
+      "path": "location.openingHours",
+      "state": "missing",
+      "value": null,
+      "chosenSourceId": null,
+      "sourceIds": [
+        "manual-profile"
+      ],
+      "reason": "Opening hours have not been captured yet.",
+      "notes": "Opening hours have not been captured yet."
+    },
+    {
+      "path": "offer.serviceModes",
+      "state": "verified",
+      "value": [
+        "Dine-in",
+        "Delivery",
+        "Pickup"
+      ],
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile"
+      ],
+      "reason": "Resolved from Structured manual profile.",
+      "notes": null
+    },
+    {
+      "path": "offer.categories",
+      "state": "verified",
+      "value": [
+        {
+          "title": "Dosas",
+          "summary": "Crisp dosa-led plates and signature masala combinations."
+        },
+        {
+          "title": "Street Plates",
+          "summary": "Heavier, comfort-led plates for dine-in or takeaway."
+        },
+        {
+          "title": "Sweets",
+          "summary": "Short dessert finish built around warm Indian sweets."
+        },
+        {
+          "title": "Noodles & Quick Plates",
+          "summary": "Fast savoury options for lunch runs and easy evening orders."
+        }
+      ],
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile",
+        "support-menu-summary"
+      ],
+      "reason": "Resolved from Structured manual profile.",
+      "notes": null
+    },
+    {
+      "path": "offer.featuredItems",
+      "state": "inferred",
+      "value": [
+        {
+          "title": "Paneer Potato Masala Dosa",
+          "summary": "The clearest first order: a crisp dosa wrapped around paneer and potato masala.",
+          "accent": "Signature dosa",
+          "imageAssetId": "dish-dosa"
+        },
+        {
+          "title": "Batura Chole Bhature",
+          "summary": "Puffy bhature and chickpea curry when you want the richer, heavier plate.",
+          "accent": "Popular plate",
+          "imageAssetId": "dish-chole-bhature"
+        },
+        {
+          "title": "Gulab Jamun",
+          "summary": "Warm gulab jamun for a short sweet finish after the savoury plates.",
+          "accent": "Sweet finish",
+          "imageAssetId": "dish-gulab-jamun"
+        }
+      ],
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile",
+        "support-menu-summary"
+      ],
+      "reason": "Item names are grounded in the menu summary, but the explanatory summaries are edited for render.",
+      "notes": "Item names are grounded in the menu summary, but the explanatory summaries are edited for render."
+    },
+    {
+      "path": "offer.services",
+      "state": "inferred",
+      "value": [
+        {
+          "title": "Signature dosas",
+          "summary": "Go here first if you want the plate that makes the menu easiest to understand.",
+          "duration": null,
+          "priceLabel": "Paneer Potato Masala Dosa",
+          "accent": "Signature pick"
+        },
+        {
+          "title": "Street Plates",
+          "summary": "Choose this lane when you want something richer and more filling than a dosa stop.",
+          "duration": null,
+          "priceLabel": "Batura Chole Bhature",
+          "accent": "Most ordered"
+        },
+        {
+          "title": "Sweet finish",
+          "summary": "Finish with gulab jamun if you want dessert without turning the meal into a long close.",
+          "duration": null,
+          "priceLabel": "Gulab Jamun",
+          "accent": "Dessert note"
+        }
+      ],
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile",
+        "support-menu-summary"
+      ],
+      "reason": "Service cards are derived from the current menu grouping rather than a canonical source export.",
+      "notes": "Service cards are derived from the current menu grouping rather than a canonical source export."
+    },
+    {
+      "path": "offer.faqItems",
+      "state": "inferred",
+      "value": [
+        {
+          "question": "What should I try first?",
+          "answer": "Start with the Paneer Potato Masala Dosa. Go for Batura Chole Bhature if you want something heavier."
+        },
+        {
+          "question": "Can I call before pickup or delivery?",
+          "answer": "Yes. Use the phone number on the page if you want to confirm pickup or delivery details before you go."
+        }
+      ],
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile"
+      ],
+      "reason": "FAQ answers are prepared editorially from known facts and should stay concise and truthful.",
+      "notes": "FAQ answers are prepared editorially from known facts and should stay concise and truthful."
+    },
+    {
+      "path": "trust.rating.value",
+      "state": "verified",
+      "value": 4.6,
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile",
+        "support-review-summary"
+      ],
+      "reason": "Resolved from Structured manual profile.",
+      "notes": null
+    },
+    {
+      "path": "trust.rating.reviewCount",
+      "state": "verified",
+      "value": 610,
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile",
+        "support-review-summary"
+      ],
+      "reason": "Resolved from Structured manual profile.",
+      "notes": null
+    },
+    {
+      "path": "trust.reviewThemes",
+      "state": "verified",
+      "value": [
+        "Very tasty food",
+        "Friendly staff",
+        "Quick service",
+        "Dosa stands out"
+      ],
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile",
+        "support-review-summary"
+      ],
+      "reason": "Resolved from Structured manual profile.",
+      "notes": null
+    },
+    {
+      "path": "trust.proofPoints",
+      "state": "verified",
+      "value": [
+        "4.6 rating from 610 reviews.",
+        "People repeatedly mention tasty food, friendly staff, and quick service.",
+        "Dine-in, delivery, and pickup are confirmed."
+      ],
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile",
+        "inference"
+      ],
+      "reason": "Resolved from Structured manual profile.",
+      "notes": null
+    },
+    {
+      "path": "trust.testimonials",
+      "state": "pending",
+      "value": null,
+      "chosenSourceId": null,
+      "sourceIds": [
+        "support-review-summary"
+      ],
+      "reason": "Themes and rating are available, but direct quote selection has not been curated yet.",
+      "notes": "Themes and rating are available, but direct quote selection has not been curated yet."
+    },
+    {
+      "path": "trust.credibilityRisks",
+      "state": "verified",
+      "value": [
+        "No verified website or order flow yet.",
+        "No verified first-party email in the current source set."
+      ],
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile",
+        "intake-notes"
+      ],
+      "reason": "Resolved from Structured manual profile.",
+      "notes": null
+    },
+    {
+      "path": "brand.tagline",
+      "state": "inferred",
+      "value": "Crisp dosa and curry plates on Washington Street.",
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile",
+        "inference"
+      ],
+      "reason": "Tagline is prepared editorially from the verified business facts.",
+      "notes": "Tagline is prepared editorially from the verified business facts."
+    },
+    {
+      "path": "brand.shortDescription",
+      "state": "inferred",
+      "value": "A Cork city stop for South Indian dosa, curry plates, dine-in, pickup, or delivery.",
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile",
+        "inference"
+      ],
+      "reason": "Short description is prepared editorially from the verified business facts.",
+      "notes": "Short description is prepared editorially from the verified business facts."
+    },
+    {
+      "path": "brand.heroSignature",
+      "state": "inferred",
+      "value": "Start with the Paneer Potato Masala Dosa, then move to bhature when you want something heavier.",
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile",
+        "inference"
+      ],
+      "reason": "Hero signature is an editorial render line, not a quoted business claim.",
+      "notes": "Hero signature is an editorial render line, not a quoted business claim."
+    },
+    {
+      "path": "brand.brandHints",
+      "state": "verified",
+      "value": [
+        "crisp dosa",
+        "warm plates",
+        "quick local stop"
+      ],
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile",
+        "inference"
+      ],
+      "reason": "Resolved from Structured manual profile.",
+      "notes": null
+    },
+    {
+      "path": "brand.brandColors",
+      "state": "verified",
+      "value": [
+        "#2a140e",
+        "#f3a229",
+        "#c5482e",
+        "#f7ead8"
+      ],
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile"
+      ],
+      "reason": "Resolved from Structured manual profile.",
+      "notes": null
+    },
+    {
+      "path": "brand.toneHints",
+      "state": "verified",
+      "value": [
+        "welcoming",
+        "clear",
+        "fresh",
+        "local"
+      ],
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile",
+        "intake-seed"
+      ],
+      "reason": "Resolved from Structured manual profile.",
+      "notes": null
+    },
+    {
+      "path": "brand.visualMood",
+      "state": "verified",
+      "value": "Warm South Indian kitchen with bright plates and quick local energy",
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile",
+        "inference"
+      ],
+      "reason": "Resolved from Structured manual profile.",
+      "notes": null
+    },
+    {
+      "path": "brand.desiredLuxuryLevel",
+      "state": "verified",
+      "value": "high",
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile"
+      ],
+      "reason": "Resolved from Structured manual profile.",
+      "notes": null
+    },
+    {
+      "path": "brand.visualIntensity",
+      "state": "verified",
+      "value": "bold",
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile"
+      ],
+      "reason": "Resolved from Structured manual profile.",
+      "notes": null
+    },
+    {
+      "path": "brand.photographyStyle",
+      "state": "verified",
+      "value": "Real food photography with warm tabletop light and an honest local feel.",
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile",
+        "image-map"
+      ],
+      "reason": "Resolved from Structured manual profile.",
+      "notes": null
+    },
+    {
+      "path": "brand.atmosphereKeywords",
+      "state": "verified",
+      "value": [
+        "golden dosa",
+        "spice warmth",
+        "city-centre stop-in"
+      ],
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile",
+        "inference"
+      ],
+      "reason": "Resolved from Structured manual profile.",
+      "notes": null
+    },
+    {
+      "path": "brand.preferredContrast",
+      "state": "verified",
+      "value": "balanced",
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile"
+      ],
+      "reason": "Resolved from Structured manual profile.",
+      "notes": null
+    },
+    {
+      "path": "brand.sectionDensityPreference",
+      "state": "verified",
+      "value": "balanced",
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile"
+      ],
+      "reason": "Resolved from Structured manual profile.",
+      "notes": null
+    },
+    {
+      "path": "brand.materialFinish",
+      "state": "verified",
+      "value": "Warm cream, saffron, tamarind red, and leaf green accents.",
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile"
+      ],
+      "reason": "Resolved from Structured manual profile.",
+      "notes": null
+    },
+    {
+      "path": "brand.imageTreatment",
+      "state": "verified",
+      "value": "Warm tabletop photography with clean, food-first framing.",
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile"
+      ],
+      "reason": "Resolved from Structured manual profile.",
+      "notes": null
+    },
+    {
+      "path": "seo.title",
+      "state": "inferred",
+      "value": "The Dosa Spot | South Indian Restaurant in Cork",
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile",
+        "inference"
+      ],
+      "reason": "SEO title is assembled from verified business facts.",
+      "notes": "SEO title is assembled from verified business facts."
+    },
+    {
+      "path": "seo.description",
+      "state": "inferred",
+      "value": "The Dosa Spot is a South Indian restaurant on Washington Street in Cork known for dosa, quick service, dine-in, pickup, and delivery.",
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile",
+        "inference"
+      ],
+      "reason": "SEO description is assembled from verified business facts.",
+      "notes": "SEO description is assembled from verified business facts."
+    },
+    {
+      "path": "seo.areaServed",
+      "state": "verified",
+      "value": [
+        "Cork"
+      ],
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile",
+        "intake-seed"
+      ],
+      "reason": "Resolved from Structured manual profile.",
+      "notes": null
+    },
+    {
+      "path": "seo.geoPrecision",
+      "state": "verified",
+      "value": "city",
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile"
+      ],
+      "reason": "Resolved from Structured manual profile.",
+      "notes": null
+    },
+    {
+      "path": "seo.serviceType",
+      "state": "verified",
+      "value": "South Indian restaurant",
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile",
+        "intake-seed"
+      ],
+      "reason": "Resolved from Structured manual profile.",
+      "notes": null
+    },
+    {
+      "path": "seo.priceRange",
+      "state": "missing",
+      "value": null,
+      "chosenSourceId": null,
+      "sourceIds": [],
+      "reason": "Price range is not yet prepared.",
+      "notes": null
+    },
+    {
+      "path": "seo.keywordHints",
+      "state": "verified",
+      "value": [
+        "south indian restaurant cork",
+        "dosa cork",
+        "washington street cork food"
+      ],
+      "chosenSourceId": "manual-profile",
+      "sourceIds": [
+        "manual-profile",
+        "inference"
+      ],
+      "reason": "Resolved from Structured manual profile.",
+      "notes": null
+    },
+    {
+      "path": "assets.assetIds",
+      "state": "verified",
+      "value": [
+        "hero-main",
+        "dish-dosa",
+        "dish-chole-bhature",
+        "dish-gulab-jamun",
+        "dish-vegetable-noodles",
+        "gallery-spicy-noodles",
+        "gallery-curry-naan",
+        "gallery-starter-bowl",
+        "fallback-noodle-bowl"
+      ],
+      "chosenSourceId": "image-map",
+      "sourceIds": [
+        "image-map"
+      ],
+      "reason": "Resolved from Image map.",
+      "notes": null
+    }
+  ],
+  "summary": {
+    "verified": 34,
+    "inferred": 9,
+    "missing": 11,
+    "conflict": 0,
+    "pending": 1
+  },
+  "validations": [
+    {
+      "path": "input-manifest",
+      "severity": "warning",
+      "message": "No HTML source files were found. Intake can continue, but extraction options will be limited."
+    }
+  ],
+  "notes": [
+    "Normalization can run without HTML, but extraction remains limited until HTML exports arrive.",
+    "Generated from business-input/the-dosa-spot/raw/images using images:process.",
+    "This manual profile preserves the current live direction-first CTA logic until a verified website or order route exists."
+  ]
+}

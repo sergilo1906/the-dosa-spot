@@ -1,0 +1,1222 @@
+{
+  "schemaVersion": 1,
+  "fileKind": "copy-profile",
+  "businessSlug": "the-dosa-spot",
+  "updatedAt": "2026-03-16T15:22:03.654Z",
+  "recommendedTone": {
+    "primary": "warm-food-led",
+    "support": [
+      "premium-casual",
+      "local-trust",
+      "direct-conversion"
+    ],
+    "reasoning": [
+      "Primary tone selected from sector priority, sector tone hints, and brand tone hints.",
+      "Sector: Restaurant / Food Copy. Visual family: Food Warm Editorial.",
+      "Primary tone \"warm-food-led\" means: Use vivid but concrete food-led language anchored to real dishes, locality, and practical next steps."
+    ]
+  },
+  "inputs": {
+    "sectorType": "restaurant",
+    "visualFamily": "food-warm-editorial",
+    "visualConfidence": "high",
+    "sectorTone": [
+      "premium-casual",
+      "warm",
+      "local-trust",
+      "direct"
+    ],
+    "contentTone": [
+      "welcoming",
+      "clear",
+      "fresh",
+      "local"
+    ],
+    "conversionGoal": "visit",
+    "availableCtas": [
+      "get-directions",
+      "view-menu",
+      "call"
+    ],
+    "missingPaths": [
+      "contact.email",
+      "contact.website",
+      "contact.orderUrl",
+      "contact.menuUrl",
+      "contact.whatsapp",
+      "location.coordinates",
+      "location.openingHours",
+      "identity.secondaryCategories",
+      "trust.testimonials"
+    ],
+    "trustSystems": [
+      "rating-reviews",
+      "menu-signatures",
+      "local-trust"
+    ]
+  },
+  "contentRules": {
+    "sectorLabel": "Restaurant / Food Copy",
+    "summary": "Designed for food businesses that need appetite, local trust, and one truthful next step.",
+    "heroFocus": "Cuisine + standout item + local context",
+    "closingStyle": "Practical, visit-led, and calm rather than shouty.",
+    "blockRules": [
+      {
+        "blockId": "hero-title",
+        "purpose": "State cuisine, standout cue, and local context fast.",
+        "audienceIntent": "Decide in a few seconds whether this is worth visiting or trying.",
+        "tone": [
+          "warm-food-led",
+          "premium-casual",
+          "local-trust"
+        ],
+        "structure": [
+          "Lead with cuisine or standout dish cue.",
+          "Keep the sentence concrete and local.",
+          "Avoid stacked adjectives."
+        ],
+        "preferredInputs": [
+          "identity.primaryCategory",
+          "brand.tagline",
+          "location.city",
+          "offer.featuredItems"
+        ],
+        "allowedProofTypes": [
+          "facts",
+          "offer",
+          "location"
+        ],
+        "avoid": [
+          "generic lifestyle language",
+          "empty premium wording",
+          "multiple claims in one line"
+        ],
+        "forbiddenClaims": [
+          "best in town",
+          "award-winning",
+          "authentic if not verified",
+          "open late if hours are missing",
+          "Do not invent hours, prices, offers, awards, lead times, or reservation support.",
+          "Do not claim a website, order flow, email route, or WhatsApp route unless verified.",
+          "Do not use unverified superlatives like best, leading, number one, or award-winning.",
+          "Do not fabricate team names, certifications, or years in business.",
+          "Do not promise online ordering, reservations, or a full menu URL when those routes are missing.",
+          "Do not say open now, open daily, late night, or list hours.",
+          "Do not say order online, checkout, or delivery now.",
+          "Do not imply a verified full external menu URL.",
+          "Do not present testimonial quotes or quote marks as if direct quotes exist."
+        ],
+        "length": {
+          "maxWords": 12,
+          "maxChars": 78,
+          "maxSentences": 1
+        },
+        "degradationGuidance": [
+          "If offer data is thin, keep the hero local and cuisine-led.",
+          "If order flow is missing, do not make the hero order-first."
+        ]
+      },
+      {
+        "blockId": "hero-subheadline",
+        "purpose": "Explain what the place offers and the practical next step.",
+        "audienceIntent": "Understand service modes and whether the business is easy to visit.",
+        "tone": [
+          "warm-food-led",
+          "premium-casual",
+          "local-trust"
+        ],
+        "structure": [
+          "Name the place type or signature.",
+          "Mention one practical service or visit cue.",
+          "Keep it easy to scan."
+        ],
+        "preferredInputs": [
+          "brand.shortDescription",
+          "offer.serviceModes",
+          "location.city"
+        ],
+        "allowedProofTypes": [
+          "facts",
+          "offer",
+          "location"
+        ],
+        "avoid": [
+          "too much mood writing",
+          "duplicating the headline word for word"
+        ],
+        "forbiddenClaims": [
+          "delivery promise if not confirmed",
+          "website route if missing",
+          "reservation support if not verified",
+          "Do not invent hours, prices, offers, awards, lead times, or reservation support.",
+          "Do not claim a website, order flow, email route, or WhatsApp route unless verified.",
+          "Do not use unverified superlatives like best, leading, number one, or award-winning.",
+          "Do not fabricate team names, certifications, or years in business.",
+          "Do not promise online ordering, reservations, or a full menu URL when those routes are missing.",
+          "Do not say open now, open daily, late night, or list hours.",
+          "Do not say order online, checkout, or delivery now.",
+          "Do not imply a verified full external menu URL.",
+          "Do not present testimonial quotes or quote marks as if direct quotes exist."
+        ],
+        "length": {
+          "maxWords": 22,
+          "maxChars": 140,
+          "maxSentences": 2
+        },
+        "degradationGuidance": [
+          "If service modes are missing, keep the line focused on location and category only."
+        ]
+      },
+      {
+        "blockId": "hero-support",
+        "purpose": "Add one useful, appetite-led support line under the hero.",
+        "audienceIntent": "Get a quick feel for why the business is worth trying.",
+        "tone": [
+          "warm-food-led",
+          "premium-casual"
+        ],
+        "structure": [
+          "Use one strong detail.",
+          "Keep it human and specific."
+        ],
+        "preferredInputs": [
+          "brand.heroSignature",
+          "trust.reviewHighlights",
+          "offer.featuredItems"
+        ],
+        "allowedProofTypes": [
+          "offer",
+          "review-themes",
+          "facts"
+        ],
+        "avoid": [
+          "abstract brand manifestos",
+          "repeating headline and subheadline"
+        ],
+        "forbiddenClaims": [
+          "guaranteed quality",
+          "famous",
+          "best-loved",
+          "Do not invent hours, prices, offers, awards, lead times, or reservation support.",
+          "Do not claim a website, order flow, email route, or WhatsApp route unless verified.",
+          "Do not use unverified superlatives like best, leading, number one, or award-winning.",
+          "Do not fabricate team names, certifications, or years in business.",
+          "Do not promise online ordering, reservations, or a full menu URL when those routes are missing.",
+          "Do not say open now, open daily, late night, or list hours.",
+          "Do not say order online, checkout, or delivery now.",
+          "Do not imply a verified full external menu URL.",
+          "Do not present testimonial quotes or quote marks as if direct quotes exist."
+        ],
+        "length": {
+          "maxWords": 18,
+          "maxChars": 120,
+          "maxSentences": 1
+        },
+        "degradationGuidance": [
+          "If standout dish data is weak, use local trust instead of hype."
+        ]
+      },
+      {
+        "blockId": "cta-primary",
+        "purpose": "Turn the clearest verified action into a short button label.",
+        "audienceIntent": "Know the next step without thinking.",
+        "tone": [
+          "warm-food-led",
+          "local-trust",
+          "direct-conversion"
+        ],
+        "structure": [
+          "Prefer action-first labels.",
+          "Keep buttons short and literal."
+        ],
+        "preferredInputs": [
+          "contentPlan.primaryCta.label",
+          "sectorProfile.recommendedPrimaryCta"
+        ],
+        "allowedProofTypes": [
+          "facts",
+          "location"
+        ],
+        "avoid": [
+          "cute CTA labels",
+          "button copy that explains too much"
+        ],
+        "forbiddenClaims": [
+          "order online if no order URL",
+          "book now if no booking flow",
+          "Do not invent hours, prices, offers, awards, lead times, or reservation support.",
+          "Do not claim a website, order flow, email route, or WhatsApp route unless verified.",
+          "Do not use unverified superlatives like best, leading, number one, or award-winning.",
+          "Do not fabricate team names, certifications, or years in business.",
+          "Do not promise online ordering, reservations, or a full menu URL when those routes are missing.",
+          "Do not say open now, open daily, late night, or list hours.",
+          "Do not say order online, checkout, or delivery now.",
+          "Do not imply a verified full external menu URL.",
+          "Do not present testimonial quotes or quote marks as if direct quotes exist."
+        ],
+        "length": {
+          "maxWords": 3,
+          "maxChars": 18,
+          "maxSentences": 1
+        },
+        "degradationGuidance": [
+          "If the ideal CTA is unavailable, degrade to the strongest truthful action."
+        ]
+      },
+      {
+        "blockId": "cta-secondary",
+        "purpose": "Support the main action without creating decision fatigue.",
+        "audienceIntent": "Keep a backup path close by.",
+        "tone": [
+          "warm-food-led",
+          "local-trust",
+          "direct-conversion"
+        ],
+        "structure": [
+          "Use literal action labels.",
+          "Do not repeat the primary CTA verb unless necessary."
+        ],
+        "preferredInputs": [
+          "contentPlan.secondaryCtas",
+          "sectorProfile.recommendedSecondaryCtas"
+        ],
+        "allowedProofTypes": [
+          "facts",
+          "location",
+          "offer"
+        ],
+        "avoid": [
+          "more than two visible secondary actions",
+          "soft labels with unclear outcome"
+        ],
+        "forbiddenClaims": [
+          "website CTA if no site exists",
+          "delivery CTA if route is not verified",
+          "Do not invent hours, prices, offers, awards, lead times, or reservation support.",
+          "Do not claim a website, order flow, email route, or WhatsApp route unless verified.",
+          "Do not use unverified superlatives like best, leading, number one, or award-winning.",
+          "Do not fabricate team names, certifications, or years in business.",
+          "Do not promise online ordering, reservations, or a full menu URL when those routes are missing.",
+          "Do not say open now, open daily, late night, or list hours.",
+          "Do not say order online, checkout, or delivery now.",
+          "Do not imply a verified full external menu URL.",
+          "Do not present testimonial quotes or quote marks as if direct quotes exist."
+        ],
+        "length": {
+          "maxWords": 3,
+          "maxChars": 18,
+          "maxSentences": 1,
+          "maxItems": 2
+        },
+        "degradationGuidance": [
+          "If options are weak, keep one secondary action only."
+        ]
+      },
+      {
+        "blockId": "highlights",
+        "purpose": "Describe dishes, services, or products in a way that helps selection.",
+        "audienceIntent": "Understand what is worth trying without reading a menu wall.",
+        "tone": [
+          "warm-food-led",
+          "premium-casual",
+          "direct-conversion"
+        ],
+        "structure": [
+          "Start with the item or category.",
+          "Use one practical descriptor.",
+          "Keep summaries specific and short."
+        ],
+        "preferredInputs": [
+          "offer.featuredItems",
+          "offer.services"
+        ],
+        "allowedProofTypes": [
+          "offer",
+          "facts"
+        ],
+        "avoid": [
+          "poetic filler",
+          "overexplaining ingredients when unverified",
+          "same sentence pattern for every card"
+        ],
+        "forbiddenClaims": [
+          "signature if not evidenced",
+          "spicy/hot level if not confirmed",
+          "pricing if not confirmed",
+          "Do not invent hours, prices, offers, awards, lead times, or reservation support.",
+          "Do not claim a website, order flow, email route, or WhatsApp route unless verified.",
+          "Do not use unverified superlatives like best, leading, number one, or award-winning.",
+          "Do not fabricate team names, certifications, or years in business.",
+          "Do not promise online ordering, reservations, or a full menu URL when those routes are missing.",
+          "Do not say open now, open daily, late night, or list hours.",
+          "Do not say order online, checkout, or delivery now.",
+          "Do not imply a verified full external menu URL.",
+          "Do not present testimonial quotes or quote marks as if direct quotes exist."
+        ],
+        "length": {
+          "maxWords": 18,
+          "maxChars": 110,
+          "maxSentences": 2
+        },
+        "degradationGuidance": [
+          "If menu detail is light, talk about what the item helps the visitor choose, not hidden specifics."
+        ]
+      },
+      {
+        "blockId": "trust-summary",
+        "purpose": "Summarize trust using the strongest real proof available.",
+        "audienceIntent": "Feel safe trying the place.",
+        "tone": [
+          "warm-food-led",
+          "local-trust",
+          "direct-conversion"
+        ],
+        "structure": [
+          "Use numbers if verified.",
+          "Summarize review themes plainly.",
+          "Keep the tone credible, not overexcited."
+        ],
+        "preferredInputs": [
+          "trust.ratingValue",
+          "trust.reviewCount",
+          "trust.reviewHighlights",
+          "trust.proofPoints"
+        ],
+        "allowedProofTypes": [
+          "ratings",
+          "review-themes",
+          "facts"
+        ],
+        "avoid": [
+          "generic hype",
+          "trying to sound like an ad testimonial"
+        ],
+        "forbiddenClaims": [
+          "customers love us if no review basis",
+          "five-star if actual rating differs",
+          "Do not invent hours, prices, offers, awards, lead times, or reservation support.",
+          "Do not claim a website, order flow, email route, or WhatsApp route unless verified.",
+          "Do not use unverified superlatives like best, leading, number one, or award-winning.",
+          "Do not fabricate team names, certifications, or years in business.",
+          "Do not promise online ordering, reservations, or a full menu URL when those routes are missing.",
+          "Do not say open now, open daily, late night, or list hours.",
+          "Do not say order online, checkout, or delivery now.",
+          "Do not imply a verified full external menu URL.",
+          "Do not present testimonial quotes or quote marks as if direct quotes exist."
+        ],
+        "length": {
+          "maxWords": 24,
+          "maxChars": 150,
+          "maxSentences": 2
+        },
+        "degradationGuidance": [
+          "If no testimonials exist, summarize themes instead of inventing quoted voices."
+        ]
+      },
+      {
+        "blockId": "review-signals",
+        "purpose": "List short, repeated themes from reviews or proof points.",
+        "audienceIntent": "Scan proof quickly.",
+        "tone": [
+          "warm-food-led",
+          "local-trust",
+          "direct-conversion"
+        ],
+        "structure": [
+          "Use short fragments.",
+          "Keep each point distinct.",
+          "Prefer nouns and clear attributes."
+        ],
+        "preferredInputs": [
+          "trust.reviewHighlights",
+          "trust.proofPoints"
+        ],
+        "allowedProofTypes": [
+          "review-themes",
+          "facts"
+        ],
+        "avoid": [
+          "full sentences",
+          "repeating the same concept with different words"
+        ],
+        "forbiddenClaims": [
+          "invented testimonial quotes",
+          "Do not invent hours, prices, offers, awards, lead times, or reservation support.",
+          "Do not claim a website, order flow, email route, or WhatsApp route unless verified.",
+          "Do not use unverified superlatives like best, leading, number one, or award-winning.",
+          "Do not fabricate team names, certifications, or years in business.",
+          "Do not promise online ordering, reservations, or a full menu URL when those routes are missing.",
+          "Do not say open now, open daily, late night, or list hours.",
+          "Do not say order online, checkout, or delivery now.",
+          "Do not imply a verified full external menu URL.",
+          "Do not present testimonial quotes or quote marks as if direct quotes exist."
+        ],
+        "length": {
+          "maxWords": 5,
+          "maxChars": 36,
+          "maxItems": 4
+        },
+        "degradationGuidance": [
+          "If review themes are weak, reduce the list rather than padding it."
+        ]
+      },
+      {
+        "blockId": "gallery-support",
+        "purpose": "Frame the gallery with one honest line.",
+        "audienceIntent": "Understand what the images are meant to prove.",
+        "tone": [
+          "warm-food-led",
+          "premium-casual"
+        ],
+        "structure": [
+          "Use one image-led idea.",
+          "Support the visuals instead of narrating them."
+        ],
+        "preferredInputs": [
+          "visualProfile.family.gallery",
+          "brand.photographyStyle",
+          "contentPlan.messaging.galleryFocus"
+        ],
+        "allowedProofTypes": [
+          "visual-cues",
+          "facts"
+        ],
+        "avoid": [
+          "mood-board copy",
+          "saying the same thing as the hero again"
+        ],
+        "forbiddenClaims": [
+          "storefront reference if no exterior image",
+          "luxury atmosphere if not supported",
+          "Do not invent hours, prices, offers, awards, lead times, or reservation support.",
+          "Do not claim a website, order flow, email route, or WhatsApp route unless verified.",
+          "Do not use unverified superlatives like best, leading, number one, or award-winning.",
+          "Do not fabricate team names, certifications, or years in business.",
+          "Do not promise online ordering, reservations, or a full menu URL when those routes are missing.",
+          "Do not say open now, open daily, late night, or list hours.",
+          "Do not say order online, checkout, or delivery now.",
+          "Do not imply a verified full external menu URL.",
+          "Do not present testimonial quotes or quote marks as if direct quotes exist."
+        ],
+        "length": {
+          "maxWords": 14,
+          "maxChars": 90,
+          "maxSentences": 1
+        },
+        "degradationGuidance": [
+          "If imagery is sparse, use a simpler support line and reduce gallery ambition."
+        ]
+      },
+      {
+        "blockId": "location-contact",
+        "purpose": "Make address, phone, hours, and visit cues easy to act on.",
+        "audienceIntent": "Know where to go and how to reach the business.",
+        "tone": [
+          "warm-food-led",
+          "local-trust",
+          "direct-conversion"
+        ],
+        "structure": [
+          "Lead with the practical visit value.",
+          "Do not restate the full address multiple times in the same block."
+        ],
+        "preferredInputs": [
+          "location.addressLine",
+          "contact.phone",
+          "operations.openingHours",
+          "contentPlan.messaging.locationFocus"
+        ],
+        "allowedProofTypes": [
+          "location",
+          "facts"
+        ],
+        "avoid": [
+          "fluffy closing language",
+          "repeating phone/address in every sentence"
+        ],
+        "forbiddenClaims": [
+          "open now when hours missing",
+          "walk-ins welcome if not verified",
+          "Do not invent hours, prices, offers, awards, lead times, or reservation support.",
+          "Do not claim a website, order flow, email route, or WhatsApp route unless verified.",
+          "Do not use unverified superlatives like best, leading, number one, or award-winning.",
+          "Do not fabricate team names, certifications, or years in business.",
+          "Do not promise online ordering, reservations, or a full menu URL when those routes are missing.",
+          "Do not say open now, open daily, late night, or list hours.",
+          "Do not say order online, checkout, or delivery now.",
+          "Do not imply a verified full external menu URL.",
+          "Do not present testimonial quotes or quote marks as if direct quotes exist."
+        ],
+        "length": {
+          "maxWords": 22,
+          "maxChars": 150,
+          "maxSentences": 2
+        },
+        "degradationGuidance": [
+          "If hours are missing, say directions and call are available, not that the place is open."
+        ]
+      },
+      {
+        "blockId": "faq",
+        "purpose": "Answer the most likely practical questions briefly.",
+        "audienceIntent": "Resolve first-visit friction without bloating the page.",
+        "tone": [
+          "warm-food-led",
+          "local-trust",
+          "direct-conversion"
+        ],
+        "structure": [
+          "Questions should be real customer questions.",
+          "Answers should be short, direct, and factual."
+        ],
+        "preferredInputs": [
+          "offer.faqItems",
+          "offer.serviceModes",
+          "location.addressLine"
+        ],
+        "allowedProofTypes": [
+          "facts",
+          "offer",
+          "location"
+        ],
+        "avoid": [
+          "FAQ as filler",
+          "generic hospitality copy",
+          "overlong answers"
+        ],
+        "forbiddenClaims": [
+          "hours if missing",
+          "reservation policy if not verified",
+          "team references if absent",
+          "Do not invent hours, prices, offers, awards, lead times, or reservation support.",
+          "Do not claim a website, order flow, email route, or WhatsApp route unless verified.",
+          "Do not use unverified superlatives like best, leading, number one, or award-winning.",
+          "Do not fabricate team names, certifications, or years in business.",
+          "Do not promise online ordering, reservations, or a full menu URL when those routes are missing.",
+          "Do not say open now, open daily, late night, or list hours.",
+          "Do not say order online, checkout, or delivery now.",
+          "Do not imply a verified full external menu URL.",
+          "Do not present testimonial quotes or quote marks as if direct quotes exist."
+        ],
+        "length": {
+          "maxWords": 26,
+          "maxChars": 180,
+          "maxSentences": 2,
+          "maxItems": 3
+        },
+        "degradationGuidance": [
+          "If no practical questions exist, reduce FAQ count or suppress the block."
+        ]
+      },
+      {
+        "blockId": "final-cta",
+        "purpose": "Close with the strongest truthful next step and one calm line of reassurance.",
+        "audienceIntent": "Take action after scanning the page.",
+        "tone": [
+          "warm-food-led",
+          "local-trust",
+          "direct-conversion"
+        ],
+        "structure": [
+          "Use a practical close.",
+          "Avoid sounding more urgent than the business can support."
+        ],
+        "preferredInputs": [
+          "contentPlan.primaryCta",
+          "sectorProfile.recommendedPrimaryCta",
+          "contentPlan.messaging.locationFocus"
+        ],
+        "allowedProofTypes": [
+          "facts",
+          "location",
+          "offer"
+        ],
+        "avoid": [
+          "repeating the hero verbatim",
+          "multiple urgent commands"
+        ],
+        "forbiddenClaims": [
+          "order now if order flow is absent",
+          "book today if no booking route exists",
+          "Do not invent hours, prices, offers, awards, lead times, or reservation support.",
+          "Do not claim a website, order flow, email route, or WhatsApp route unless verified.",
+          "Do not use unverified superlatives like best, leading, number one, or award-winning.",
+          "Do not fabricate team names, certifications, or years in business.",
+          "Do not promise online ordering, reservations, or a full menu URL when those routes are missing.",
+          "Do not say open now, open daily, late night, or list hours.",
+          "Do not say order online, checkout, or delivery now.",
+          "Do not imply a verified full external menu URL.",
+          "Do not present testimonial quotes or quote marks as if direct quotes exist."
+        ],
+        "length": {
+          "maxWords": 18,
+          "maxChars": 120,
+          "maxSentences": 1
+        },
+        "degradationGuidance": [
+          "If only one strong action exists, let the close be softer and more location-led."
+        ]
+      },
+      {
+        "blockId": "footer",
+        "purpose": "Reinforce category, locality, and one practical trust cue.",
+        "audienceIntent": "End with orientation, not noise.",
+        "tone": [
+          "warm-food-led",
+          "local-trust",
+          "direct-conversion"
+        ],
+        "structure": [
+          "Keep it simple.",
+          "Use one factual summary line only."
+        ],
+        "preferredInputs": [
+          "identity.primaryCategory",
+          "location.city",
+          "trust.ratingValue",
+          "offer.serviceModes"
+        ],
+        "allowedProofTypes": [
+          "facts",
+          "location",
+          "ratings"
+        ],
+        "avoid": [
+          "marketing tagline repetition",
+          "selling language in the footer"
+        ],
+        "forbiddenClaims": [
+          "unverified awards",
+          "hours if missing",
+          "Do not invent hours, prices, offers, awards, lead times, or reservation support.",
+          "Do not claim a website, order flow, email route, or WhatsApp route unless verified.",
+          "Do not use unverified superlatives like best, leading, number one, or award-winning.",
+          "Do not fabricate team names, certifications, or years in business.",
+          "Do not promise online ordering, reservations, or a full menu URL when those routes are missing.",
+          "Do not say open now, open daily, late night, or list hours.",
+          "Do not say order online, checkout, or delivery now.",
+          "Do not imply a verified full external menu URL.",
+          "Do not present testimonial quotes or quote marks as if direct quotes exist."
+        ],
+        "length": {
+          "maxWords": 16,
+          "maxChars": 100,
+          "maxSentences": 1
+        },
+        "degradationGuidance": [
+          "If proof is thin, keep the footer to category + location only."
+        ]
+      }
+    ],
+    "forbiddenClaims": [
+      "Do not invent hours, prices, offers, awards, lead times, or reservation support.",
+      "Do not claim a website, order flow, email route, or WhatsApp route unless verified.",
+      "Do not use unverified superlatives like best, leading, number one, or award-winning.",
+      "Do not fabricate team names, certifications, or years in business.",
+      "Do not promise online ordering, reservations, or a full menu URL when those routes are missing.",
+      "Do not say open now, open daily, late night, or list hours.",
+      "Do not say order online, checkout, or delivery now.",
+      "Do not imply a verified full external menu URL.",
+      "Do not present testimonial quotes or quote marks as if direct quotes exist."
+    ],
+    "allowedClaims": [
+      "South Indian restaurant",
+      "Cork location",
+      "Directions are available",
+      "Phone contact is available",
+      "Dine-in, Delivery, Pickup available",
+      "4.6 rating from 610 reviews",
+      "Featured items such as Paneer Potato Masala Dosa and Batura Chole Bhature"
+    ],
+    "contentOutlineBySector": [
+      {
+        "blockId": "hero-title",
+        "priority": "high",
+        "reason": "Move the user quickly from appetite and trust into ordering, visiting, or checking the menu."
+      },
+      {
+        "blockId": "hero-subheadline",
+        "priority": "high",
+        "reason": "Clarify the offer and the next step."
+      },
+      {
+        "blockId": "cta-primary",
+        "priority": "high",
+        "reason": "Keep the strongest truthful action near the top."
+      },
+      {
+        "blockId": "highlights",
+        "priority": "high",
+        "reason": "Help users scan the offer without overload."
+      },
+      {
+        "blockId": "trust-summary",
+        "priority": "high",
+        "reason": "Use the strongest trust proof available."
+      },
+      {
+        "blockId": "gallery-support",
+        "priority": "medium",
+        "reason": "Frame visuals without filler copy."
+      },
+      {
+        "blockId": "location-contact",
+        "priority": "high",
+        "reason": "Location and contact must stay useful."
+      },
+      {
+        "blockId": "faq",
+        "priority": "medium",
+        "reason": "FAQ should reduce friction, not add noise."
+      },
+      {
+        "blockId": "final-cta",
+        "priority": "high",
+        "reason": "Close on the strongest practical action."
+      },
+      {
+        "blockId": "footer",
+        "priority": "low",
+        "reason": "Reinforce location and one trust cue only."
+      }
+    ]
+  },
+  "ctaRules": {
+    "primary": {
+      "actionKey": "get-directions",
+      "label": "Get Directions",
+      "guidance": [
+        "Prefer literal verbs.",
+        "Keep the label under 18 characters.",
+        "A verified maps route exists."
+      ],
+      "maxChars": 18
+    },
+    "secondary": [
+      {
+        "actionKey": "view-menu",
+        "label": "View Menu",
+        "guidance": [
+          "Support the main action without competing with it.",
+          "Keep the label under 18 characters.",
+          "The current page has enough structured offer content to support an in-page menu route."
+        ],
+        "maxChars": 18
+      },
+      {
+        "actionKey": "call",
+        "label": "Call",
+        "guidance": [
+          "Support the main action without competing with it.",
+          "Keep the label under 18 characters.",
+          "A verified phone number exists."
+        ],
+        "maxChars": 18
+      }
+    ]
+  },
+  "contentConstraints": {
+    "maxVisibleCtas": 2,
+    "repetitionWindow": 3,
+    "forbiddenClaims": [
+      "Do not invent hours, prices, offers, awards, lead times, or reservation support.",
+      "Do not claim a website, order flow, email route, or WhatsApp route unless verified.",
+      "Do not use unverified superlatives like best, leading, number one, or award-winning.",
+      "Do not fabricate team names, certifications, or years in business.",
+      "Do not promise online ordering, reservations, or a full menu URL when those routes are missing.",
+      "Do not say open now, open daily, late night, or list hours.",
+      "Do not say order online, checkout, or delivery now.",
+      "Do not imply a verified full external menu URL.",
+      "Do not present testimonial quotes or quote marks as if direct quotes exist."
+    ],
+    "honestyRules": [
+      "Only use what is verified or explicitly prepared in the brief.",
+      "Simplify instead of inventing when data is missing.",
+      "Prefer themes over quotes when testimonial quotes are absent.",
+      "Prefer local practical actions over unverified digital flows."
+    ]
+  },
+  "degradationCopyRules": [
+    {
+      "ruleId": "copy-no-order-url",
+      "guidance": "Keep the copy visit-led or menu-led when no verified order flow exists.",
+      "affectedBlocks": [
+        "hero-title",
+        "hero-subheadline",
+        "cta-primary",
+        "cta-secondary",
+        "final-cta"
+      ],
+      "adjustments": [
+        "prefer directions over ordering",
+        "avoid delivery-first claims",
+        "keep CTA literal"
+      ],
+      "triggeredBy": [
+        "contact.orderUrl"
+      ]
+    },
+    {
+      "ruleId": "copy-no-menu-url",
+      "guidance": "Talk about menu highlights on-page instead of implying a complete external menu.",
+      "affectedBlocks": [
+        "highlights",
+        "cta-secondary",
+        "final-cta"
+      ],
+      "adjustments": [
+        "frame menu as highlights",
+        "avoid full menu language"
+      ],
+      "triggeredBy": [
+        "contact.menuUrl"
+      ]
+    },
+    {
+      "ruleId": "copy-no-hours",
+      "guidance": "Do not mention open-now, opening windows, or easy late-night availability.",
+      "affectedBlocks": [
+        "hero-subheadline",
+        "location-contact",
+        "faq",
+        "footer"
+      ],
+      "adjustments": [
+        "stick to address and call cues",
+        "avoid time-based wording"
+      ],
+      "triggeredBy": [
+        "location.openingHours"
+      ]
+    },
+    {
+      "ruleId": "copy-no-testimonials",
+      "guidance": "Summarize review themes instead of writing quote-style proof.",
+      "affectedBlocks": [
+        "trust-summary",
+        "review-signals"
+      ],
+      "adjustments": [
+        "use review themes",
+        "avoid quotation marks"
+      ],
+      "triggeredBy": [
+        "trust.testimonials"
+      ]
+    },
+    {
+      "ruleId": "visual:warm-food-no-exterior",
+      "guidance": "If no exterior photo exists, keep the gallery dish-led and let location trust come from maps/contact blocks.",
+      "affectedBlocks": [
+        "gallery-support",
+        "location-contact"
+      ],
+      "adjustments": [
+        "remove storefront framing",
+        "promote address/contact card"
+      ],
+      "triggeredBy": [
+        "signal:image:exterior"
+      ]
+    }
+  ],
+  "copyValidationRules": [
+    {
+      "id": "length-limits",
+      "description": "Each block should respect its configured word and character limits.",
+      "appliesTo": [
+        "hero-title",
+        "hero-subheadline",
+        "hero-support",
+        "cta-primary",
+        "cta-secondary",
+        "highlights",
+        "trust-summary",
+        "review-signals",
+        "gallery-support",
+        "location-contact",
+        "faq",
+        "final-cta",
+        "footer"
+      ],
+      "severity": "warning"
+    },
+    {
+      "id": "no-fabricated-claims",
+      "description": "Copy must not imply unverified hours, prices, offers, awards, or booking capabilities.",
+      "appliesTo": [
+        "hero-title",
+        "hero-subheadline",
+        "hero-support",
+        "trust-summary",
+        "location-contact",
+        "faq",
+        "final-cta",
+        "footer"
+      ],
+      "severity": "error"
+    },
+    {
+      "id": "avoid-empty-decoration",
+      "description": "Copy should avoid vague decorative language with no factual anchor.",
+      "appliesTo": [
+        "hero-title",
+        "hero-subheadline",
+        "highlights",
+        "trust-summary",
+        "gallery-support",
+        "final-cta"
+      ],
+      "severity": "hint"
+    },
+    {
+      "id": "avoid-duplicate-cta-language",
+      "description": "CTA labels and supporting lines should not repeat the same action point excessively.",
+      "appliesTo": [
+        "cta-primary",
+        "cta-secondary",
+        "final-cta"
+      ],
+      "severity": "warning"
+    },
+    {
+      "id": "faq-needs-real-utility",
+      "description": "FAQ should answer practical questions with short, real answers, or stay absent.",
+      "appliesTo": [
+        "faq"
+      ],
+      "severity": "warning"
+    }
+  ],
+  "validation": {
+    "summary": {
+      "errors": 0,
+      "warnings": 0,
+      "hints": 6
+    },
+    "issues": [
+      {
+        "severity": "hint",
+        "blockId": "highlights",
+        "message": "Repeated phrase across samples: \"curry plates\".",
+        "sampleLabel": null
+      },
+      {
+        "severity": "hint",
+        "blockId": "highlights",
+        "message": "Repeated phrase across samples: \"pickup or\".",
+        "sampleLabel": null
+      },
+      {
+        "severity": "hint",
+        "blockId": "highlights",
+        "message": "Repeated phrase across samples: \"or delivery\".",
+        "sampleLabel": null
+      },
+      {
+        "severity": "hint",
+        "blockId": "highlights",
+        "message": "Repeated phrase across samples: \"pickup or delivery\".",
+        "sampleLabel": null
+      },
+      {
+        "severity": "hint",
+        "blockId": "highlights",
+        "message": "Repeated phrase across samples: \"potato masala\".",
+        "sampleLabel": null
+      },
+      {
+        "severity": "hint",
+        "blockId": "highlights",
+        "message": "Repeated phrase across samples: \"you want\".",
+        "sampleLabel": null
+      }
+    ],
+    "checkedSamples": [
+      {
+        "blockId": "hero-title",
+        "sampleLabel": "Hero title",
+        "text": "Crisp dosa and curry plates on Washington Street.",
+        "wordCount": 8,
+        "charCount": 49,
+        "issues": []
+      },
+      {
+        "blockId": "hero-subheadline",
+        "sampleLabel": "Hero subheadline",
+        "text": "A Cork city stop for South Indian dosa, curry plates, dine-in, pickup, or delivery.",
+        "wordCount": 15,
+        "charCount": 83,
+        "issues": []
+      },
+      {
+        "blockId": "hero-support",
+        "sampleLabel": "Hero support",
+        "text": "Start with the Paneer Potato Masala Dosa, then move to bhature when you want something heavier.",
+        "wordCount": 16,
+        "charCount": 95,
+        "issues": []
+      },
+      {
+        "blockId": "cta-primary",
+        "sampleLabel": "Primary CTA label",
+        "text": "Get Directions",
+        "wordCount": 2,
+        "charCount": 14,
+        "issues": []
+      },
+      {
+        "blockId": "cta-secondary",
+        "sampleLabel": "Secondary CTA 1",
+        "text": "View Menu",
+        "wordCount": 2,
+        "charCount": 9,
+        "issues": []
+      },
+      {
+        "blockId": "cta-secondary",
+        "sampleLabel": "Secondary CTA 2",
+        "text": "Call",
+        "wordCount": 1,
+        "charCount": 4,
+        "issues": []
+      },
+      {
+        "blockId": "highlights",
+        "sampleLabel": "Highlight 1",
+        "text": "The clearest first order: a crisp dosa wrapped around paneer and potato masala.",
+        "wordCount": 13,
+        "charCount": 79,
+        "issues": []
+      },
+      {
+        "blockId": "highlights",
+        "sampleLabel": "Highlight 2",
+        "text": "Puffy bhature and chickpea curry when you want the richer, heavier plate.",
+        "wordCount": 12,
+        "charCount": 73,
+        "issues": []
+      },
+      {
+        "blockId": "highlights",
+        "sampleLabel": "Highlight 3",
+        "text": "Warm gulab jamun for a short sweet finish after the savoury plates.",
+        "wordCount": 12,
+        "charCount": 67,
+        "issues": []
+      },
+      {
+        "blockId": "trust-summary",
+        "sampleLabel": "Trust summary",
+        "text": "4.6 rating, 610 reviews, and repeated praise for very tasty food and friendly staff.",
+        "wordCount": 15,
+        "charCount": 84,
+        "issues": []
+      },
+      {
+        "blockId": "review-signals",
+        "sampleLabel": "Review signal 1",
+        "text": "Very tasty food",
+        "wordCount": 3,
+        "charCount": 15,
+        "issues": []
+      },
+      {
+        "blockId": "review-signals",
+        "sampleLabel": "Review signal 2",
+        "text": "Friendly staff",
+        "wordCount": 2,
+        "charCount": 14,
+        "issues": []
+      },
+      {
+        "blockId": "review-signals",
+        "sampleLabel": "Review signal 3",
+        "text": "Quick service",
+        "wordCount": 2,
+        "charCount": 13,
+        "issues": []
+      },
+      {
+        "blockId": "review-signals",
+        "sampleLabel": "Review signal 4",
+        "text": "Dosa stands out",
+        "wordCount": 3,
+        "charCount": 15,
+        "issues": []
+      },
+      {
+        "blockId": "gallery-support",
+        "sampleLabel": "Gallery support",
+        "text": "Real food photography with warm tabletop light and an honest local feel.",
+        "wordCount": 12,
+        "charCount": 72,
+        "issues": []
+      },
+      {
+        "blockId": "location-contact",
+        "sampleLabel": "Location focus",
+        "text": "35 Washington St, Centre, Cork, T12 DHX2.",
+        "wordCount": 7,
+        "charCount": 41,
+        "issues": []
+      },
+      {
+        "blockId": "faq",
+        "sampleLabel": "FAQ question 1",
+        "text": "What should I try first?",
+        "wordCount": 5,
+        "charCount": 24,
+        "issues": []
+      },
+      {
+        "blockId": "faq",
+        "sampleLabel": "FAQ answer 1",
+        "text": "Start with the Paneer Potato Masala Dosa. Go for Batura Chole Bhature if you want something heavier.",
+        "wordCount": 17,
+        "charCount": 100,
+        "issues": []
+      },
+      {
+        "blockId": "faq",
+        "sampleLabel": "FAQ question 2",
+        "text": "Can I call before pickup or delivery?",
+        "wordCount": 7,
+        "charCount": 37,
+        "issues": []
+      },
+      {
+        "blockId": "faq",
+        "sampleLabel": "FAQ answer 2",
+        "text": "Yes. Use the phone number on the page if you want to confirm pickup or delivery details before you go.",
+        "wordCount": 20,
+        "charCount": 102,
+        "issues": []
+      },
+      {
+        "blockId": "final-cta",
+        "sampleLabel": "Primary CTA reason",
+        "text": "Directions are the strongest truthful action in the current source set.",
+        "wordCount": 11,
+        "charCount": 71,
+        "issues": []
+      },
+      {
+        "blockId": "footer",
+        "sampleLabel": "Footer summary",
+        "text": "A Cork city stop for South Indian dosa, curry plates, dine-in, pickup, or delivery.",
+        "wordCount": 15,
+        "charCount": 83,
+        "issues": []
+      }
+    ],
+    "repeatedPhrases": [
+      "curry plates",
+      "pickup or",
+      "or delivery",
+      "pickup or delivery",
+      "potato masala",
+      "you want"
+    ]
+  }
+}

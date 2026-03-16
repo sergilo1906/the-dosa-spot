@@ -1,24 +1,15 @@
 ---
 import SectionHeading from '../ui/SectionHeading.astro';
+import type { AssemblyProfileFile } from '../../types/assembly-engine';
 import type { BusinessBrief } from '../../types/business';
 
 interface Props {
   business: BusinessBrief;
+  assembly: AssemblyProfileFile;
 }
 
-const { business } = Astro.props;
-const trustSignals = (business.reviewHighlights.length > 0 ? business.reviewHighlights : business.proofPoints).slice(0, 4);
-const visitDetails = [business.display.location, business.phone, business.serviceModes.join(' / ')].filter(Boolean);
-const ratingValue =
-  typeof business.ratingValue === 'number' ? business.ratingValue.toFixed(1) : String(business.services.length).padStart(2, '0');
-const ratingContext =
-  typeof business.reviewCount === 'number'
-    ? `Based on ${business.reviewCount} reviews.`
-    : 'Built around the strongest local trust signals available.';
-const trustBody =
-  typeof business.reviewCount === 'number'
-    ? `${ratingValue} from ${business.reviewCount} reviews, with repeated mentions of the food, the speed, and the staff.`
-    : 'A short trust read based on the clearest local signals available.';
+const { assembly } = Astro.props;
+const trustContent = assembly.content.trust;
 ---
 
 <section class="section-shell" id="reviews">
@@ -27,14 +18,14 @@ const trustBody =
       <SectionHeading
         eyebrow="Reviews & trust"
         indexLabel="03"
-        title="A strong first impression, backed by real reviews."
-        body={trustBody}
+        title={trustContent.title}
+        body={trustContent.body}
       />
 
       <div class="credibility-score panel-luxe panel-luxe--soft" data-reveal-group>
         <p class="detail-label" data-reveal-item>Google rating</p>
-        <p class="credibility-score__value" data-reveal-item>{ratingValue}</p>
-        <p data-reveal-item>{ratingContext}</p>
+        <p class="credibility-score__value" data-reveal-item>{trustContent.ratingValue}</p>
+        <p data-reveal-item>{trustContent.ratingContext}</p>
       </div>
     </div>
 
@@ -42,7 +33,7 @@ const trustBody =
       <div class="credibility-card panel-luxe panel-luxe--soft" data-reveal-item>
         <p class="detail-label">What people mention</p>
         <ul class="proof-list">
-          {trustSignals.map((point) => (
+          {trustContent.signals.map((point) => (
             <li>{point}</li>
           ))}
         </ul>
@@ -51,7 +42,7 @@ const trustBody =
       <div class="credibility-card panel-luxe" data-reveal-item>
         <p class="detail-label">Visit details</p>
         <ul class="proof-list">
-          {visitDetails.map((detail) => <li>{detail}</li>)}
+          {trustContent.visitDetails.map((detail) => <li>{detail}</li>)}
         </ul>
       </div>
     </div>

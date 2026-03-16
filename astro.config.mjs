@@ -3,8 +3,11 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 
+const defaultSiteUrl = 'https://preview.local-business-site.example';
+const siteUrl = (process.env.PUBLIC_SITE_URL ?? process.env.SITE_URL ?? defaultSiteUrl).replace(/\/+$/u, '');
+
 export default defineConfig({
-  site: 'https://barber-pro-6fdf6.web.app',
+  site: siteUrl,
   integrations: [
     tailwind({
       applyBaseStyles: false,

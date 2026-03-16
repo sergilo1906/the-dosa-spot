@@ -1,4 +1,5 @@
 ---
+import type { AssemblyProfileFile } from '../../types/assembly-engine';
 import type { BusinessBrief } from '../../types/business';
 import AboutSection from '../sections/AboutSection.astro';
 import CredibilitySection from '../sections/CredibilitySection.astro';
@@ -11,6 +12,7 @@ import ServicesSection from '../sections/ServicesSection.astro';
 
 interface Props {
   business: BusinessBrief;
+  assembly: AssemblyProfileFile;
   preset: {
     heroVariant: import('../../types/business').HeroVariant;
     servicesVariant: import('../../types/business').ServicesVariant;
@@ -19,72 +21,61 @@ interface Props {
   };
 }
 
-const { business, preset } = Astro.props;
-const featuredItems =
-  business.featuredItems.length > 0
-    ? business.featuredItems
-    : business.services.slice(0, 4).map((item) => ({
-        title: item.priceLabel ?? item.title,
-        summary: item.summary,
-        accent: item.accent,
-        imageSrc: null,
-        imageAlt: item.title,
-        imageWidth: null,
-        imageHeight: null,
-      }));
-const heroNote = business.reviewHighlights.length > 0 ? 'Three plates worth seeing before you scroll.' : 'A quick read of the food people notice first.';
-const popularPicks = featuredItems.slice(0, 3).map((item) => ({
-  eyebrow: item.accent ?? 'Popular pick',
-  title: item.title,
-  body: item.summary,
-  imageSrc: item.imageSrc ?? null,
-  imageAlt: item.imageAlt ?? item.title,
-  imageWidth: item.imageWidth ?? undefined,
-  imageHeight: item.imageHeight ?? undefined,
-}));
+const { business, assembly, preset } = Astro.props;
+const sectionLookup = new Map(assembly.visibility.sections.map((section) => [section.id, section]));
+const popularSection = sectionLookup.get('popular-items');
+const servicesSection = sectionLookup.get('services');
+const credibilitySection = sectionLookup.get('credibility');
+const aboutSection = sectionLookup.get('about');
+const gallerySection = sectionLookup.get('gallery');
+const faqSection = sectionLookup.get('faq');
+const ctaSection = sectionLookup.get('cta');
+const popularPicks = assembly.content.popularItems.cards;
 ---
 
 <div class="landing-shell">
-  <HeroSection business={business} variant={preset.heroVariant} />
-  <section class="section-shell landing-marquee-shell" aria-label="Popular dishes">
+  <HeroSection business={business} assembly={assembly} variant={preset.heroVariant} />
+  {popularSection?.show && (
+    <section class="section-shell landing-marquee-shell" id="popular-items" aria-label="Popular dishes">
       <div class="landing-marquee panel-luxe panel-luxe--soft" data-reveal-group>
-      <div class="landing-marquee__meta" data-reveal-item>
-        <div class="landing-marquee__intro">
-          <p class="detail-label">Popular dishes</p>
-          <h2 class="landing-marquee__title">A quick look at the plates people come back for.</h2>
+        <div class="landing-marquee__meta" data-reveal-item>
+          <div class="landing-marquee__intro">
+            <p class="detail-label">Popular dishes</p>
+            <h2 class="landing-marquee__title">{assembly.content.popularItems.title}</h2>
+          </div>
+          <p class="landing-marquee__note">{assembly.content.popularItems.body}</p>
         </div>
-        <p class="landing-marquee__note">{heroNote}</p>
+        <div class="landing-marquee__cards" data-reveal-item>
+          {popularPicks.map((card) => (
+            <article class="landing-marquee__card landing-marquee__card--visual panel-luxe panel-luxe--soft">
+              {card.image && (
+                <figure class="landing-marquee__media">
+                  <img
+                    src={card.image.src}
+                    alt={card.image.alt}
+                    width={card.image.width ?? undefined}
+                    height={card.image.height ?? undefined}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </figure>
+              )}
+              <div class="landing-marquee__copy">
+                <p class="detail-label">{card.eyebrow}</p>
+                <h3>{card.title}</h3>
+                <p>{card.body}</p>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
-      <div class="landing-marquee__cards" data-reveal-item>
-        {popularPicks.map((card) => (
-          <article class="landing-marquee__card landing-marquee__card--visual panel-luxe panel-luxe--soft">
-            {card.imageSrc && (
-              <figure class="landing-marquee__media">
-                <img
-                  src={card.imageSrc}
-                  alt={card.imageAlt}
-                  width={card.imageWidth}
-                  height={card.imageHeight}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </figure>
-            )}
-            <div class="landing-marquee__copy">
-              <p class="detail-label">{card.eyebrow}</p>
-              <h3>{card.title}</h3>
-              <p>{card.body}</p>
-            </div>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-  {business.sectionEligibility.services && <ServicesSection business={business} variant={preset.servicesVariant} />}
-  {business.sectionEligibility.credibility && <CredibilitySection business={business} />}
-  <AboutSection business={business} />
-  {business.sectionEligibility.gallery && <GallerySection business={business} variant={preset.galleryVariant} />}
-  {business.sectionEligibility.faq && <FaqSection business={business} />}
-  <CtaSection business={business} variant={preset.ctaVariant} />
-  <FooterSection business={business} />
+    </section>
+  )}
+  {credibilitySection?.show && <CredibilitySection business={business} assembly={assembly} />}
+  {servicesSection?.show && <ServicesSection business={business} variant={preset.servicesVariant} />}
+  {aboutSection?.show && <AboutSection business={business} />}
+  {gallerySection?.show && <GallerySection business={business} assembly={assembly} variant={preset.galleryVariant} />}
+  {faqSection?.show && <FaqSection business={business} />}
+  {ctaSection?.show && <CtaSection business={business} assembly={assembly} variant={preset.ctaVariant} />}
+  <FooterSection business={business} assembly={assembly} />
 </div>

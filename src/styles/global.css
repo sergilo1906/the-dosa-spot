@@ -249,20 +249,7 @@
   }
 
   .section-index {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    color: var(--text-muted);
-    font-size: 0.72rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-  }
-
-  .section-index::before {
-    content: '';
-    width: 2.1rem;
-    height: 1px;
-    background: linear-gradient(90deg, rgba(215, 171, 121, 0.72), rgba(215, 171, 121, 0.12));
+    display: none;
   }
 
   .section-title {
@@ -1741,12 +1728,16 @@
 
   .section-shell {
     width: min(100% - 1.25rem, 90rem);
-    padding-block: clamp(3.35rem, 9vw, 4.2rem);
+    padding-block: clamp(2.2rem, 7vw, 3rem);
   }
 
   .landing-shell::before {
     width: 24rem;
     height: 22rem;
+  }
+
+  .landing-shell > .section-shell:not(.hero-section)::before {
+    display: none;
   }
 
   .hero-section {
@@ -1795,7 +1786,7 @@
   .hero-frame--primary,
   .hero-frame--poster-main,
   .hero-frame--monolith {
-    min-height: 19rem;
+    min-height: 17.5rem;
   }
 
   .hero-facts {
@@ -1811,7 +1802,7 @@
 
   .service-card--featured {
     grid-column: auto;
-    min-height: 18rem;
+    min-height: 0;
   }
 
   .gallery-frame--mosaic:nth-child(1),
@@ -1824,6 +1815,58 @@
 
   .service-row {
     grid-template-columns: 1fr;
+  }
+
+  .hero-mini-grid {
+    display: none;
+  }
+
+  .landing-marquee,
+  .gallery-carousel,
+  .cta-panel,
+  .footer-panel {
+    padding: 0.9rem;
+  }
+
+  .landing-marquee__meta {
+    gap: 0.65rem;
+  }
+
+  .landing-marquee__card,
+  .landing-marquee__route,
+  .landing-marquee__readiness-card,
+  .service-card,
+  .cta-card,
+  .about-intro-card,
+  .services-note,
+  .gallery-intro-card,
+  .credibility-score {
+    min-height: 0;
+    padding: 1rem;
+  }
+
+  .service-card {
+    min-height: 0;
+  }
+
+  .faq-list,
+  .service-rows {
+    padding: 0.45rem 0.95rem;
+  }
+
+  .services-note,
+  .about-intro-card,
+  .gallery-intro-card {
+    display: none;
+  }
+
+  .about-panel,
+  .credibility-panel,
+  .gallery-carousel,
+  .cta-panel,
+  .footer-panel,
+  .error-panel {
+    margin-top: 1rem;
   }
 
   .hero-actions,

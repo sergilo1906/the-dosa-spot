@@ -7,29 +7,33 @@ interface Props {
 }
 
 const { business } = Astro.props;
+const isFoodBusiness = business.niche === 'restaurant' || business.niche === 'cafe-bakery-takeaway';
+const sectionEyebrow = isFoodBusiness ? 'Service modes' : 'How it works';
+const sectionTitle = isFoodBusiness ? 'Dine in, pick up, or get delivery.' : 'Choose the route that fits the visit.';
+const sectionBody = isFoodBusiness
+  ? 'Only the service options confirmed in the current business brief.'
+  : 'Keep the next step simple with the practical options confirmed right now.';
 const serviceModeCopy: Record<string, string> = {
-  'Dine-in': 'Warm plates and quick city-centre stop-ins when you want to eat in.',
-  Delivery: 'A smoother route into South Indian favourites when dinner needs to arrive fast.',
-  Pickup: 'Easy collection for lunch runs, takeaway nights, and quicker after-work stops.',
+  'Dine-in': 'Sit down at the restaurant when you want the full plate in front of you.',
+  Delivery: 'Useful when you want the food brought to you instead of making the trip.',
+  Pickup: 'Best when you want something faster and already know what to ask for.',
 };
 const serviceCards =
-  business.serviceModes.length > 0
-    ? business.serviceModes
-    : ['Dine-in', 'Delivery', 'Pickup'];
+  business.serviceModes.length > 0 ? business.serviceModes : [];
 ---
 
 <section class="section-shell" id="service-options">
   <div class="section-grid section-grid--split about-intro">
     <SectionHeading
-      eyebrow="Service options"
+      eyebrow={sectionEyebrow}
       indexLabel="04"
-      title="Dine in, pick up, or get it delivered."
-      body="The next step stays clear whether you are stopping in or taking food home."
+      title={sectionTitle}
+      body={sectionBody}
     />
     <aside class="about-intro-card panel-luxe panel-luxe--soft" data-reveal-group>
-      <p class="detail-label" data-reveal-item>Restaurant note</p>
-      <p class="about-intro-card__title" data-reveal-item>Three clear ways to order.</p>
-      <p data-reveal-item>Quick to understand on mobile, and just as clear when you are walking by.</p>
+      <p class="detail-label" data-reveal-item>Good to know</p>
+      <p class="about-intro-card__title" data-reveal-item>Keep the next step obvious.</p>
+      <p data-reveal-item>Short enough to scan quickly, without repeating the whole page.</p>
     </aside>
   </div>
 
@@ -37,15 +41,14 @@ const serviceCards =
     <div class="about-main">
       <div class="about-copy" data-reveal-item>
         <p>
-          {business.businessName} works best when the next step is obvious: stop in, call ahead, or head straight over from the
-          city centre.
+          {business.businessName} works best when the next step is clear: visit in person, call ahead, or use the service mode that fits the moment.
         </p>
       </div>
       <div class="about-details">
         {serviceCards.map((item) => (
           <div class="about-stack panel-luxe panel-luxe--soft" data-reveal-item>
             <p class="detail-label">{item}</p>
-            <p>{serviceModeCopy[item] ?? 'A clear service route built around quicker local food decisions.'}</p>
+            <p>{serviceModeCopy[item] ?? 'A clear service route built around quicker local decisions.'}</p>
           </div>
         ))}
       </div>

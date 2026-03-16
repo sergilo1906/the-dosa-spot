@@ -1,28 +1,39 @@
 ---
 import SectionHeading from '../ui/SectionHeading.astro';
+import type { AssemblyProfileFile } from '../../types/assembly-engine';
 import type { BusinessBrief, GalleryVariant, ImageAsset } from '../../types/business';
 
 interface Props {
   business: BusinessBrief;
+  assembly: AssemblyProfileFile;
   variant: GalleryVariant;
 }
 
-const { business, variant } = Astro.props;
+const { business, assembly, variant } = Astro.props;
 
 const galleryAssets = business.galleryAssets.length > 0 ? business.galleryAssets : business.imageAssets;
-const preferredGalleryOrder = [
-  'dish-dosa',
-  'gallery-curry-naan',
-  'dish-chole-bhature',
-  'dish-gulab-jamun',
-  'dish-vegetable-noodles',
-];
-const curatedGalleryAssets =
-  preferredGalleryOrder
-    .map((id) => galleryAssets.find((asset) => asset.id === id))
-    .filter((asset): asset is ImageAsset => Boolean(asset))
-    .slice(0, 5);
-const displayedGalleryAssets = curatedGalleryAssets.length > 0 ? curatedGalleryAssets : galleryAssets.slice(0, 5);
+const displayedGalleryAssets =
+  assembly.images.gallery.length > 0 ? assembly.images.gallery : galleryAssets.slice(0, 5);
+
+function humanizeGalleryLabel(asset: ImageAsset) {
+  const genericTreatments = new Set([
+    'food close up',
+    'food detail',
+    'dish image',
+    'gallery image',
+    'gallery plate',
+    'business detail',
+  ]);
+
+  if (asset.treatment && !genericTreatments.has(asset.treatment.toLowerCase())) {
+    return asset.treatment;
+  }
+
+  return asset.id
+    .replace(/^(gallery|dish|hero|fallback)-/, '')
+    .replace(/-/g, ' ')
+    .trim() || business.primaryCategory || 'Business detail';
+}
 
 function frameRatio(asset: ImageAsset) {
   switch (asset.ratio) {
@@ -43,13 +54,13 @@ function frameRatio(asset: ImageAsset) {
     <SectionHeading
       eyebrow="Gallery"
       indexLabel="05"
-      title="A tighter look at the food and the table."
-      body="Fewer images, chosen to make the food feel immediate."
+      title={assembly.content.gallery.title}
+      body={assembly.content.gallery.body}
     />
     <aside class="gallery-intro-card panel-luxe panel-luxe--soft" data-reveal-group>
-      <p class="detail-label" data-reveal-item>Restaurant mood</p>
-      <p class="gallery-intro-card__title" data-reveal-item>Warm plates, clean framing.</p>
-      <p data-reveal-item>{business.photographyStyle}</p>
+      <p class="detail-label" data-reveal-item>Visual note</p>
+      <p class="gallery-intro-card__title" data-reveal-item>{assembly.content.gallery.noteTitle}</p>
+      <p data-reveal-item>{assembly.content.gallery.noteBody}</p>
     </aside>
   </div>
 
@@ -72,7 +83,7 @@ function frameRatio(asset: ImageAsset) {
                   decoding="async"
                 />
                 <figcaption class="gallery-frame__overlay">
-                  <span>{asset.treatment ?? 'Restaurant detail'}</span>
+                  <span>{humanizeGalleryLabel(asset)}</span>
                 </figcaption>
               </figure>
             </article>
@@ -95,7 +106,7 @@ function frameRatio(asset: ImageAsset) {
             decoding="async"
           />
           <figcaption class="gallery-frame__overlay">
-            <span>{asset.treatment ?? 'restaurant detail'}</span>
+            <span>{humanizeGalleryLabel(asset)}</span>
           </figcaption>
         </figure>
       ))}

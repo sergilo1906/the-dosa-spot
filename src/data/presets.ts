@@ -1,55 +1,41 @@
 import { getBusinessBySlug } from './businesses';
+import { demoPresets } from './preset-definitions';
 import type { DemoPreset } from '../types/business';
 
-export const demoPresets: DemoPreset[] = [
-  {
-    slug: 'dosa-signature',
-    label: 'City Plates',
-    description: 'The default preset balancing food-first imagery, clear menu highlights, and fast local action.',
-    businessSlug: 'the-dosa-spot',
-    presentationRole: 'primary',
-    heroVariant: 'cinematic-split',
-    servicesVariant: 'signature-grid',
-    galleryVariant: 'atmosphere-carousel',
-    ctaVariant: 'visit-studio',
-    isDefault: true,
-  },
-  {
-    slug: 'dosa-poster',
-    label: 'Spice Table',
-    description: 'A warmer, more editorial preset that pushes the food visuals first.',
-    businessSlug: 'the-dosa-spot',
-    presentationRole: 'secondary',
-    heroVariant: 'immersive-poster',
-    servicesVariant: 'editorial-rows',
-    galleryVariant: 'frames-mosaic',
-    ctaVariant: 'book-consult',
-  },
-  {
-    slug: 'dosa-monolith',
-    label: 'Washington Street',
-    description: 'A more compact route with stronger emphasis on location, trust, and quick menu access.',
-    businessSlug: 'the-dosa-spot',
-    presentationRole: 'fallback',
-    heroVariant: 'monolith-stack',
-    servicesVariant: 'signature-grid',
-    galleryVariant: 'frames-mosaic',
-    ctaVariant: 'visit-studio',
-  },
-];
+const ACTIVE_PRESET_ENV_KEYS = ['PUBLIC_ACTIVE_PRESET_SLUG', 'ACTIVE_PRESET_SLUG'] as const;
+const ACTIVE_BUSINESS_ENV_KEYS = ['PUBLIC_ACTIVE_BUSINESS_SLUG', 'ACTIVE_BUSINESS_SLUG'] as const;
+
+function readFirstEnv(keys: readonly string[]) {
+  for (const key of keys) {
+    const value = process.env[key]?.trim();
+    if (value) return value;
+  }
+
+  return null;
+}
 
 export function getAllPresets() {
   return demoPresets;
 }
 
 export function getDefaultPreset() {
-  const preset = demoPresets.find((item) => item.isDefault);
+  const defaults = demoPresets.filter((item) => item.isDefault);
 
-  if (!preset) {
+  if (defaults.length === 0) {
     throw new Error('No default preset configured.');
   }
 
-  return preset;
+  if (defaults.length > 1) {
+    const businessCount = new Set(defaults.map((item) => item.businessSlug)).size;
+
+    if (businessCount > 1) {
+      throw new Error(
+        'Multiple business defaults are configured. Set ACTIVE_BUSINESS_SLUG or ACTIVE_PRESET_SLUG to scope the build.',
+      );
+    }
+  }
+
+  return defaults[0];
 }
 
 export function getPresetBySlug(slug: string) {
@@ -60,6 +46,35 @@ export function getPresetBySlug(slug: string) {
   }
 
   return preset;
+}
+
+export function getPresetsForBusinessSlug(businessSlug: string) {
+  return demoPresets.filter((item) => item.businessSlug === businessSlug);
+}
+
+export function getPrimaryPresetForBusinessSlug(businessSlug: string) {
+  const presets = getPresetsForBusinessSlug(businessSlug);
+  const preferred = presets.find((item) => item.isDefault) ?? presets[0];
+
+  if (!preferred) {
+    throw new Error(`No preset configured for business slug: ${businessSlug}`);
+  }
+
+  return preferred;
+}
+
+export function getActivePreset() {
+  const explicitPresetSlug = readFirstEnv(ACTIVE_PRESET_ENV_KEYS);
+  if (explicitPresetSlug) {
+    return getPresetBySlug(explicitPresetSlug);
+  }
+
+  const explicitBusinessSlug = readFirstEnv(ACTIVE_BUSINESS_ENV_KEYS);
+  if (explicitBusinessSlug) {
+    return getPrimaryPresetForBusinessSlug(explicitBusinessSlug);
+  }
+
+  return getDefaultPreset();
 }
 
 export function getBusinessForPreset(preset: DemoPreset) {

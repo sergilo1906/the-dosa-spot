@@ -1,0 +1,274 @@
+{
+  "schemaVersion": 1,
+  "businessSlug": "the-dosa-spot",
+  "generatedAt": "2026-03-16T15:21:56.252Z",
+  "seed": {
+    "businessName": "The Dosa Spot",
+    "slug": "the-dosa-spot",
+    "niche": "restaurant",
+    "primaryCategory": "South Indian restaurant",
+    "secondaryCategories": [
+      "Indian restaurant",
+      "Takeaway restaurant"
+    ],
+    "city": "Cork",
+    "country": "Ireland",
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=35%20Washington%20St%2C%20Centre%2C%20Cork%2C%20T12%20DHX2%2C%20Cork%2C%20Ireland",
+    "manualNotesSummary": "Current verified conversion is direction-first because there is no confirmed order URL or first-party website in the source set.",
+    "desiredPrimaryCta": "get-directions",
+    "desiredTone": [
+      "welcoming",
+      "clear",
+      "fresh",
+      "local"
+    ],
+    "confirmedData": [
+      "businessName",
+      "slug",
+      "niche",
+      "primaryCategory",
+      "address",
+      "phone",
+      "ratingValue",
+      "reviewCount",
+      "serviceModes"
+    ]
+  },
+  "rootPath": "business-input/the-dosa-spot",
+  "normalizedPath": "business-input/the-dosa-spot/normalized",
+  "discoveredFiles": [
+    {
+      "relativePath": "docs/menu-summary.md",
+      "folderKind": "docs",
+      "category": "document-text",
+      "fileName": "menu-summary.md",
+      "extension": ".md",
+      "bytes": 385,
+      "status": "accepted",
+      "roleHint": null,
+      "issues": []
+    },
+    {
+      "relativePath": "docs/reviews-selected.md",
+      "folderKind": "docs",
+      "category": "document-text",
+      "fileName": "reviews-selected.md",
+      "extension": ".md",
+      "bytes": 222,
+      "status": "accepted",
+      "roleHint": null,
+      "issues": []
+    },
+    {
+      "relativePath": "images/dish-chole-bhature.jpg",
+      "folderKind": "images",
+      "category": "image-dish",
+      "fileName": "dish-chole-bhature.jpg",
+      "extension": ".jpg",
+      "bytes": 175567,
+      "status": "accepted",
+      "roleHint": "dish",
+      "issues": []
+    },
+    {
+      "relativePath": "images/dish-dosa.jpg",
+      "folderKind": "images",
+      "category": "image-dish",
+      "fileName": "dish-dosa.jpg",
+      "extension": ".jpg",
+      "bytes": 180577,
+      "status": "accepted",
+      "roleHint": "dish",
+      "issues": []
+    },
+    {
+      "relativePath": "images/dish-gulab-jamun.jpg",
+      "folderKind": "images",
+      "category": "image-dish",
+      "fileName": "dish-gulab-jamun.jpg",
+      "extension": ".jpg",
+      "bytes": 162475,
+      "status": "accepted",
+      "roleHint": "dish",
+      "issues": []
+    },
+    {
+      "relativePath": "images/dish-vegetable-noodles.jpg",
+      "folderKind": "images",
+      "category": "image-dish",
+      "fileName": "dish-vegetable-noodles.jpg",
+      "extension": ".jpg",
+      "bytes": 170202,
+      "status": "accepted",
+      "roleHint": "dish",
+      "issues": []
+    },
+    {
+      "relativePath": "images/fallback-noodle-bowl.jpg",
+      "folderKind": "images",
+      "category": "image-generic",
+      "fileName": "fallback-noodle-bowl.jpg",
+      "extension": ".jpg",
+      "bytes": 191367,
+      "status": "accepted",
+      "roleHint": "generic",
+      "issues": []
+    },
+    {
+      "relativePath": "images/gallery-curry-naan.jpg",
+      "folderKind": "images",
+      "category": "image-generic",
+      "fileName": "gallery-curry-naan.jpg",
+      "extension": ".jpg",
+      "bytes": 188670,
+      "status": "accepted",
+      "roleHint": "generic",
+      "issues": []
+    },
+    {
+      "relativePath": "images/gallery-spicy-noodles.jpg",
+      "folderKind": "images",
+      "category": "image-generic",
+      "fileName": "gallery-spicy-noodles.jpg",
+      "extension": ".jpg",
+      "bytes": 214370,
+      "status": "accepted",
+      "roleHint": "generic",
+      "issues": []
+    },
+    {
+      "relativePath": "images/gallery-starter-bowl.jpg",
+      "folderKind": "images",
+      "category": "image-generic",
+      "fileName": "gallery-starter-bowl.jpg",
+      "extension": ".jpg",
+      "bytes": 179962,
+      "status": "accepted",
+      "roleHint": "generic",
+      "issues": []
+    },
+    {
+      "relativePath": "images/hero-main.jpg",
+      "folderKind": "images",
+      "category": "image-hero",
+      "fileName": "hero-main.jpg",
+      "extension": ".jpg",
+      "bytes": 229948,
+      "status": "accepted",
+      "roleHint": "hero",
+      "issues": []
+    },
+    {
+      "relativePath": "maps/maps-link.txt",
+      "folderKind": "maps",
+      "category": "maps-link",
+      "fileName": "maps-link.txt",
+      "extension": ".txt",
+      "bytes": 130,
+      "status": "accepted",
+      "roleHint": null,
+      "issues": []
+    },
+    {
+      "relativePath": "notes/intake-notes.md",
+      "folderKind": "notes",
+      "category": "notes",
+      "fileName": "intake-notes.md",
+      "extension": ".md",
+      "bytes": 393,
+      "status": "accepted",
+      "roleHint": null,
+      "issues": []
+    },
+    {
+      "relativePath": "notes/manual-profile.json",
+      "folderKind": "notes",
+      "category": "notes",
+      "fileName": "manual-profile.json",
+      "extension": ".json",
+      "bytes": 9484,
+      "status": "accepted",
+      "roleHint": null,
+      "issues": []
+    }
+  ],
+  "expectedInputs": [
+    {
+      "id": "seed",
+      "status": "present",
+      "reason": "Seed intake file is present.",
+      "paths": [
+        "intake.json"
+      ]
+    },
+    {
+      "id": "maps-link",
+      "status": "present",
+      "reason": "Maps link is available through intake.json or raw/maps.",
+      "paths": [
+        "maps/maps-link.txt",
+        "intake.json"
+      ]
+    },
+    {
+      "id": "html-source",
+      "status": "missing",
+      "reason": "No HTML source files were found.",
+      "paths": []
+    },
+    {
+      "id": "image-source",
+      "status": "present",
+      "reason": "At least one source image is available.",
+      "paths": [
+        "images/dish-chole-bhature.jpg",
+        "images/dish-dosa.jpg",
+        "images/dish-gulab-jamun.jpg",
+        "images/dish-vegetable-noodles.jpg",
+        "images/fallback-noodle-bowl.jpg",
+        "images/gallery-curry-naan.jpg",
+        "images/gallery-spicy-noodles.jpg",
+        "images/gallery-starter-bowl.jpg",
+        "images/hero-main.jpg"
+      ]
+    },
+    {
+      "id": "business-docs",
+      "status": "present",
+      "reason": "Supporting documents are available.",
+      "paths": [
+        "docs/menu-summary.md",
+        "docs/reviews-selected.md"
+      ]
+    },
+    {
+      "id": "notes",
+      "status": "present",
+      "reason": "Manual notes are available.",
+      "paths": [
+        "notes/intake-notes.md",
+        "notes/manual-profile.json"
+      ]
+    }
+  ],
+  "validations": [
+    {
+      "level": "warning",
+      "code": "missing_html_sources",
+      "message": "No HTML source files were found. Intake can continue, but extraction options will be limited.",
+      "paths": []
+    }
+  ],
+  "summary": {
+    "fileCount": 14,
+    "folderCount": 5,
+    "mapsFileCount": 1,
+    "htmlFileCount": 0,
+    "imageFileCount": 9,
+    "docsFileCount": 2,
+    "notesFileCount": 2,
+    "duplicateLikeCount": 0,
+    "namingIssueCount": 0,
+    "unsupportedFileCount": 0
+  }
+}

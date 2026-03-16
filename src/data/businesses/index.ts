@@ -1,21 +1,13 @@
-import { normalizeBusinessBrief } from '../../lib/business/normalize';
 import type { BusinessBrief } from '../../types/business';
-import { theDosaSpotInput } from './theDosaSpot';
-
-const businesses = [theDosaSpotInput].map(normalizeBusinessBrief);
-
-const businessMap = new Map<string, BusinessBrief>(businesses.map((business) => [business.slug, business]));
+import {
+  getAllBusinessRuntimeBusinesses,
+  getBusinessRuntimeBySlug,
+} from '../business-records';
 
 export function getAllBusinesses() {
-  return businesses;
+  return getAllBusinessRuntimeBusinesses();
 }
 
 export function getBusinessBySlug(slug: string) {
-  const business = businessMap.get(slug);
-
-  if (!business) {
-    throw new Error(`Unknown business slug: ${slug}`);
-  }
-
-  return business;
+  return getBusinessRuntimeBySlug(slug) as BusinessBrief;
 }

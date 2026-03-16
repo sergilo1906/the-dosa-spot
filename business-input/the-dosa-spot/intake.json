@@ -1,0 +1,32 @@
+{
+  "businessName": "The Dosa Spot",
+  "slug": "the-dosa-spot",
+  "niche": "restaurant",
+  "primaryCategory": "South Indian restaurant",
+  "secondaryCategories": [
+    "Indian restaurant",
+    "Takeaway restaurant"
+  ],
+  "city": "Cork",
+  "country": "Ireland",
+  "mapsLink": "https://www.google.com/maps/search/?api=1&query=35%20Washington%20St%2C%20Centre%2C%20Cork%2C%20T12%20DHX2%2C%20Cork%2C%20Ireland",
+  "manualNotesSummary": "Current verified conversion is direction-first because there is no confirmed order URL or first-party website in the source set.",
+  "desiredPrimaryCta": "get-directions",
+  "desiredTone": [
+    "welcoming",
+    "clear",
+    "fresh",
+    "local"
+  ],
+  "confirmedData": [
+    "businessName",
+    "slug",
+    "niche",
+    "primaryCategory",
+    "address",
+    "phone",
+    "ratingValue",
+    "reviewCount",
+    "serviceModes"
+  ]
+}

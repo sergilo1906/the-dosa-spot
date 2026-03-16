@@ -8,20 +8,32 @@ interface Props {
 }
 
 const { business, variant } = Astro.props;
+const isFoodBusiness = business.niche === 'restaurant' || business.niche === 'cafe-bakery-takeaway';
+const firstPick = business.featuredItems[0]?.title ?? business.services[0]?.title ?? 'the clearest first pick';
+const backupPick = business.featuredItems[1]?.title ?? business.services[1]?.title ?? 'the next strongest option';
+const sectionEyebrow = isFoodBusiness ? 'Menu highlights' : 'Highlights';
+const sectionTitle = isFoodBusiness ? 'What to order first.' : 'Start with the clearest options first.';
+const sectionBody = isFoodBusiness
+  ? 'A shorter read of the offer, built to help first-time visitors choose quickly.'
+  : 'A short read of the offer before you call, visit, or take the next step.';
+const noteTitle = isFoodBusiness ? `${firstPick} is the clearest first pick.` : 'Start with the clearest option.';
+const noteBody = isFoodBusiness
+  ? `${backupPick} is the better move when you want something heavier or more substantial.`
+  : 'Use the cards below to compare the offer without turning the page into a long list.';
 ---
 
 <section class="section-shell" id="menu">
   <div class="section-grid section-grid--split services-intro">
     <SectionHeading
-      eyebrow="Menu highlights"
+      eyebrow={sectionEyebrow}
       indexLabel="02"
-      title="A tighter read of the dishes people notice first."
-      body="The essentials, edited for quick scanning."
+      title={sectionTitle}
+      body={sectionBody}
     />
     <aside class="services-note panel-luxe panel-luxe--soft" data-reveal-group>
-      <p class="detail-label" data-reveal-item>Kitchen focus</p>
-      <p class="services-note__title" data-reveal-item>Four dishes, easy to scan.</p>
-      <p data-reveal-item>A clean first read of the menu without turning the page into a full list.</p>
+      <p class="detail-label" data-reveal-item>First-time tip</p>
+      <p class="services-note__title" data-reveal-item>{noteTitle}</p>
+      <p data-reveal-item>{noteBody}</p>
     </aside>
   </div>
 

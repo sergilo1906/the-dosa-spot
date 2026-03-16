@@ -1,0 +1,406 @@
+{
+  "schemaVersion": 1,
+  "fileKind": "sector-profile",
+  "businessSlug": "the-dosa-spot",
+  "updatedAt": "2026-03-16T15:21:58.209Z",
+  "sectorType": "restaurant",
+  "sectorConfidence": "high",
+  "sectorScore": 36,
+  "fallbackUsed": false,
+  "reasoning": [
+    "Selected Restaurant / Food Business with score 36.",
+    "Matched signals: niche:restaurant, category:restaurant, category:indian, category:takeaway, service-mode:dine-in, service-mode:delivery, service-mode:pickup, offer:menu, offer:dessert, offer:curry, offer:plate, offer:dosa, offer:meal, image:dish, image:ambience, trust:rating-reviews, cta:get-directions.",
+    "Runner-up was Cafe / Bakery / Takeaway at 14.",
+    "Primary CTA resolves to Get Directions with available availability."
+  ],
+  "candidateScores": [
+    {
+      "sectorType": "restaurant",
+      "score": 36,
+      "matchedSignals": [
+        "niche:restaurant",
+        "category:restaurant",
+        "category:indian",
+        "category:takeaway",
+        "service-mode:dine-in",
+        "service-mode:delivery",
+        "service-mode:pickup",
+        "offer:menu",
+        "offer:dessert",
+        "offer:curry",
+        "offer:plate",
+        "offer:dosa",
+        "offer:meal",
+        "image:dish",
+        "image:ambience",
+        "trust:rating-reviews",
+        "cta:get-directions"
+      ],
+      "concerns": []
+    },
+    {
+      "sectorType": "cafe-bakery-takeaway",
+      "score": 14,
+      "matchedSignals": [
+        "category:takeaway",
+        "service-mode:pickup",
+        "service-mode:delivery",
+        "offer:menu",
+        "image:dish",
+        "image:ambience",
+        "trust:rating-reviews",
+        "cta:get-directions"
+      ],
+      "concerns": []
+    },
+    {
+      "sectorType": "local-service",
+      "score": 4,
+      "matchedSignals": [
+        "trust:rating-reviews",
+        "cta:call"
+      ],
+      "concerns": []
+    },
+    {
+      "sectorType": "personal-care",
+      "score": 3,
+      "matchedSignals": [
+        "trust:rating-reviews",
+        "cta:call"
+      ],
+      "concerns": []
+    },
+    {
+      "sectorType": "retail-shop",
+      "score": 3,
+      "matchedSignals": [
+        "trust:rating-reviews",
+        "cta:get-directions"
+      ],
+      "concerns": []
+    },
+    {
+      "sectorType": "fitness-wellness",
+      "score": 3,
+      "matchedSignals": [
+        "trust:rating-reviews",
+        "cta:call"
+      ],
+      "concerns": []
+    },
+    {
+      "sectorType": "clinic-health",
+      "score": 3,
+      "matchedSignals": [
+        "trust:rating-reviews",
+        "cta:call"
+      ],
+      "concerns": []
+    }
+  ],
+  "signals": {
+    "niche": "restaurant",
+    "primaryCategory": "South Indian restaurant",
+    "secondaryCategories": [
+      "Indian restaurant",
+      "Takeaway restaurant"
+    ],
+    "serviceModes": [
+      "Dine-in",
+      "Delivery",
+      "Pickup"
+    ],
+    "offerSignals": [
+      "offer:delivery",
+      "offer:dine in",
+      "offer:featured-items",
+      "offer:menu",
+      "offer:pickup",
+      "offer:structured-services"
+    ],
+    "availableRenderActions": [
+      "get-directions",
+      "call",
+      "view-menu"
+    ],
+    "availableSectorActions": [
+      "get-directions",
+      "order-online",
+      "call",
+      "view-menu",
+      "book-appointment",
+      "browse-products",
+      "request-consultation"
+    ],
+    "imageSignals": [
+      "image:ambience",
+      "image:dish"
+    ],
+    "trustSignals": [
+      "trust:credibility-risks",
+      "trust:proof-points",
+      "trust:rating-reviews"
+    ],
+    "missingPaths": [
+      "contact.email",
+      "contact.website",
+      "contact.orderUrl",
+      "contact.menuUrl",
+      "contact.whatsapp",
+      "location.coordinates",
+      "location.openingHours",
+      "identity.secondaryCategories",
+      "trust.testimonials"
+    ]
+  },
+  "rules": {
+    "label": "Restaurant / Food Business",
+    "description": "Built for dine-in, takeaway, and delivery-led food businesses where menu appetite and local trust matter first.",
+    "conversionFocus": "Move the user quickly from appetite and trust into ordering, visiting, or checking the menu.",
+    "primaryCtaPriority": [
+      "order-online",
+      "get-directions",
+      "view-menu",
+      "call"
+    ],
+    "secondaryCtaPriority": [
+      "view-menu",
+      "call",
+      "get-directions",
+      "visit-website"
+    ],
+    "recommendedHeroType": "food-first",
+    "recommendedSections": [
+      {
+        "id": "hero",
+        "priority": "high",
+        "reason": "Lead with cuisine, locality, and one real food cue.",
+        "currentSystemSectionId": "hero"
+      },
+      {
+        "id": "signature-items",
+        "priority": "high",
+        "reason": "Show one or two standout dishes early.",
+        "currentSystemSectionId": "popular-items"
+      },
+      {
+        "id": "menu-highlights",
+        "priority": "high",
+        "reason": "Let users scan offer breadth without a full menu wall.",
+        "currentSystemSectionId": "services"
+      },
+      {
+        "id": "trust",
+        "priority": "high",
+        "reason": "Rating and review proof should validate the choice fast.",
+        "currentSystemSectionId": "credibility"
+      },
+      {
+        "id": "gallery",
+        "priority": "medium",
+        "reason": "Support appetite and atmosphere with a tight image set.",
+        "currentSystemSectionId": "gallery"
+      },
+      {
+        "id": "faq",
+        "priority": "medium",
+        "reason": "Resolve first-visit questions around ordering modes and location.",
+        "currentSystemSectionId": "faq"
+      },
+      {
+        "id": "location-contact",
+        "priority": "high",
+        "reason": "Directions, phone, and address need to be easy to reach.",
+        "currentSystemSectionId": "cta"
+      },
+      {
+        "id": "cta",
+        "priority": "high",
+        "reason": "Close with the strongest truthful next step.",
+        "currentSystemSectionId": "cta"
+      },
+      {
+        "id": "footer",
+        "priority": "low",
+        "reason": "Reinforce local trust and contact details.",
+        "currentSystemSectionId": "footer"
+      }
+    ],
+    "recommendedTrustSystems": [
+      "rating-reviews",
+      "menu-signatures",
+      "local-trust"
+    ],
+    "recommendedGallerySystems": [
+      "dishes",
+      "ambience",
+      "exterior"
+    ],
+    "recommendedTone": [
+      "premium-casual",
+      "warm",
+      "local-trust",
+      "direct"
+    ],
+    "degradationRules": [
+      {
+        "id": "restaurant-no-order-link",
+        "whenMissingPaths": [
+          "contact.orderUrl"
+        ],
+        "whenUnavailableActions": [
+          "order-online"
+        ],
+        "guidance": "Do not lead with ordering when no verified order route exists. Shift to directions or menu exploration.",
+        "suppress": [
+          "order-led hero copy",
+          "delivery-first framing"
+        ],
+        "fallbackActions": [
+          "get-directions",
+          "view-menu",
+          "call"
+        ]
+      },
+      {
+        "id": "restaurant-no-menu-url",
+        "whenMissingPaths": [
+          "contact.menuUrl"
+        ],
+        "guidance": "Keep menu language anchored to on-page highlights and avoid implying a full verified external menu.",
+        "suppress": [
+          "external menu claims"
+        ],
+        "fallbackActions": [
+          "view-menu",
+          "get-directions"
+        ]
+      },
+      {
+        "id": "restaurant-no-hours",
+        "whenMissingPaths": [
+          "location.openingHours"
+        ],
+        "guidance": "Do not promise open-now convenience or late-service claims until hours are verified.",
+        "suppress": [
+          "open now messaging",
+          "time-sensitive claims"
+        ],
+        "fallbackActions": [
+          "get-directions",
+          "call"
+        ]
+      },
+      {
+        "id": "restaurant-no-exterior",
+        "whenMissingSignals": [
+          "image:exterior"
+        ],
+        "guidance": "If no exterior image exists, keep the gallery food-first and let maps carry location trust.",
+        "suppress": [
+          "storefront-led gallery"
+        ],
+        "fallbackActions": [
+          "get-directions"
+        ]
+      }
+    ],
+    "schemaHints": {
+      "preferredSchemaTypes": [
+        "Restaurant",
+        "FoodEstablishment",
+        "LocalBusiness"
+      ],
+      "prioritySignals": [
+        "NAP consistency",
+        "servesCuisine",
+        "opening hours",
+        "menu URL",
+        "review count",
+        "service area"
+      ],
+      "keywordPatterns": [
+        "[cuisine] restaurant [city]",
+        "[signature dish] [city]",
+        "[street] food [city]"
+      ],
+      "doNotInvent": [
+        "delivery radius",
+        "opening hours",
+        "price range",
+        "online ordering",
+        "reservation support"
+      ]
+    }
+  },
+  "recommendedPrimaryCta": {
+    "actionKey": "get-directions",
+    "renderActionKey": "get-directions",
+    "label": "Get Directions",
+    "availability": "available",
+    "reason": "A verified maps route exists."
+  },
+  "recommendedSecondaryCtas": [
+    {
+      "actionKey": "view-menu",
+      "renderActionKey": "view-menu",
+      "label": "View Menu",
+      "availability": "available",
+      "reason": "The current page has enough structured offer content to support an in-page menu route."
+    },
+    {
+      "actionKey": "call",
+      "renderActionKey": "call",
+      "label": "Call",
+      "availability": "available",
+      "reason": "A verified phone number exists."
+    }
+  ],
+  "appliedDegradations": [
+    {
+      "ruleId": "restaurant-no-order-link",
+      "triggeredBy": [
+        "contact.orderUrl"
+      ],
+      "guidance": "Do not lead with ordering when no verified order route exists. Shift to directions or menu exploration.",
+      "fallbackActions": [
+        "get-directions",
+        "view-menu",
+        "call"
+      ]
+    },
+    {
+      "ruleId": "restaurant-no-menu-url",
+      "triggeredBy": [
+        "contact.menuUrl"
+      ],
+      "guidance": "Keep menu language anchored to on-page highlights and avoid implying a full verified external menu.",
+      "fallbackActions": [
+        "view-menu",
+        "get-directions"
+      ]
+    },
+    {
+      "ruleId": "restaurant-no-hours",
+      "triggeredBy": [
+        "location.openingHours"
+      ],
+      "guidance": "Do not promise open-now convenience or late-service claims until hours are verified.",
+      "fallbackActions": [
+        "get-directions",
+        "call"
+      ]
+    },
+    {
+      "ruleId": "restaurant-no-exterior",
+      "triggeredBy": [
+        "signal:image:exterior"
+      ],
+      "guidance": "If no exterior image exists, keep the gallery food-first and let maps carry location trust.",
+      "fallbackActions": [
+        "get-directions"
+      ]
+    }
+  ]
+}

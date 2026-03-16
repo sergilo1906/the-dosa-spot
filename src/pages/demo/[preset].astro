@@ -1,5 +1,6 @@
 ---
 import DemoLanding from '../../components/demo/DemoLanding.astro';
+import { getBusinessAssemblyProfileBySlug } from '../../data/business-records';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getAllPresets, getBusinessForPreset, getPresetBySlug } from '../../data/presets';
 import { buildPageMeta } from '../../lib/seo/meta';
@@ -16,6 +17,7 @@ export function getStaticPaths() {
 const presetSlug = Astro.params.preset!;
 const preset = getPresetBySlug(presetSlug);
 const business = getBusinessForPreset(preset);
+const assembly = getBusinessAssemblyProfileBySlug(preset.businessSlug);
 const meta = buildPageMeta({
   business,
   preset,
@@ -31,7 +33,9 @@ const jsonLd = buildStructuredData(business, meta.canonical);
   canonical={meta.canonical}
   robots={meta.robots}
   ogImage={meta.ogImage}
+  siteName={meta.siteName}
+  themeColor={meta.themeColor}
   jsonLd={jsonLd}
 >
-  <DemoLanding business={business} preset={preset} />
+  <DemoLanding business={business} assembly={assembly} preset={preset} />
 </BaseLayout>

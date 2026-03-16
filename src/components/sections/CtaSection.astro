@@ -1,42 +1,41 @@
 ---
 import ActionLink from '../ui/ActionLink.astro';
+import type { AssemblyProfileFile } from '../../types/assembly-engine';
 import type { BusinessBrief, CtaVariant } from '../../types/business';
 
 interface Props {
   business: BusinessBrief;
+  assembly: AssemblyProfileFile;
   variant: CtaVariant;
 }
 
-const { business, variant } = Astro.props;
-const hasOrderLink = Boolean(business.display.orderHref);
-const orderHref = business.display.orderHref ?? '#location';
-const directionsHref = business.display.directionsHref ?? '#location';
-const callHref = business.display.callHref ?? '#location';
-const serviceModes = business.serviceModes.length > 0 ? business.serviceModes : ['Dine-in', 'Delivery', 'Pickup'];
-const primaryAction = hasOrderLink
-  ? { label: 'Order Online', href: orderHref }
-  : { label: 'Get Directions', href: directionsHref };
-const secondaryAction = hasOrderLink ? { label: 'Get Directions', href: directionsHref } : { label: 'Call', href: callHref };
+const { business, assembly, variant } = Astro.props;
+const primaryAction = assembly.ctaMap.finalCta.primary;
+const secondaryAction = assembly.ctaMap.finalCta.secondary;
+const serviceModes = business.serviceModes.length > 0 ? business.serviceModes : [business.primaryCategory ?? 'Call for details'];
+const locationContent = assembly.content.location;
 ---
 
 <section class="section-shell" id="location">
   {variant === 'visit-studio' && (
     <div class="cta-panel cta-panel--visit panel-luxe" data-reveal-group>
       <div class="cta-copy" data-reveal-item>
-        <p class="section-eyebrow">Location & contact</p>
-        <h2 class="cta-title">Find {business.businessName} on Washington Street.</h2>
-        <p class="cta-body">Directions, phone, and service modes are all here when you are ready to stop in or call ahead.</p>
+        <p class="section-eyebrow">{locationContent.eyebrow}</p>
+        <h2 class="cta-title">{locationContent.title}</h2>
+        <p class="cta-body">{locationContent.body}</p>
         <div class="cta-actions">
-          <ActionLink href={primaryAction.href}>{primaryAction.label}</ActionLink>
-          <ActionLink href={secondaryAction.href} variant="ghost">
-            {secondaryAction.label}
-          </ActionLink>
+          {primaryAction && <ActionLink href={primaryAction.href}>{primaryAction.label}</ActionLink>}
+          {secondaryAction && (
+            <ActionLink href={secondaryAction.href} variant="ghost">
+              {secondaryAction.label}
+            </ActionLink>
+          )}
         </div>
       </div>
       <div class="cta-card-stack" data-reveal-item>
         <div class="cta-card panel-luxe panel-luxe--soft">
-          <p class="detail-label">Visit</p>
-          <h3>{business.display.location}</h3>
+          <p class="detail-label">{locationContent.visitLabel}</p>
+          <h3>{locationContent.visitValue}</h3>
           {business.phone && business.display.callHref ? (
             <a class="cta-card__link" href={business.display.callHref}>
               {business.phone}
@@ -46,9 +45,9 @@ const secondaryAction = hasOrderLink ? { label: 'Get Directions', href: directio
           )}
         </div>
         <div class="cta-card panel-luxe panel-luxe--soft">
-          <p class="detail-label">Service modes</p>
-          <p>{serviceModes.join(' / ')}</p>
-          <p>{hasOrderLink ? 'Order online available.' : 'Call for pickup or delivery details.'}</p>
+          <p class="detail-label">{locationContent.supportLabel}</p>
+          <p>{locationContent.supportValue || serviceModes.join(' / ')}</p>
+          <p>{locationContent.supportNote}</p>
         </div>
       </div>
     </div>
@@ -57,25 +56,27 @@ const secondaryAction = hasOrderLink ? { label: 'Get Directions', href: directio
   {variant === 'book-consult' && (
     <div class="cta-panel cta-panel--consult panel-luxe" data-reveal-group>
       <div class="cta-copy" data-reveal-item>
-        <p class="section-eyebrow">Order & visit</p>
-        <h2 class="cta-title">Ready to stop in or call ahead?</h2>
-        <p class="cta-body">The essentials are here when you want directions, a quick call, or the location at a glance.</p>
+        <p class="section-eyebrow">{locationContent.eyebrow}</p>
+        <h2 class="cta-title">{locationContent.title}</h2>
+        <p class="cta-body">{locationContent.body}</p>
         <div class="cta-actions">
-          <ActionLink href={primaryAction.href}>{primaryAction.label}</ActionLink>
-          <ActionLink href={secondaryAction.href} variant="ghost">
-            {secondaryAction.label}
-          </ActionLink>
+          {primaryAction && <ActionLink href={primaryAction.href}>{primaryAction.label}</ActionLink>}
+          {secondaryAction && (
+            <ActionLink href={secondaryAction.href} variant="ghost">
+              {secondaryAction.label}
+            </ActionLink>
+          )}
         </div>
       </div>
       <div class="cta-card panel-luxe panel-luxe--soft" data-reveal-item>
-        <p class="detail-label">Visit details</p>
-        <h3>{business.display.location}</h3>
+        <p class="detail-label">{locationContent.visitLabel}</p>
+        <h3>{locationContent.visitValue}</h3>
         {business.phone && business.display.callHref && (
           <a class="cta-card__link" href={business.display.callHref}>
             {business.phone}
           </a>
         )}
-        <p>{business.display.ratingLabel ?? business.heroSignature}</p>
+        <p>{locationContent.supportNote}</p>
       </div>
     </div>
   )}

@@ -1,0 +1,508 @@
+{
+  "schemaVersion": 1,
+  "fileKind": "qa-report",
+  "businessSlug": "the-dosa-spot",
+  "generatedAt": "2026-03-16T15:22:28.324Z",
+  "summary": {
+    "checksRun": 38,
+    "passed": 28,
+    "errors": 0,
+    "warnings": 0,
+    "polish": 10,
+    "manualReview": 3
+  },
+  "context": {
+    "siteUrl": "https://preview.local-business-site.example",
+    "routeSnapshots": [
+      {
+        "route": "/",
+        "filePath": "C:\\Users\\Sergi\\OneDrive\\Escritorio\\Webs\\dist\\index.html",
+        "exists": true,
+        "title": "The Dosa Spot | South Indian Restaurant in Cork",
+        "metaDescription": "The Dosa Spot is a South Indian restaurant on Washington Street in Cork known for dosa, quick service, dine-in, pickup, and delivery.",
+        "canonical": "https://preview.local-business-site.example/",
+        "robots": "index, follow",
+        "h1Count": 1,
+        "imageCount": 7,
+        "detailsCount": 2
+      },
+      {
+        "route": "/demo/dosa-poster/",
+        "filePath": "C:\\Users\\Sergi\\OneDrive\\Escritorio\\Webs\\dist\\demo\\dosa-poster\\index.html",
+        "exists": true,
+        "title": "The Dosa Spot | South Indian Restaurant in Cork",
+        "metaDescription": "The Dosa Spot is a South Indian restaurant on Washington Street in Cork known for dosa, quick service, dine-in, pickup, and delivery.",
+        "canonical": "https://preview.local-business-site.example/demo/dosa-poster/",
+        "robots": "noindex, nofollow",
+        "h1Count": 1,
+        "imageCount": 7,
+        "detailsCount": 2
+      },
+      {
+        "route": "/demo/dosa-monolith/",
+        "filePath": "C:\\Users\\Sergi\\OneDrive\\Escritorio\\Webs\\dist\\demo\\dosa-monolith\\index.html",
+        "exists": true,
+        "title": "The Dosa Spot | South Indian Restaurant in Cork",
+        "metaDescription": "The Dosa Spot is a South Indian restaurant on Washington Street in Cork known for dosa, quick service, dine-in, pickup, and delivery.",
+        "canonical": "https://preview.local-business-site.example/demo/dosa-monolith/",
+        "robots": "noindex, nofollow",
+        "h1Count": 1,
+        "imageCount": 6,
+        "detailsCount": 2
+      },
+      {
+        "route": "/404.html",
+        "filePath": "C:\\Users\\Sergi\\OneDrive\\Escritorio\\Webs\\dist\\404.html",
+        "exists": true,
+        "title": "Page not found | The Dosa Spot",
+        "metaDescription": "The requested page could not be found.",
+        "canonical": "https://preview.local-business-site.example/404/",
+        "robots": "noindex, nofollow",
+        "h1Count": 1,
+        "imageCount": 0,
+        "detailsCount": 0
+      }
+    ],
+    "visibleSections": [
+      "hero",
+      "popular-items",
+      "services",
+      "credibility",
+      "gallery",
+      "faq",
+      "cta",
+      "footer"
+    ],
+    "heroCtas": [
+      "Get Directions",
+      "View Menu"
+    ],
+    "finalCtas": [
+      "Get Directions",
+      "Call"
+    ],
+    "imageSummary": {
+      "totalAssets": 9,
+      "selectedAssets": 8,
+      "weakAssets": 1,
+      "duplicateAssets": 0
+    }
+  },
+  "checks": [
+    {
+      "id": "structure:normalized-files",
+      "category": "structure",
+      "status": "pass",
+      "severity": "none",
+      "title": "Normalized business files are present",
+      "summary": "All expected normalized JSON files exist for the current business.",
+      "paths": [
+        "C:\\Users\\Sergi\\OneDrive\\Escritorio\\Webs\\business-input\\the-dosa-spot\\normalized\\business-raw.json",
+        "C:\\Users\\Sergi\\OneDrive\\Escritorio\\Webs\\business-input\\the-dosa-spot\\normalized\\business-brief.json",
+        "C:\\Users\\Sergi\\OneDrive\\Escritorio\\Webs\\business-input\\the-dosa-spot\\normalized\\missing-data.json",
+        "C:\\Users\\Sergi\\OneDrive\\Escritorio\\Webs\\business-input\\the-dosa-spot\\normalized\\content-plan.json",
+        "C:\\Users\\Sergi\\OneDrive\\Escritorio\\Webs\\business-input\\the-dosa-spot\\normalized\\image-map.json",
+        "C:\\Users\\Sergi\\OneDrive\\Escritorio\\Webs\\business-input\\the-dosa-spot\\normalized\\copy-profile.json",
+        "C:\\Users\\Sergi\\OneDrive\\Escritorio\\Webs\\business-input\\the-dosa-spot\\normalized\\assembly-profile.json",
+        "C:\\Users\\Sergi\\OneDrive\\Escritorio\\Webs\\business-input\\the-dosa-spot\\normalized\\sector-profile.json",
+        "C:\\Users\\Sergi\\OneDrive\\Escritorio\\Webs\\business-input\\the-dosa-spot\\normalized\\visual-profile.json"
+      ],
+      "route": null
+    },
+    {
+      "id": "structure:record-consistency",
+      "category": "structure",
+      "status": "pass",
+      "severity": "none",
+      "title": "Master record is internally coherent",
+      "summary": "The current business record has no validation issues and no unresolved conflict items.",
+      "route": null
+    },
+    {
+      "id": "structure:routes",
+      "category": "structure",
+      "status": "pass",
+      "severity": "none",
+      "title": "Built routes exist",
+      "summary": "Verified 4 expected built routes including home, demos, and 404.",
+      "paths": [
+        "C:\\Users\\Sergi\\OneDrive\\Escritorio\\Webs\\dist\\index.html",
+        "C:\\Users\\Sergi\\OneDrive\\Escritorio\\Webs\\dist\\demo\\dosa-poster\\index.html",
+        "C:\\Users\\Sergi\\OneDrive\\Escritorio\\Webs\\dist\\demo\\dosa-monolith\\index.html",
+        "C:\\Users\\Sergi\\OneDrive\\Escritorio\\Webs\\dist\\404.html"
+      ],
+      "route": null
+    },
+    {
+      "id": "structure:robots",
+      "category": "structure",
+      "status": "pass",
+      "severity": "none",
+      "title": "robots.txt exists",
+      "summary": "The build includes robots.txt for crawler guidance.",
+      "paths": [
+        "C:\\Users\\Sergi\\OneDrive\\Escritorio\\Webs\\dist\\robots.txt"
+      ],
+      "route": null
+    },
+    {
+      "id": "assets:image-map-refs",
+      "category": "assets",
+      "status": "pass",
+      "severity": "none",
+      "title": "Assembly image references are valid",
+      "summary": "Every image used by the assembly profile exists in image-map.json.",
+      "route": null
+    },
+    {
+      "id": "assets:files-exist",
+      "category": "assets",
+      "status": "pass",
+      "severity": "none",
+      "title": "Selected image files exist in public and dist",
+      "summary": "Every selected asset resolves both in source assets and in the built output.",
+      "route": null
+    },
+    {
+      "id": "assets:alt-text",
+      "category": "assets",
+      "status": "pass",
+      "severity": "none",
+      "title": "Mapped images have non-empty alt text",
+      "summary": "All approved and backup images carry non-empty mapped alt text.",
+      "route": null
+    },
+    {
+      "id": "assets:duplicates",
+      "category": "assets",
+      "status": "pass",
+      "severity": "none",
+      "title": "No duplicate image symptoms detected",
+      "summary": "The current image-map does not report duplicate assets.",
+      "route": null
+    },
+    {
+      "id": "assembly:hero-primary-cta",
+      "category": "assembly",
+      "status": "pass",
+      "severity": "none",
+      "title": "Hero has a primary CTA",
+      "summary": "Get Directions resolves to a usable action.",
+      "route": null
+    },
+    {
+      "id": "assembly:cta-count",
+      "category": "assembly",
+      "status": "pass",
+      "severity": "none",
+      "title": "CTA count stays within the configured limit",
+      "summary": "Hero shows 2 CTA(s) and final CTA shows 2; both stay within the max of 2.",
+      "route": null
+    },
+    {
+      "id": "assembly:cta-hrefs",
+      "category": "assembly",
+      "status": "pass",
+      "severity": "none",
+      "title": "Visible CTAs resolve cleanly",
+      "summary": "Every visible CTA in hero and final CTA has a usable href.",
+      "route": null
+    },
+    {
+      "id": "assembly:visible-sections",
+      "category": "assembly",
+      "status": "issue",
+      "severity": "polish",
+      "title": "Some visible sections are thin or under-supported",
+      "summary": "One or more visible sections look too thin for their current visibility decision.",
+      "details": [
+        "The gallery is intentionally compact because the current approved image set is limited."
+      ],
+      "route": null
+    },
+    {
+      "id": "assembly:gallery-thin",
+      "category": "experience",
+      "status": "issue",
+      "severity": "polish",
+      "title": "Gallery is visible with limited variety",
+      "summary": "The gallery is intentionally compact because the current approved image set is limited.",
+      "route": null
+    },
+    {
+      "id": "assembly:footer-links",
+      "category": "assembly",
+      "status": "pass",
+      "severity": "none",
+      "title": "Footer links respect section visibility",
+      "summary": "No enabled footer link points to a hidden section.",
+      "route": null
+    },
+    {
+      "id": "assembly:critical-degradations",
+      "category": "assembly",
+      "status": "pass",
+      "severity": "none",
+      "title": "Critical missing data has a degradation rule",
+      "summary": "Critical missing paths in the current brief are acknowledged by the assembly degradation layer.",
+      "route": null
+    },
+    {
+      "id": "copy:validation-summary",
+      "category": "copy",
+      "status": "issue",
+      "severity": "polish",
+      "title": "Copy profile surfaced issues",
+      "summary": "The copy engine detected issues or hints that should be reviewed before release.",
+      "details": [
+        "Repeated phrase across samples: \"curry plates\".",
+        "Repeated phrase across samples: \"pickup or\".",
+        "Repeated phrase across samples: \"or delivery\".",
+        "Repeated phrase across samples: \"pickup or delivery\".",
+        "Repeated phrase across samples: \"potato masala\".",
+        "Repeated phrase across samples: \"you want\"."
+      ],
+      "route": null
+    },
+    {
+      "id": "copy:validation-1",
+      "category": "copy",
+      "status": "issue",
+      "severity": "polish",
+      "title": "Copy validation issue in highlights",
+      "summary": "Repeated phrase across samples: \"curry plates\".",
+      "route": null
+    },
+    {
+      "id": "copy:validation-2",
+      "category": "copy",
+      "status": "issue",
+      "severity": "polish",
+      "title": "Copy validation issue in highlights",
+      "summary": "Repeated phrase across samples: \"pickup or\".",
+      "route": null
+    },
+    {
+      "id": "copy:validation-3",
+      "category": "copy",
+      "status": "issue",
+      "severity": "polish",
+      "title": "Copy validation issue in highlights",
+      "summary": "Repeated phrase across samples: \"or delivery\".",
+      "route": null
+    },
+    {
+      "id": "copy:validation-4",
+      "category": "copy",
+      "status": "issue",
+      "severity": "polish",
+      "title": "Copy validation issue in highlights",
+      "summary": "Repeated phrase across samples: \"pickup or delivery\".",
+      "route": null
+    },
+    {
+      "id": "copy:validation-5",
+      "category": "copy",
+      "status": "issue",
+      "severity": "polish",
+      "title": "Copy validation issue in highlights",
+      "summary": "Repeated phrase across samples: \"potato masala\".",
+      "route": null
+    },
+    {
+      "id": "copy:validation-6",
+      "category": "copy",
+      "status": "issue",
+      "severity": "polish",
+      "title": "Copy validation issue in highlights",
+      "summary": "Repeated phrase across samples: \"you want\".",
+      "route": null
+    },
+    {
+      "id": "copy:forbidden-claims",
+      "category": "copy",
+      "status": "pass",
+      "severity": "none",
+      "title": "Rendered copy avoids forbidden claims",
+      "summary": "The built home page does not appear to expose prohibited order, menu, hours, or testimonial claims.",
+      "route": "/"
+    },
+    {
+      "id": "copy:repetition",
+      "category": "copy",
+      "status": "issue",
+      "severity": "polish",
+      "title": "Copy repetition hints are still present",
+      "summary": "The copy engine still sees repeated phrase patterns that are worth a final edit pass.",
+      "details": [
+        "curry plates",
+        "pickup or",
+        "or delivery",
+        "pickup or delivery",
+        "potato masala",
+        "you want"
+      ],
+      "route": null
+    },
+    {
+      "id": "accessibility:generic-links",
+      "category": "accessibility",
+      "status": "pass",
+      "severity": "none",
+      "title": "Action labels stay specific",
+      "summary": "The built pages do not rely on generic link labels like \"Learn more\".",
+      "route": null
+    },
+    {
+      "id": "seo:meta-basics",
+      "category": "seo",
+      "status": "pass",
+      "severity": "none",
+      "title": "Title, description, and canonical are present",
+      "summary": "Every checked route includes the basic visible SEO tags.",
+      "route": null
+    },
+    {
+      "id": "seo:headings",
+      "category": "seo",
+      "status": "pass",
+      "severity": "none",
+      "title": "Heading structure has one H1 per checked page",
+      "summary": "The checked built pages each expose exactly one H1.",
+      "route": null
+    },
+    {
+      "id": "seo:schema",
+      "category": "seo",
+      "status": "pass",
+      "severity": "none",
+      "title": "Structured data is present on primary pages",
+      "summary": "Home and demo pages include JSON-LD output.",
+      "route": null
+    },
+    {
+      "id": "seo:robots",
+      "category": "seo",
+      "status": "pass",
+      "severity": "none",
+      "title": "Robots directives match route intent",
+      "summary": "Home stays indexable, while demos and 404 stay noindex.",
+      "route": null
+    },
+    {
+      "id": "seo:nap",
+      "category": "seo",
+      "status": "pass",
+      "severity": "none",
+      "title": "Visible NAP stays coherent on the home page",
+      "summary": "The home page includes the current business name, address, and phone cues.",
+      "route": "/"
+    },
+    {
+      "id": "seo:business-scope",
+      "category": "seo",
+      "status": "pass",
+      "severity": "none",
+      "title": "Home page stays scoped to the active business",
+      "summary": "The built home page does not appear to leak another registered business name.",
+      "route": "/"
+    },
+    {
+      "id": "seo:legacy-site-url",
+      "category": "seo",
+      "status": "pass",
+      "severity": "none",
+      "title": "Site URL branding looks clean",
+      "summary": "The configured canonical site URL does not show obvious legacy branding.",
+      "route": null
+    },
+    {
+      "id": "accessibility:image-alt",
+      "category": "accessibility",
+      "status": "pass",
+      "severity": "none",
+      "title": "Built images have non-empty alt text",
+      "summary": "The checked built pages do not expose empty or generic img alt text.",
+      "route": null
+    },
+    {
+      "id": "accessibility:skip-link",
+      "category": "accessibility",
+      "status": "pass",
+      "severity": "none",
+      "title": "Skip link is present on checked pages",
+      "summary": "Each checked page includes the Skip to content link.",
+      "route": null
+    },
+    {
+      "id": "accessibility:faq-details",
+      "category": "accessibility",
+      "status": "pass",
+      "severity": "none",
+      "title": "FAQ affordance is real",
+      "summary": "The visible FAQ renders as real details elements.",
+      "route": "/"
+    },
+    {
+      "id": "experience:image-quality",
+      "category": "experience",
+      "status": "pass",
+      "severity": "none",
+      "title": "Weak-image load is limited",
+      "summary": "Only 1 image(s) are marked weak in the current image set.",
+      "route": null
+    },
+    {
+      "id": "experience:hero-fatigue",
+      "category": "experience",
+      "status": "pass",
+      "severity": "none",
+      "title": "Hero action load stays focused",
+      "summary": "The hero keeps one clear primary action and one secondary path at most.",
+      "route": null
+    },
+    {
+      "id": "experience:empty-copy",
+      "category": "experience",
+      "status": "pass",
+      "severity": "none",
+      "title": "Render-ready blocks do not expose empty support copy",
+      "summary": "The assembly profile keeps core support copy populated for visible blocks.",
+      "route": null
+    }
+  ],
+  "manualReview": [
+    {
+      "id": "manual:contrast-mobile",
+      "severity": "warning",
+      "title": "Review contrast and touch comfort on a real mobile device",
+      "summary": "The automated layer cannot fully verify contrast, tap comfort, or real scroll rhythm.",
+      "reason": "Visual contrast and mobile comfort still need a human eye and a real device.",
+      "relatedChecks": [
+        "accessibility:skip-link",
+        "experience:hero-fatigue"
+      ]
+    },
+    {
+      "id": "manual:image-crops",
+      "severity": "polish",
+      "title": "Review hero and gallery crops",
+      "summary": "The current asset mix includes either weak reserves or a compact gallery.",
+      "reason": "Crop quality and perceived richness still need a visual review beyond heuristics.",
+      "relatedChecks": [
+        "experience:image-quality",
+        "assembly:visible-sections"
+      ]
+    },
+    {
+      "id": "manual:copy-polish",
+      "severity": "polish",
+      "title": "Review repeated phrase hints in visible copy",
+      "summary": "The copy engine still flags minor repetition patterns.",
+      "reason": "These are soft issues that benefit from editorial judgment, not blind automation.",
+      "relatedChecks": [
+        "copy:repetition"
+      ]
+    }
+  ]
+}

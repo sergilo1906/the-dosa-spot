@@ -20,10 +20,14 @@ lighthouse-report.html
 
 # firebase
 .firebase/
+.firebaserc
+.runtimeconfig.json
 
 # environment variables
 .env
 .env.production
+.env.local
+.env.*.local
 
 # macOS-specific files
 .DS_Store
@@ -34,7 +38,11 @@ lighthouse-report.html
 # local reference archive
 system_prompts_leaks-main (1).zip
 imagenes-contact-sheet.jpg
-docs/
+docs/**
+!docs/
+!docs/**/
+!docs/**/*.md
+!docs/**/*.png
 imagenes/
 
 # editor settings

@@ -1,4 +1,15 @@
-export type BusinessNiche = 'barbershop' | 'restaurant';
+export const BUSINESS_NICHES = [
+  'barbershop',
+  'restaurant',
+  'cafe-bakery-takeaway',
+  'personal-care',
+  'retail-shop',
+  'fitness-wellness',
+  'clinic-health',
+  'local-service',
+] as const;
+
+export type BusinessNiche = (typeof BUSINESS_NICHES)[number];
 export type DesiredLuxuryLevel = 'elevated' | 'high' | 'editorial';
 export type VisualIntensity = 'restrained' | 'bold' | 'cinematic';
 export type PreferredContrast = 'soft' | 'balanced' | 'high';

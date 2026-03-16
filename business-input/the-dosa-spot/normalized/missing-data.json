@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "fileKind": "missing-data",
+  "businessSlug": "the-dosa-spot",
+  "updatedAt": "2026-03-16T15:21:57.207Z",
+  "summary": {
+    "verified": 34,
+    "inferred": 1,
+    "missing": 7,
+    "conflict": 0,
+    "pending": 1
+  },
+  "items": [
+    {
+      "path": "contact.email",
+      "state": "missing",
+      "severity": "medium",
+      "reason": "No verified email address is stored in the current source set.",
+      "impact": "Email-based support or footer contact cannot be exposed truthfully.",
+      "recommendedAction": "Confirm an email address from a verified first-party source before publishing it."
+    },
+    {
+      "path": "contact.website",
+      "state": "missing",
+      "severity": "high",
+      "reason": "No verified first-party website URL is currently stored.",
+      "impact": "Canonical identity and visit-website conversion remain unavailable.",
+      "recommendedAction": "Capture the official website once it is verified."
+    },
+    {
+      "path": "contact.orderUrl",
+      "state": "missing",
+      "severity": "high",
+      "reason": "No verified order link is stored.",
+      "impact": "Order-led conversion cannot be used as a truthful primary CTA.",
+      "recommendedAction": "Add a real ordering URL only after it is confirmed."
+    },
+    {
+      "path": "contact.menuUrl",
+      "state": "missing",
+      "severity": "medium",
+      "reason": "No verified external menu URL is stored.",
+      "impact": "Menu discovery depends on the landing page content only.",
+      "recommendedAction": "Capture a reliable public menu URL if one exists."
+    },
+    {
+      "path": "contact.whatsapp",
+      "state": "missing",
+      "severity": "low",
+      "reason": "No WhatsApp route has been verified.",
+      "impact": "Messaging CTA options stay limited.",
+      "recommendedAction": "Only add WhatsApp if the business actively uses it for customer contact."
+    },
+    {
+      "path": "location.coordinates",
+      "state": "missing",
+      "severity": "low",
+      "reason": "Exact coordinates are not stored in the dataset.",
+      "impact": "Schema and map integrations cannot publish precise geo coordinates.",
+      "recommendedAction": "Capture latitude and longitude from a verified listing."
+    },
+    {
+      "path": "location.openingHours",
+      "state": "missing",
+      "severity": "medium",
+      "reason": "Opening hours are not stored in the dataset.",
+      "impact": "Schema, footer, and contact sections cannot expose trading hours.",
+      "recommendedAction": "Add verified opening hours when they are available."
+    },
+    {
+      "path": "identity.secondaryCategories",
+      "state": "inferred",
+      "severity": "low",
+      "reason": "Secondary categories are currently shaped for reuse rather than copied from a canonical listing.",
+      "impact": "Fine for internal modeling, but not ideal as a verified taxonomy source.",
+      "recommendedAction": "Confirm or replace with categories from a trusted listing when available."
+    },
+    {
+      "path": "trust.testimonials",
+      "state": "pending",
+      "severity": "low",
+      "reason": "No curated direct testimonial quotes are stored yet.",
+      "impact": "Trust can rely on rating and proof points, but not on quoted voices.",
+      "recommendedAction": "Capture two or three short, verified quotes before using testimonial cards."
+    }
+  ]
+}

@@ -1,42 +1,36 @@
 ---
 import ActionLink from '../ui/ActionLink.astro';
+import type { AssemblyProfileFile } from '../../types/assembly-engine';
 import type { BusinessBrief, HeroVariant } from '../../types/business';
 
 interface Props {
   business: BusinessBrief;
+  assembly: AssemblyProfileFile;
   variant: HeroVariant;
 }
 
-const { business, variant } = Astro.props;
-const supportingAssets = business.galleryAssets.slice(0, 1);
-const primaryImage = business.primaryImage;
-const hasOrderLink = Boolean(business.display.orderHref);
-const orderHref = business.display.orderHref ?? '#location';
-const directionsHref = business.display.directionsHref ?? '#location';
-const menuHref = business.display.menuHref ?? '#menu';
+const { business, assembly, variant } = Astro.props;
+const supportingAssets = assembly.images.heroSupport ? [assembly.images.heroSupport] : business.galleryAssets.slice(0, 1);
+const primaryImage = assembly.images.heroMain ?? business.primaryImage;
+const primaryAction = assembly.ctaMap.hero.primary;
+const secondaryAction = assembly.ctaMap.hero.secondary;
 const ghostWord = business.businessName.split(' ')[1] ?? business.businessName.split(' ')[0] ?? business.businessName;
-const categoryLabel = business.primaryCategory ?? 'Local restaurant';
+const categoryLabel = business.primaryCategory ?? 'Local business';
 const ratingSummary =
   business.display.ratingLabel ??
   (typeof business.ratingValue === 'number' && typeof business.reviewCount === 'number'
     ? `${business.ratingValue.toFixed(1)} from ${business.reviewCount} reviews`
     : null);
 const serviceModeLabel =
-  business.serviceModes.length > 0 ? business.serviceModes.join(' / ') : 'Dine-in / Delivery / Pickup';
+  business.serviceModes.length > 0 ? business.serviceModes.join(' / ') : business.primaryCategory ?? 'Visit details';
 const addressLabel = business.address ?? business.display.location;
+const shortAddressLabel = business.address?.split(',').slice(0, 2).join(', ') ?? addressLabel;
 const heroFacts = [ratingSummary, serviceModeLabel].filter(Boolean).slice(0, 2);
 const heroToplineItems = [categoryLabel, business.city].filter(Boolean);
 const monolithToplineItems = [categoryLabel, addressLabel].filter(Boolean).slice(0, 2);
-const featuredPick = business.featuredItems[0];
-const supportEyebrow = featuredPick?.accent ?? 'First pick';
-const supportTitle = featuredPick?.title ?? business.businessName;
-const supportCopy = featuredPick?.summary ?? business.heroSignature;
-const primaryAction = hasOrderLink
-  ? { label: 'Order Online', href: orderHref }
-  : { label: 'Get Directions', href: directionsHref };
-const secondaryAction = hasOrderLink
-  ? { label: 'Get Directions', href: directionsHref }
-  : { label: 'View Menu', href: menuHref };
+const supportEyebrow = assembly.content.heroSupport.eyebrow;
+const supportTitle = assembly.content.heroSupport.title;
+const supportCopy = assembly.content.heroSupport.body;
 ---
 
 <section class:list={['section-shell hero-section', `hero-section--${variant}`]} id="top">
@@ -63,10 +57,12 @@ const secondaryAction = hasOrderLink
           {business.shortDescription}
         </p>
         <div class="hero-actions" data-reveal-item>
-          <ActionLink href={primaryAction.href}>{primaryAction.label}</ActionLink>
-          <ActionLink href={secondaryAction.href} variant="ghost">
-            {secondaryAction.label}
-          </ActionLink>
+          {primaryAction && <ActionLink href={primaryAction.href}>{primaryAction.label}</ActionLink>}
+          {secondaryAction && (
+            <ActionLink href={secondaryAction.href} variant="ghost">
+              {secondaryAction.label}
+            </ActionLink>
+          )}
         </div>
         <div class="hero-facts" data-reveal-item>
           {heroFacts.map((fact) => (
@@ -90,7 +86,7 @@ const secondaryAction = hasOrderLink
             />
             <figcaption class="hero-frame__overlay">
               <p>{categoryLabel} in {business.city}</p>
-              <span>{addressLabel}</span>
+              <span>{shortAddressLabel}</span>
             </figcaption>
           </figure>
         )}
@@ -112,7 +108,7 @@ const secondaryAction = hasOrderLink
                   decoding="async"
                 />
                 <figcaption class="hero-frame__caption">
-                  <span>{asset.treatment ?? 'restaurant detail'}</span>
+                  <span>{supportEyebrow}</span>
                 </figcaption>
               </figure>
             ))}
@@ -145,10 +141,12 @@ const secondaryAction = hasOrderLink
           {business.shortDescription}
         </p>
         <div class="hero-actions" data-reveal-item>
-          <ActionLink href={primaryAction.href}>{primaryAction.label}</ActionLink>
-          <ActionLink href={secondaryAction.href} variant="ghost">
-            {secondaryAction.label}
-          </ActionLink>
+          {primaryAction && <ActionLink href={primaryAction.href}>{primaryAction.label}</ActionLink>}
+          {secondaryAction && (
+            <ActionLink href={secondaryAction.href} variant="ghost">
+              {secondaryAction.label}
+            </ActionLink>
+          )}
         </div>
         <div class="hero-poster-note panel-luxe panel-luxe--soft" data-reveal-item>
           <p class="detail-label">{supportEyebrow}</p>
@@ -187,14 +185,14 @@ const secondaryAction = hasOrderLink
                   decoding="async"
                 />
                 <figcaption class="hero-frame__caption">
-                  <span>{asset.treatment ?? 'restaurant detail'}</span>
+                  <span>{supportEyebrow}</span>
                 </figcaption>
               </figure>
             ))}
           </div>
         )}
         <aside class="hero-poster-aside panel-luxe panel-luxe--soft" data-hover-lift>
-          <p class="detail-label">Food mood</p>
+          <p class="detail-label">Visual mood</p>
           <p class="hero-note__title">{supportTitle}</p>
           <p>{business.photographyStyle}</p>
         </aside>
@@ -252,16 +250,18 @@ const secondaryAction = hasOrderLink
         <div class="hero-proof panel-luxe panel-luxe--soft" data-hover-lift>
           <p class="hero-note__eyebrow">People come back for</p>
           <ul class="proof-list">
-            {(business.reviewHighlights.length > 0 ? business.reviewHighlights : business.proofPoints).slice(0, 3).map((point) => (
+            {assembly.content.trust.signals.slice(0, 3).map((point) => (
               <li>{point}</li>
             ))}
           </ul>
         </div>
         <div class="hero-actions hero-actions--stacked">
-          <ActionLink href={primaryAction.href}>{primaryAction.label}</ActionLink>
-          <ActionLink href={secondaryAction.href} variant="ghost">
-            {secondaryAction.label}
-          </ActionLink>
+          {primaryAction && <ActionLink href={primaryAction.href}>{primaryAction.label}</ActionLink>}
+          {secondaryAction && (
+            <ActionLink href={secondaryAction.href} variant="ghost">
+              {secondaryAction.label}
+            </ActionLink>
+          )}
         </div>
       </div>
     </div>

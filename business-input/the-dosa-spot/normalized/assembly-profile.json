@@ -1,0 +1,687 @@
+{
+  "schemaVersion": 1,
+  "fileKind": "assembly-profile",
+  "businessSlug": "the-dosa-spot",
+  "updatedAt": "2026-03-16T15:22:04.993Z",
+  "page": {
+    "defaultPresetSlug": "dosa-signature",
+    "routePolicy": {
+      "primaryPath": "/",
+      "demoPathPrefix": "/demo/",
+      "indexablePresetSlugs": [
+        "dosa-signature"
+      ],
+      "noindexPresetSlugs": [
+        "dosa-poster",
+        "dosa-monolith"
+      ]
+    }
+  },
+  "context": {
+    "sectorType": "restaurant",
+    "visualFamily": "food-warm-editorial",
+    "recommendedTone": "warm-food-led",
+    "conversionGoal": "visit"
+  },
+  "visibility": {
+    "sections": [
+      {
+        "id": "hero",
+        "anchor": "#top",
+        "show": true,
+        "mode": "full",
+        "priority": "high",
+        "reason": "The hero should immediately state the offer and local context.",
+        "triggeredBy": [
+          "content-plan:hero",
+          "sector:restaurant"
+        ]
+      },
+      {
+        "id": "popular-items",
+        "anchor": "#popular-items",
+        "show": true,
+        "mode": "full",
+        "priority": "high",
+        "reason": "Featured items are available and should surface early.",
+        "triggeredBy": [
+          "content-plan:popular-items",
+          "offer:featured-items"
+        ]
+      },
+      {
+        "id": "services",
+        "anchor": "#menu",
+        "show": true,
+        "mode": "full",
+        "priority": "medium",
+        "reason": "The offer has enough structure for a clean scan route.",
+        "triggeredBy": [
+          "content-plan:services",
+          "offer:services"
+        ]
+      },
+      {
+        "id": "credibility",
+        "anchor": "#reviews",
+        "show": true,
+        "mode": "full",
+        "priority": "high",
+        "reason": "Rating, proof points, or both are available as trust anchors.",
+        "triggeredBy": [
+          "content-plan:credibility",
+          "trust:rating-reviews"
+        ]
+      },
+      {
+        "id": "about",
+        "anchor": "#service-options",
+        "show": false,
+        "mode": "hidden",
+        "priority": "medium",
+        "reason": "The current brief does not add enough operational depth to justify a separate service-options block.",
+        "triggeredBy": [
+          "service-modes",
+          "location",
+          "cta:primary"
+        ]
+      },
+      {
+        "id": "gallery",
+        "anchor": "#gallery",
+        "show": true,
+        "mode": "compact",
+        "priority": "medium",
+        "reason": "Approved real images are available and should reinforce truthfulness.",
+        "triggeredBy": [
+          "image-map:gallery",
+          "layout:frames-mosaic"
+        ]
+      },
+      {
+        "id": "faq",
+        "anchor": "#faq",
+        "show": true,
+        "mode": "full",
+        "priority": "medium",
+        "reason": "FAQ can reduce first-visit friction when supported by actual answers.",
+        "triggeredBy": [
+          "faq:utility"
+        ]
+      },
+      {
+        "id": "cta",
+        "anchor": "#location",
+        "show": true,
+        "mode": "full",
+        "priority": "high",
+        "reason": "The page should close with the strongest truthful action.",
+        "triggeredBy": [
+          "cta:primary",
+          "get-directions"
+        ]
+      },
+      {
+        "id": "footer",
+        "anchor": "#footer",
+        "show": true,
+        "mode": "full",
+        "priority": "low",
+        "reason": "Footer reinforces contact and local trust signals.",
+        "triggeredBy": [
+          "footer"
+        ]
+      }
+    ]
+  },
+  "ctaMap": {
+    "availableActions": [
+      {
+        "key": "get-directions",
+        "renderActionKey": "get-directions",
+        "label": "Get Directions",
+        "href": "https://www.google.com/maps/search/?api=1&query=35%20Washington%20St%2C%20Centre%2C%20Cork%2C%20T12%20DHX2%2C%20Cork%2C%20Ireland",
+        "availability": "available",
+        "source": "content-plan",
+        "reason": "Directions are the strongest truthful action in the current source set."
+      },
+      {
+        "key": "view-menu",
+        "renderActionKey": "view-menu",
+        "label": "View Menu",
+        "href": "#menu",
+        "availability": "available",
+        "source": "content-plan",
+        "reason": "Menu access remains useful even when the source set is still light on external links."
+      },
+      {
+        "key": "call",
+        "renderActionKey": "call",
+        "label": "Call",
+        "href": "tel:0212417603",
+        "availability": "available",
+        "source": "content-plan",
+        "reason": "Phone supports practical follow-up and pickup questions."
+      }
+    ],
+    "hero": {
+      "primary": {
+        "key": "get-directions",
+        "renderActionKey": "get-directions",
+        "label": "Get Directions",
+        "href": "https://www.google.com/maps/search/?api=1&query=35%20Washington%20St%2C%20Centre%2C%20Cork%2C%20T12%20DHX2%2C%20Cork%2C%20Ireland",
+        "availability": "available",
+        "source": "content-plan",
+        "reason": "Directions are the strongest truthful action in the current source set."
+      },
+      "secondary": {
+        "key": "view-menu",
+        "renderActionKey": "view-menu",
+        "label": "View Menu",
+        "href": "#menu",
+        "availability": "available",
+        "source": "content-plan",
+        "reason": "Menu access remains useful even when the source set is still light on external links."
+      },
+      "hidden": [
+        {
+          "key": "call",
+          "renderActionKey": "call",
+          "label": "Call",
+          "href": "tel:0212417603",
+          "availability": "available",
+          "source": "content-plan",
+          "reason": "Phone supports practical follow-up and pickup questions."
+        }
+      ],
+      "reason": "Lead with the strongest truthful action and keep one quieter backup near the top."
+    },
+    "finalCta": {
+      "primary": {
+        "key": "get-directions",
+        "renderActionKey": "get-directions",
+        "label": "Get Directions",
+        "href": "https://www.google.com/maps/search/?api=1&query=35%20Washington%20St%2C%20Centre%2C%20Cork%2C%20T12%20DHX2%2C%20Cork%2C%20Ireland",
+        "availability": "available",
+        "source": "content-plan",
+        "reason": "Directions are the strongest truthful action in the current source set."
+      },
+      "secondary": {
+        "key": "call",
+        "renderActionKey": "call",
+        "label": "Call",
+        "href": "tel:0212417603",
+        "availability": "available",
+        "source": "content-plan",
+        "reason": "Phone supports practical follow-up and pickup questions."
+      },
+      "hidden": [
+        {
+          "key": "view-menu",
+          "renderActionKey": "view-menu",
+          "label": "View Menu",
+          "href": "#menu",
+          "availability": "available",
+          "source": "content-plan",
+          "reason": "Menu access remains useful even when the source set is still light on external links."
+        }
+      ],
+      "reason": "Close with the strongest truthful action and one practical follow-up."
+    }
+  },
+  "images": {
+    "heroMain": {
+      "id": "hero-main",
+      "src": "/businesses/the-dosa-spot/images/hero-main.jpg",
+      "alt": "A table spread at The Dosa Spot.",
+      "kind": "hero",
+      "ratio": "portrait",
+      "treatment": "hero spread",
+      "width": 860,
+      "height": 1120,
+      "quality": "strong",
+      "reason": "Selected as the best opening image from the current approved asset set."
+    },
+    "heroSupport": {
+      "id": "dish-dosa",
+      "src": "/businesses/the-dosa-spot/images/dish-2.jpg",
+      "alt": "Paneer Potato Masala Dosa served at The Dosa Spot.",
+      "kind": "detail",
+      "ratio": "portrait",
+      "treatment": "paneer potato masala dosa",
+      "width": 860,
+      "height": 1120,
+      "quality": "usable",
+      "reason": "Used as the single supporting food detail beside the hero."
+    },
+    "popularItems": [
+      {
+        "id": "dish-dosa",
+        "src": "/businesses/the-dosa-spot/images/dish-2.jpg",
+        "alt": "Paneer Potato Masala Dosa served at The Dosa Spot.",
+        "kind": "detail",
+        "ratio": "portrait",
+        "treatment": "paneer potato masala dosa",
+        "width": 860,
+        "height": 1120,
+        "quality": "usable",
+        "reason": "Chosen for highlights because it supports a confirmed featured item or menu cue."
+      },
+      {
+        "id": "dish-chole-bhature",
+        "src": "/businesses/the-dosa-spot/images/dish-1.jpg",
+        "alt": "Batura Chole Bhature served at The Dosa Spot.",
+        "kind": "detail",
+        "ratio": "portrait",
+        "treatment": "batura chole bhature",
+        "width": 860,
+        "height": 1120,
+        "quality": "usable",
+        "reason": "Chosen for highlights because it supports a confirmed featured item or menu cue."
+      },
+      {
+        "id": "dish-gulab-jamun",
+        "src": "/businesses/the-dosa-spot/images/dish-3.jpg",
+        "alt": "Gulab Jamun served at The Dosa Spot.",
+        "kind": "detail",
+        "ratio": "portrait",
+        "treatment": "gulab jamun",
+        "width": 860,
+        "height": 1120,
+        "quality": "usable",
+        "reason": "Chosen for highlights because it supports a confirmed featured item or menu cue."
+      },
+      {
+        "id": "dish-vegetable-noodles",
+        "src": "/businesses/the-dosa-spot/images/dish-4.jpg",
+        "alt": "Vegetable Noodles at The Dosa Spot.",
+        "kind": "detail",
+        "ratio": "portrait",
+        "treatment": "vegetable noodles",
+        "width": 860,
+        "height": 1120,
+        "quality": "usable",
+        "reason": "Chosen for highlights because it supports a confirmed featured item or menu cue."
+      }
+    ],
+    "gallery": [
+      {
+        "id": "gallery-spicy-noodles",
+        "src": "/businesses/the-dosa-spot/images/gallery-2.jpg",
+        "alt": "Spicy Noodles at The Dosa Spot.",
+        "kind": "detail",
+        "ratio": "portrait",
+        "treatment": "spicy noodles",
+        "width": 860,
+        "height": 1120,
+        "quality": "usable",
+        "reason": "Approved for the gallery because it adds variety without redundancy."
+      },
+      {
+        "id": "gallery-curry-naan",
+        "src": "/businesses/the-dosa-spot/images/gallery-1.jpg",
+        "alt": "Curry Naan at The Dosa Spot.",
+        "kind": "detail",
+        "ratio": "portrait",
+        "treatment": "curry naan",
+        "width": 860,
+        "height": 1120,
+        "quality": "usable",
+        "reason": "Approved for the gallery because it adds variety without redundancy."
+      }
+    ],
+    "fallback": {
+      "id": "fallback-noodle-bowl",
+      "src": "/businesses/the-dosa-spot/images/fallback-1.jpg",
+      "alt": "Noodle Bowl at The Dosa Spot.",
+      "kind": "detail",
+      "ratio": "portrait",
+      "treatment": "noodle bowl",
+      "width": 860,
+      "height": 1120,
+      "quality": "weak",
+      "reason": "Reserved as the safest visual fallback if a stronger slot is unavailable."
+    }
+  },
+  "content": {
+    "heroSupport": {
+      "eyebrow": "Signature dosa",
+      "title": "Paneer Potato Masala Dosa",
+      "body": "The clearest first order: a crisp dosa wrapped around paneer and potato masala."
+    },
+    "popularItems": {
+      "title": "Start with the plates people notice first.",
+      "body": "A quick food-first scan before you head over or call.",
+      "cards": [
+        {
+          "eyebrow": "Signature dosa",
+          "title": "Paneer Potato Masala Dosa",
+          "body": "The clearest first order: a crisp dosa wrapped around paneer and potato masala.",
+          "image": {
+            "id": "dish-dosa",
+            "src": "/businesses/the-dosa-spot/images/dish-2.jpg",
+            "alt": "Paneer Potato Masala Dosa served at The Dosa Spot.",
+            "kind": "detail",
+            "ratio": "portrait",
+            "treatment": "paneer potato masala dosa",
+            "width": 860,
+            "height": 1120,
+            "quality": "usable",
+            "reason": "Chosen for highlights because it supports a confirmed featured item or menu cue."
+          },
+          "reason": "Featured items are confirmed in the brief and chosen early for fast scanning."
+        },
+        {
+          "eyebrow": "Popular plate",
+          "title": "Batura Chole Bhature",
+          "body": "Puffy bhature and chickpea curry when you want the richer, heavier plate.",
+          "image": {
+            "id": "dish-chole-bhature",
+            "src": "/businesses/the-dosa-spot/images/dish-1.jpg",
+            "alt": "Batura Chole Bhature served at The Dosa Spot.",
+            "kind": "detail",
+            "ratio": "portrait",
+            "treatment": "batura chole bhature",
+            "width": 860,
+            "height": 1120,
+            "quality": "usable",
+            "reason": "Chosen for highlights because it supports a confirmed featured item or menu cue."
+          },
+          "reason": "Featured items are confirmed in the brief and chosen early for fast scanning."
+        },
+        {
+          "eyebrow": "Sweet finish",
+          "title": "Gulab Jamun",
+          "body": "Warm gulab jamun for a short sweet finish after the savoury plates.",
+          "image": {
+            "id": "dish-gulab-jamun",
+            "src": "/businesses/the-dosa-spot/images/dish-3.jpg",
+            "alt": "Gulab Jamun served at The Dosa Spot.",
+            "kind": "detail",
+            "ratio": "portrait",
+            "treatment": "gulab jamun",
+            "width": 860,
+            "height": 1120,
+            "quality": "usable",
+            "reason": "Chosen for highlights because it supports a confirmed featured item or menu cue."
+          },
+          "reason": "Featured items are confirmed in the brief and chosen early for fast scanning."
+        }
+      ]
+    },
+    "trust": {
+      "mode": "rating-and-themes",
+      "title": "A strong local rating, backed by what people mention most.",
+      "body": "4.6 from 610 reviews. People repeatedly mention very tasty food, friendly staff, and quick service.",
+      "ratingValue": "4.6",
+      "ratingContext": "Based on 610 reviews.",
+      "signals": [
+        "Very tasty food",
+        "Friendly staff",
+        "Quick service",
+        "Dosa stands out"
+      ],
+      "visitDetails": [
+        "35 Washington St, Centre, Cork, T12 DHX2",
+        "(021) 241 7603",
+        "Dine-in / Delivery / Pickup"
+      ]
+    },
+    "gallery": {
+      "title": "A tighter look at a few more plates.",
+      "body": "Trimmed down to the images that still add something new.",
+      "noteTitle": "Food-first gallery",
+      "noteBody": "No storefront image is verified yet, so the gallery stays tightly focused on the food.",
+      "mode": "compact"
+    },
+    "location": {
+      "eyebrow": "Location & contact",
+      "title": "Find The Dosa Spot on 35 Washington St.",
+      "body": "Get directions, call ahead, and keep the practical details in one place.",
+      "visitLabel": "Visit",
+      "visitValue": "35 Washington St, Centre, Cork, T12 DHX2",
+      "supportLabel": "Service modes",
+      "supportValue": "Dine-in / Delivery / Pickup",
+      "supportNote": "Call ahead if you want to confirm pickup or delivery details."
+    },
+    "footerSummary": "South Indian restaurant in Cork, with directions, phone, and the clearest first picks.",
+    "footerProof": [
+      "Dine-in",
+      "Delivery",
+      "Pickup"
+    ]
+  },
+  "navigation": {
+    "footerLinks": [
+      {
+        "label": "Top",
+        "href": "#top",
+        "enabled": true,
+        "reason": "The hero should immediately state the offer and local context."
+      },
+      {
+        "label": "Menu",
+        "href": "#menu",
+        "enabled": true,
+        "reason": "The offer has enough structure for a clean scan route."
+      },
+      {
+        "label": "Reviews",
+        "href": "#reviews",
+        "enabled": true,
+        "reason": "Rating, proof points, or both are available as trust anchors."
+      },
+      {
+        "label": "Service Options",
+        "href": "#service-options",
+        "enabled": false,
+        "reason": "The current brief does not add enough operational depth to justify a separate service-options block."
+      },
+      {
+        "label": "Gallery",
+        "href": "#gallery",
+        "enabled": true,
+        "reason": "Approved real images are available and should reinforce truthfulness."
+      },
+      {
+        "label": "Location",
+        "href": "#location",
+        "enabled": true,
+        "reason": "The page should close with the strongest truthful action."
+      }
+    ]
+  },
+  "degradations": [
+    {
+      "id": "restaurant-no-order-link",
+      "source": "sector",
+      "triggeredBy": [
+        "contact.orderUrl"
+      ],
+      "guidance": "Do not lead with ordering when no verified order route exists. Shift to directions or menu exploration.",
+      "adjustments": [
+        "get-directions",
+        "view-menu",
+        "call"
+      ]
+    },
+    {
+      "id": "restaurant-no-menu-url",
+      "source": "sector",
+      "triggeredBy": [
+        "contact.menuUrl"
+      ],
+      "guidance": "Keep menu language anchored to on-page highlights and avoid implying a full verified external menu.",
+      "adjustments": [
+        "view-menu",
+        "get-directions"
+      ]
+    },
+    {
+      "id": "restaurant-no-hours",
+      "source": "sector",
+      "triggeredBy": [
+        "location.openingHours"
+      ],
+      "guidance": "Do not promise open-now convenience or late-service claims until hours are verified.",
+      "adjustments": [
+        "get-directions",
+        "call"
+      ]
+    },
+    {
+      "id": "restaurant-no-exterior",
+      "source": "sector",
+      "triggeredBy": [
+        "signal:image:exterior"
+      ],
+      "guidance": "If no exterior image exists, keep the gallery food-first and let maps carry location trust.",
+      "adjustments": [
+        "get-directions"
+      ]
+    },
+    {
+      "id": "warm-food-no-exterior",
+      "source": "visual",
+      "triggeredBy": [
+        "signal:image:exterior"
+      ],
+      "guidance": "If no exterior photo exists, keep the gallery dish-led and let location trust come from maps/contact blocks.",
+      "adjustments": [
+        "remove storefront framing",
+        "promote address/contact card"
+      ]
+    },
+    {
+      "id": "copy-no-order-url",
+      "source": "copy",
+      "triggeredBy": [
+        "contact.orderUrl"
+      ],
+      "guidance": "Keep the copy visit-led or menu-led when no verified order flow exists.",
+      "adjustments": [
+        "prefer directions over ordering",
+        "avoid delivery-first claims",
+        "keep CTA literal"
+      ]
+    },
+    {
+      "id": "copy-no-menu-url",
+      "source": "copy",
+      "triggeredBy": [
+        "contact.menuUrl"
+      ],
+      "guidance": "Talk about menu highlights on-page instead of implying a complete external menu.",
+      "adjustments": [
+        "frame menu as highlights",
+        "avoid full menu language"
+      ]
+    },
+    {
+      "id": "copy-no-hours",
+      "source": "copy",
+      "triggeredBy": [
+        "location.openingHours"
+      ],
+      "guidance": "Do not mention open-now, opening windows, or easy late-night availability.",
+      "adjustments": [
+        "stick to address and call cues",
+        "avoid time-based wording"
+      ]
+    },
+    {
+      "id": "copy-no-testimonials",
+      "source": "copy",
+      "triggeredBy": [
+        "trust.testimonials"
+      ],
+      "guidance": "Summarize review themes instead of writing quote-style proof.",
+      "adjustments": [
+        "use review themes",
+        "avoid quotation marks"
+      ]
+    },
+    {
+      "id": "visual:warm-food-no-exterior",
+      "source": "copy",
+      "triggeredBy": [
+        "signal:image:exterior"
+      ],
+      "guidance": "If no exterior photo exists, keep the gallery dish-led and let location trust come from maps/contact blocks.",
+      "adjustments": [
+        "remove storefront framing",
+        "promote address/contact card"
+      ]
+    },
+    {
+      "id": "assembly-on-page-menu",
+      "source": "assembly",
+      "triggeredBy": [
+        "contact.menuUrl"
+      ],
+      "guidance": "Keep the menu action anchored to on-page highlights and services when no verified external menu exists.",
+      "adjustments": [
+        "link View Menu to #menu",
+        "promote popular items before deeper sections"
+      ]
+    },
+    {
+      "id": "assembly-theme-trust-only",
+      "source": "assembly",
+      "triggeredBy": [
+        "trust.testimonials"
+      ],
+      "guidance": "Use rating and review themes instead of quoted testimonials when no direct quotes are verified.",
+      "adjustments": [
+        "rating panel first",
+        "theme list instead of quote cards"
+      ]
+    },
+    {
+      "id": "assembly-compact-gallery",
+      "source": "assembly",
+      "triggeredBy": [
+        "image-selection:gallery-count"
+      ],
+      "guidance": "Tighten the gallery when approved image variety is limited.",
+      "adjustments": [
+        "show fewer frames",
+        "keep the layout dish-led"
+      ]
+    },
+    {
+      "id": "assembly-hours-hidden",
+      "source": "assembly",
+      "triggeredBy": [
+        "location.openingHours"
+      ],
+      "guidance": "Do not surface opening hours until they are verified.",
+      "adjustments": [
+        "remove hours labels",
+        "prefer directions and call"
+      ]
+    }
+  ],
+  "diagnostics": {
+    "hiddenSections": [
+      "about"
+    ],
+    "suppressedClaims": [
+      "Do not invent hours, prices, offers, awards, lead times, or reservation support.",
+      "Do not claim a website, order flow, email route, or WhatsApp route unless verified.",
+      "Do not use unverified superlatives like best, leading, number one, or award-winning.",
+      "Do not fabricate team names, certifications, or years in business.",
+      "Do not promise online ordering, reservations, or a full menu URL when those routes are missing.",
+      "Do not say open now, open daily, late night, or list hours.",
+      "Do not say order online, checkout, or delivery now.",
+      "Do not imply a verified full external menu URL.",
+      "Do not present testimonial quotes or quote marks as if direct quotes exist."
+    ],
+    "ghostsAvoided": [
+      "No CTA is rendered without a real href.",
+      "No hidden section keeps a live footer link.",
+      "No menu URL is implied when only on-page highlights exist.",
+      "No testimonial quote UI appears when direct quotes are absent."
+    ]
+  }
+}

@@ -153,13 +153,13 @@ export function normalizeBusinessBrief(input: BusinessBriefInput): BusinessBrief
     brandHints,
     brandColors,
     toneHints,
-    visualMood: input.visualMood?.trim() || 'Warm local restaurant with food-first colour',
+    visualMood: input.visualMood?.trim() || 'Clear local business identity with approachable contrast and a stronger first impression.',
     seoTitle:
       input.seoTitle?.trim() ||
-      `${input.businessName} | Local Restaurant in ${input.city}, ${input.country}`,
+      `${input.businessName} | ${(input.primaryCategory?.trim() || 'Local Business')} in ${input.city}, ${input.country}`,
     seoDescription:
       input.seoDescription?.trim() ||
-      `${input.businessName} is a local restaurant in ${input.city}, ${input.country} with food-first visuals, clearer menu highlights, and a polished local presence.`,
+      `${input.businessName} is a local business in ${input.city}, ${input.country} with clearer service highlights, stronger local trust cues, and an easier next step.`,
     localSeoData: input.localSeoData ?? {},
     missingDataFlags: buildMissingDataFlags(input),
     completenessScore: input.completenessScore ?? Math.round((totalScore / totalPossible) * 100),
@@ -172,7 +172,7 @@ export function normalizeBusinessBrief(input: BusinessBriefInput): BusinessBrief
     proofPoints,
     heroSignature:
       input.heroSignature?.trim() ||
-      'A local restaurant experience built around warm plates, quicker decisions, and an easier sense of trust.',
+      'A local business experience built around clearer decisions, stronger trust, and a more polished first impression.',
     materialFinish: input.materialFinish?.trim() || 'Warm cream, saffron, tamarind red, and leaf green accents.',
     imageTreatment: input.imageTreatment?.trim() || 'Warm tabletop light, plated close-ups, and textured food-first contrast.',
     primaryImage,

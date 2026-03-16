@@ -1,8 +1,8 @@
+const DEFAULT_SITE_URL = 'https://preview.local-business-site.example';
+const resolvedSiteUrl = (process.env.PUBLIC_SITE_URL ?? process.env.SITE_URL ?? DEFAULT_SITE_URL).replace(/\/+$/u, '');
+
 export const siteConfig = {
-  siteUrl: 'https://barber-pro-6fdf6.web.app',
-  siteName: 'The Dosa Spot',
+  siteUrl: resolvedSiteUrl,
   locale: 'en_IE',
   languageTag: 'en-IE',
-  themeColor: '#2a140e',
-  defaultOgImage: '/og-dosa-spot.svg',
 };

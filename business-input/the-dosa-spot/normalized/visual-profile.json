@@ -1,0 +1,323 @@
+{
+  "schemaVersion": 1,
+  "fileKind": "visual-profile",
+  "businessSlug": "the-dosa-spot",
+  "updatedAt": "2026-03-16T15:22:02.428Z",
+  "visualFamily": "food-warm-editorial",
+  "visualConfidence": "high",
+  "visualScore": 29,
+  "fallbackUsed": false,
+  "reasoning": [
+    "Selected Food Warm Editorial with score 29.",
+    "Matched signals: sector:restaurant, tone:premium-casual, tone:warm, tone:local-trust, luxury:high, color:warm, images:high, image:dish, image:ambience.",
+    "Runner-up was Neutral Reusable at 23.",
+    "Image abundance is high with 1 strong approved assets."
+  ],
+  "candidateScores": [
+    {
+      "familyId": "food-warm-editorial",
+      "score": 29,
+      "matchedSignals": [
+        "sector:restaurant",
+        "tone:premium-casual",
+        "tone:warm",
+        "tone:local-trust",
+        "luxury:high",
+        "color:warm",
+        "images:high",
+        "image:dish",
+        "image:ambience"
+      ],
+      "concerns": []
+    },
+    {
+      "familyId": "neutral-reusable",
+      "score": 23,
+      "matchedSignals": [
+        "sector:restaurant",
+        "tone:direct",
+        "tone:local-trust",
+        "luxury:high",
+        "color:warm",
+        "images:high"
+      ],
+      "concerns": []
+    },
+    {
+      "familyId": "dark-boutique-luxury",
+      "score": 12,
+      "matchedSignals": [
+        "tone:premium-casual",
+        "luxury:high",
+        "color:warm",
+        "images:high",
+        "intensity:bold"
+      ],
+      "concerns": [
+        "This family wants a stronger image set than the current brief can guarantee."
+      ]
+    },
+    {
+      "familyId": "local-service-premium",
+      "score": 10,
+      "matchedSignals": [
+        "tone:local-trust",
+        "tone:direct",
+        "luxury:high",
+        "color:warm",
+        "trust:rating-reviews"
+      ],
+      "concerns": [
+        "Image abundance is high, which is weaker for this family."
+      ]
+    },
+    {
+      "familyId": "retail-clean-modern",
+      "score": 7,
+      "matchedSignals": [
+        "tone:direct",
+        "luxury:high",
+        "images:high"
+      ],
+      "concerns": [
+        "Brand colors read as warm, which is not a strong fit for this family."
+      ]
+    },
+    {
+      "familyId": "clinic-calm-trust",
+      "score": 5,
+      "matchedSignals": [
+        "tone:direct",
+        "luxury:high"
+      ],
+      "concerns": [
+        "Brand colors read as warm, which is not a strong fit for this family.",
+        "Image abundance is high, which is weaker for this family."
+      ]
+    }
+  ],
+  "signals": {
+    "sectorType": "restaurant",
+    "sectorConfidence": "high",
+    "toneHints": [
+      "welcoming",
+      "clear",
+      "fresh",
+      "local",
+      "premium-casual",
+      "warm",
+      "local-trust",
+      "direct"
+    ],
+    "sectorTone": [
+      "premium-casual",
+      "warm",
+      "local-trust",
+      "direct"
+    ],
+    "desiredLuxuryLevel": "high",
+    "visualIntensity": "bold",
+    "preferredContrast": "balanced",
+    "sectionDensityPreference": "balanced",
+    "brandColorTemperature": "warm",
+    "brandColorCount": 4,
+    "approvedImageCount": 9,
+    "strongImageCount": 1,
+    "imageAbundance": "high",
+    "imageSignals": [
+      "image:ambience",
+      "image:dish"
+    ],
+    "trustSignals": [
+      "trust:credibility-risks",
+      "trust:proof-points",
+      "trust:rating-reviews"
+    ],
+    "missingPaths": [
+      "contact.email",
+      "contact.website",
+      "contact.orderUrl",
+      "contact.menuUrl",
+      "contact.whatsapp",
+      "location.coordinates",
+      "location.openingHours",
+      "identity.secondaryCategories",
+      "trust.testimonials"
+    ]
+  },
+  "family": {
+    "familyId": "food-warm-editorial",
+    "label": "Food Warm Editorial",
+    "description": "Warm, tactile, appetite-led direction for food businesses with enough imagery to feel rich without becoming noisy.",
+    "personality": "Premium-casual, sensory, local, and editorial without becoming precious.",
+    "suitedSectors": [
+      "restaurant",
+      "cafe-bakery-takeaway"
+    ],
+    "bestFor": [
+      "Restaurants with strong dish photography",
+      "Cafes and bakeries with warmth and product appeal",
+      "Brands that need appetite, locality, and trust to land fast"
+    ],
+    "avoidWhen": [
+      "Image quality is weak or very sparse",
+      "The business needs a clinical or highly restrained tone",
+      "Trust must lean more on credentials than atmosphere"
+    ],
+    "toneAffinities": [
+      "premium-casual",
+      "warm",
+      "local-trust",
+      "friendly"
+    ],
+    "luxuryAffinities": [
+      "high",
+      "editorial"
+    ],
+    "preferredColorTemperature": [
+      "warm",
+      "neutral"
+    ],
+    "preferredImageAbundance": [
+      "high",
+      "medium"
+    ],
+    "palette": {
+      "background": "#2a140e",
+      "backgroundAlt": "#1b0f0c",
+      "surface": "rgba(43, 21, 14, 0.84)",
+      "surfaceSoft": "rgba(69, 33, 19, 0.56)",
+      "textPrimary": "#f7ead8",
+      "textSecondary": "rgba(247, 234, 216, 0.76)",
+      "textMuted": "rgba(247, 234, 216, 0.54)",
+      "accentPrimary": "#f3a229",
+      "accentSecondary": "#c5482e",
+      "borderSoft": "rgba(247, 234, 216, 0.16)",
+      "borderStrong": "rgba(243, 162, 41, 0.36)",
+      "overlayStrong": "rgba(17, 9, 7, 0.68)",
+      "overlaySoft": "rgba(243, 162, 41, 0.14)",
+      "ctaPrimaryBackground": "#f3a229",
+      "ctaPrimaryText": "#26120d",
+      "ctaSecondaryBorder": "rgba(247, 234, 216, 0.22)",
+      "ctaSecondaryText": "#f7ead8",
+      "chipBackground": "rgba(243, 162, 41, 0.12)",
+      "chipText": "#ffd17b"
+    },
+    "typography": {
+      "displayFamily": "'Instrument Serif', serif",
+      "bodyFamily": "'Bricolage Grotesque Variable', sans-serif",
+      "combination": "serif-sans",
+      "displayTone": "Expressive serif headlines with grounded sans body copy.",
+      "h1Weight": 500,
+      "h2Weight": 500,
+      "h3Weight": 600,
+      "bodyWeight": 430,
+      "maxHeroLineLength": "13ch",
+      "bodyMeasure": "62ch"
+    },
+    "spacing": {
+      "density": "balanced",
+      "sectionGap": "clamp(5rem, 10vw, 8.75rem)",
+      "contentGap": "clamp(1.2rem, 2.5vw, 2rem)",
+      "cardGap": "clamp(1rem, 2vw, 1.5rem)",
+      "heroGap": "clamp(1.5rem, 3vw, 2.5rem)",
+      "containerWidth": "min(100% - 1.6rem, 90rem)"
+    },
+    "hero": {
+      "recommendedHeroType": "food-first",
+      "layoutMood": "Image-led split or poster composition with clear appetite cue.",
+      "mediaBalance": "Large hero frame with one supporting food detail max.",
+      "overlayTreatment": "Warm cinematic overlay with tactile captioning.",
+      "headlineApproach": "Keep the headline short and sensory, then explain locality fast.",
+      "currentHeroVariant": "immersive-poster"
+    },
+    "cta": {
+      "primaryStyle": "accent-solid",
+      "secondaryStyle": "ghost-outline",
+      "weightBalance": "clear-primary",
+      "buttonShape": "pill",
+      "maxVisibleActions": 2
+    },
+    "cards": {
+      "featuredItemStyle": "editorial-frame",
+      "serviceCardStyle": "luxe-panel",
+      "trustCardStyle": "trust-panel",
+      "infoCardStyle": "luxe-panel",
+      "highlightCardStyle": "editorial-frame",
+      "currentServicesVariant": "editorial-rows"
+    },
+    "gallery": {
+      "recommendedGallerySystems": [
+        "dishes",
+        "ambience",
+        "exterior"
+      ],
+      "layout": "frames-mosaic",
+      "cropBias": "mixed",
+      "maxImages": 5,
+      "currentGalleryVariant": "frames-mosaic"
+    },
+    "trust": {
+      "recommendedTrustSystems": [
+        "rating-reviews",
+        "menu-signatures",
+        "local-trust"
+      ],
+      "style": "rating-panel",
+      "emphasis": "Ratings and signature-item proof should land before deeper story.",
+      "contactCardTone": "Warm reassurance with local specifics."
+    },
+    "motion": {
+      "entranceStyle": "cinematic-float",
+      "hoverStyle": "gentle-rise",
+      "ambientStyle": "cinematic-float",
+      "motionIntensity": "medium"
+    },
+    "degradationRules": [
+      {
+        "id": "warm-food-no-brand-colors",
+        "whenNoBrandColors": true,
+        "guidance": "If no business colors are confirmed, stay on the family core palette and avoid invented color flourishes.",
+        "adjustments": [
+          "use family base palette",
+          "avoid color-coded menu accents"
+        ]
+      },
+      {
+        "id": "warm-food-low-images",
+        "whenLowImageCount": 3,
+        "guidance": "If food imagery is limited, collapse to a single-image hero and a tighter gallery.",
+        "adjustments": [
+          "single hero image",
+          "max 3 gallery frames",
+          "promote rating/trust panel earlier"
+        ]
+      },
+      {
+        "id": "warm-food-no-exterior",
+        "whenMissingSignals": [
+          "image:exterior"
+        ],
+        "guidance": "If no exterior photo exists, keep the gallery dish-led and let location trust come from maps/contact blocks.",
+        "adjustments": [
+          "remove storefront framing",
+          "promote address/contact card"
+        ]
+      }
+    ],
+    "currentCtaVariant": "book-consult"
+  },
+  "appliedFallbacks": [
+    {
+      "ruleId": "warm-food-no-exterior",
+      "triggeredBy": [
+        "signal:image:exterior"
+      ],
+      "guidance": "If no exterior photo exists, keep the gallery dish-led and let location trust come from maps/contact blocks.",
+      "adjustments": [
+        "remove storefront framing",
+        "promote address/contact card"
+      ]
+    }
+  ]
+}

@@ -2,10 +2,13 @@
 import ActionLink from '../components/ui/ActionLink.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { buildPageMeta } from '../lib/seo/meta';
-import { getBusinessForPreset, getDefaultPreset } from '../data/presets';
+import { getBusinessAssemblyProfileBySlug } from '../data/business-records';
+import { getActivePreset, getBusinessForPreset } from '../data/presets';
 
-const preset = getDefaultPreset();
+const preset = getActivePreset();
 const business = getBusinessForPreset(preset);
+const assembly = getBusinessAssemblyProfileBySlug(preset.businessSlug);
+const recoveryAction = assembly.ctaMap.hero.primary;
 const meta = buildPageMeta({
   business,
   preset,
@@ -15,23 +18,27 @@ const meta = buildPageMeta({
 ---
 
 <BaseLayout
-  title="Page not found | The Dosa Spot"
+  title={`Page not found | ${business.businessName}`}
   description="The requested page could not be found."
   canonical={meta.canonical}
   robots="noindex, nofollow"
   ogImage={meta.ogImage}
+  siteName={meta.siteName}
+  themeColor={meta.themeColor}
   jsonLd={[]}
 >
   <section class="section-shell">
     <div class="error-panel panel-luxe">
       <p class="section-eyebrow">404</p>
       <h1 class="hero-title hero-title--monolith">Page not found.</h1>
-      <p class="hero-description">That page is not here. Head back to the homepage or jump straight to the menu.</p>
+      <p class="hero-description">That page is not here. Head back to the homepage or take the clearest next step.</p>
       <div class="hero-actions">
         <ActionLink href="/">Back Home</ActionLink>
-        <ActionLink href="/#menu" variant="ghost">
-          View Menu
-        </ActionLink>
+        {recoveryAction && (
+          <ActionLink href={recoveryAction.href} variant="ghost">
+            {recoveryAction.label}
+          </ActionLink>
+        )}
       </div>
     </div>
   </section>

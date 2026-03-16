@@ -9,10 +9,12 @@ interface Props {
   canonical: string;
   robots: string;
   ogImage: string;
+  siteName: string;
+  themeColor: string;
   jsonLd?: Record<string, unknown>[];
 }
 
-const { title, description, canonical, robots, ogImage, jsonLd = [] } = Astro.props;
+const { title, description, canonical, robots, ogImage, siteName, themeColor, jsonLd = [] } = Astro.props;
 ---
 
 <!doctype html>
@@ -24,6 +26,8 @@ const { title, description, canonical, robots, ogImage, jsonLd = [] } = Astro.pr
       canonical={canonical}
       robots={robots}
       ogImage={ogImage}
+      siteName={siteName}
+      themeColor={themeColor}
       jsonLd={jsonLd}
     />
 </head>
