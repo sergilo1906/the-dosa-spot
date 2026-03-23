@@ -33,6 +33,8 @@ The pipeline writes:
 
 - `business-input/<slug>/normalized/image-map.json`
 - exported runtime images under `public/businesses/<slug>/images/`
+  with slug-scoped semantic filenames such as
+  `the-dosa-spot-featured-dish-chole-bhature-01.png`
 
 It also updates the `assets` block inside `business-raw.json` so the source of truth points at the generated runtime folder.
 
@@ -56,3 +58,4 @@ For The Dosa Spot, the current pipeline output is:
 - dishes: `dish-dosa`, `dish-chole-bhature`, `dish-gulab-jamun`, `dish-vegetable-noodles`
 - gallery: `gallery-spicy-noodles`, `gallery-curry-naan`, `gallery-starter-bowl`
 - fallback: `fallback-noodle-bowl`
+- runtime naming pattern: `<slug>-<role>-<subject>-<index>.<ext>`

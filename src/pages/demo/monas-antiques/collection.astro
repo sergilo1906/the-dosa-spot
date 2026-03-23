@@ -1,0 +1,8 @@
+---
+import DemoPage from '../../../features/monas-antiques/DemoPage.astro';
+import { getMonasAntiquesPageById } from '../../../features/monas-antiques/architecture';
+
+const page = getMonasAntiquesPageById('collection');
+---
+
+<DemoPage page={page} />

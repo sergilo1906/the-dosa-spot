@@ -1,0 +1,558 @@
+---
+import { getMonasAntiquesPageCopy } from './content';
+import { monasAntiquesImageMap } from './images';
+import type { MonaAntiquesPageBlueprint } from './architecture';
+import MonasCtaButtons from './MonasCtaButtons.astro';
+import MonasMediaCard from './MonasMediaCard.astro';
+import MonasPageShell from './MonasPageShell.astro';
+import { monasAntiquesBusinessProfile } from './profile';
+
+interface Props {
+  page: MonaAntiquesPageBlueprint;
+}
+
+const { page } = Astro.props;
+const pageCopy = getMonasAntiquesPageCopy(page.id);
+const introBlock = pageCopy.blocks[page.blocks[0]?.id];
+
+const homeHero = page.id === 'home' ? pageCopy.blocks['home-hero'] : null;
+const homeHighlights = page.id === 'home' ? pageCopy.blocks['home-curated-highlights'] : null;
+const homeTrust = page.id === 'home' ? pageCopy.blocks['home-boutique-trust'] : null;
+const homePieces = page.id === 'home' ? pageCopy.blocks['home-selected-pieces'] : null;
+const homeVisit = page.id === 'home' ? pageCopy.blocks['home-visit-shop'] : null;
+const homeFinal = page.id === 'home' ? pageCopy.blocks['home-final-cta'] : null;
+
+const collectionIntro = page.id === 'collection' ? pageCopy.blocks['collection-intro'] : null;
+const collectionGrid = page.id === 'collection' ? pageCopy.blocks['collection-grid'] : null;
+const collectionAvailability =
+  page.id === 'collection' ? pageCopy.blocks['collection-availability'] : null;
+const collectionFinal = page.id === 'collection' ? pageCopy.blocks['collection-final-cta'] : null;
+
+const aboutIntro = page.id === 'about' ? pageCopy.blocks['about-intro'] : null;
+const aboutStorefront = page.id === 'about' ? pageCopy.blocks['about-storefront'] : null;
+const aboutSpecial = page.id === 'about' ? pageCopy.blocks['about-special'] : null;
+const aboutTrust = page.id === 'about' ? pageCopy.blocks['about-trust'] : null;
+const aboutVisit = page.id === 'about' ? pageCopy.blocks['about-visit-reinforcement'] : null;
+
+const visitHeader = page.id === 'visit' ? pageCopy.blocks['visit-header'] : null;
+const visitDetails = page.id === 'visit' ? pageCopy.blocks['visit-details'] : null;
+const visitMap = page.id === 'visit' ? pageCopy.blocks['visit-map'] : null;
+const visitEnquiry = page.id === 'visit' ? pageCopy.blocks['visit-enquiry'] : null;
+const visitFinal = page.id === 'visit' ? pageCopy.blocks['visit-final-cta'] : null;
+---
+
+<MonasPageShell page={page} pageCopy={pageCopy}>
+  {
+    page.id === 'home' && homeHero && homeHighlights && homeTrust && homePieces && homeVisit && homeFinal && (
+      <>
+        <section class="section-shell monas-page-section monas-page-section--hero">
+          <div class="monas-home-hero">
+            <div class="monas-home-hero__copy">
+              <p class="monas-kicker">{homeHero.eyebrow}</p>
+              <h1 class="monas-display">{homeHero.title}</h1>
+              <p class="monas-lead">{homeHero.supportingCopy}</p>
+              <p class="monas-body">{homeHero.body}</p>
+              <MonasCtaButtons
+                primary={homeHero.primaryCta}
+                secondary={homeHero.secondaryCta}
+                className="monas-button-row--hero"
+              />
+            </div>
+
+            <div class="monas-home-hero__media">
+              <article class="monas-hero-frame">
+                <div class="monas-hero-frame__image">
+                  <img
+                    src={monasAntiquesImageMap.heroMain.src}
+                    alt={monasAntiquesImageMap.heroMain.alt}
+                    width={monasAntiquesImageMap.heroMain.width ?? undefined}
+                    height={monasAntiquesImageMap.heroMain.height ?? undefined}
+                    loading="eager"
+                    decoding="async"
+                    fetchpriority="high"
+                  />
+                </div>
+                <div class="monas-hero-frame__overlay">
+                  <p class="monas-kicker">Editorial selection</p>
+                  <h2>{monasAntiquesImageMap.heroMain.alt}</h2>
+                  <p>Warm detail, softer light, and a boutique read rather than a modern jewellery campaign.</p>
+                </div>
+              </article>
+
+              <MonasMediaCard
+                slot="storefrontMain"
+                eyebrow="The real shop"
+                title="A recognisable storefront on Oliver Plunkett Street"
+                body={monasAntiquesBusinessProfile.location.locationContext}
+                variant="landscape"
+                className="monas-home-hero__inset"
+              />
+            </div>
+          </div>
+
+          <ul class="monas-proof-list monas-proof-list--soft monas-proof-list--hero">
+            {homeHero.microcopy?.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </section>
+
+        <section class="section-shell monas-page-section">
+          <div class="monas-section-heading">
+            <div>
+              <p class="monas-kicker">{homeHighlights.eyebrow}</p>
+              <h2 class="monas-panel-title">{homeHighlights.title}</h2>
+            </div>
+            <div class="monas-section-heading__side">
+              <p class="monas-body">{homeHighlights.supportingCopy}</p>
+              <p class="monas-body">{homeHighlights.body}</p>
+            </div>
+          </div>
+
+          <div class="monas-feature-grid">
+            {homeHighlights.cards?.map((card, index) => (
+              <article class:list={['monas-panel', index === 1 && 'monas-panel--soft']}>
+                <div class="monas-panel__inner">
+                  {card.eyebrow && <p class="monas-kicker">{card.eyebrow}</p>}
+                  <h3 class="monas-feature-card__title">{card.title}</h3>
+                  <p class="monas-body">{card.body}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section class="section-shell monas-page-section">
+          <div class="monas-trust-grid">
+            <div class="monas-trust-grid__media">
+              <MonasMediaCard
+                slot="storefrontMain"
+                eyebrow={homeTrust.eyebrow}
+                title={homeTrust.title}
+                body={homeTrust.supportingCopy}
+                variant="landscape"
+              />
+              <MonasMediaCard
+                slot="collection01"
+                eyebrow="In-store detail"
+                title="Display cues that support the boutique read"
+                body="Drawers, trays, and a smaller display rhythm are doing real trust work here."
+                variant="landscape"
+              />
+            </div>
+
+            <article class="monas-panel--jewel">
+              <div class="monas-panel__inner">
+                <p class="monas-kicker">{homeTrust.eyebrow}</p>
+                <h2 class="monas-panel-title">{homeTrust.title}</h2>
+                <p class="monas-body">{homeTrust.body}</p>
+                <ul class="monas-proof-list">
+                  {homeTrust.cards?.map((card) => (
+                    <li>
+                      <strong>{card.title}.</strong> {card.body}
+                    </li>
+                  ))}
+                </ul>
+                <MonasCtaButtons primary={homeTrust.primaryCta} />
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section-shell monas-page-section">
+          <div class="monas-section-heading">
+            <div>
+              <p class="monas-kicker">{homePieces.eyebrow}</p>
+              <h2 class="monas-panel-title">{homePieces.title}</h2>
+            </div>
+            <div class="monas-section-heading__side">
+              <p class="monas-body">{homePieces.supportingCopy}</p>
+              <p class="monas-body">{homePieces.body}</p>
+            </div>
+          </div>
+
+          <div class="monas-piece-grid">
+            {homePieces.cards?.map((card, index) => (
+              <MonasMediaCard
+                slot={card.imageSlot ?? 'collection02'}
+                eyebrow={card.eyebrow}
+                title={card.title}
+                body={card.body}
+                variant={index === 0 ? 'landscape' : 'portrait'}
+                className={index === 0 ? 'monas-piece-grid__wide' : undefined}
+              />
+            ))}
+          </div>
+
+          <div class="monas-inline-note">
+            {homePieces.microcopy?.map((item) => (
+              <p>{item}</p>
+            ))}
+          </div>
+        </section>
+
+        <section class="section-shell monas-page-section">
+          <div class="monas-cta-row monas-cta-row--visit">
+            <div class="monas-cta-copy">
+              <p class="monas-kicker">{homeVisit.eyebrow}</p>
+              <h2>{homeVisit.title}</h2>
+              <p class="monas-body">{homeVisit.supportingCopy}</p>
+              <p class="monas-body">{homeVisit.body}</p>
+              <MonasCtaButtons primary={homeVisit.primaryCta} secondary={homeVisit.secondaryCta} />
+            </div>
+
+            <div class="monas-cta-data">
+              <p class="monas-kicker">Practical details</p>
+              <h3>{monasAntiquesBusinessProfile.location.shortLabel}</h3>
+              <p>{monasAntiquesBusinessProfile.contact.phone}</p>
+              <p>{monasAntiquesBusinessProfile.visit.openingHoursNote}</p>
+              <ul class="monas-list monas-list--light">
+                <li>Antique and vintage jewellery focus.</li>
+                <li>City-centre setting on Oliver Plunkett Street.</li>
+                <li>Call ahead if you are making a specific trip.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-shell monas-page-section monas-page-section--tight-bottom">
+          <article class="monas-panel--jewel monas-final-banner">
+            <div class="monas-panel__inner">
+              <p class="monas-kicker">{homeFinal.eyebrow}</p>
+              <h2 class="monas-panel-title">{homeFinal.title}</h2>
+              <p class="monas-body">{homeFinal.supportingCopy}</p>
+              <p class="monas-body">{homeFinal.body}</p>
+              <MonasCtaButtons primary={homeFinal.primaryCta} secondary={homeFinal.secondaryCta} />
+            </div>
+          </article>
+        </section>
+      </>
+    )
+  }
+
+  {
+    page.id !== 'home' && introBlock && (
+      <section class="section-shell monas-page-section monas-page-section--intro">
+        <div class="monas-page-intro">
+          <div class="monas-page-intro__copy">
+            <p class="monas-kicker">{pageCopy.pageEyebrow}</p>
+            <h1 class="monas-display monas-display--subpage">{pageCopy.pageTitle}</h1>
+            <p class="monas-lead">{pageCopy.pageSupportingCopy}</p>
+            <p class="monas-body">{pageCopy.pageBody}</p>
+            <MonasCtaButtons
+              primary={introBlock.primaryCta}
+              secondary={introBlock.secondaryCta}
+              className="monas-button-row--intro"
+            />
+          </div>
+
+          <div class="monas-page-intro__media">
+            <MonasMediaCard
+              slot={page.previewImageSlot}
+              eyebrow="Page anchor"
+              title={introBlock.title}
+              body={introBlock.body}
+              variant={page.id === 'visit' ? 'landscape' : 'portrait'}
+              loading="eager"
+              priority
+            />
+            {page.supportImageSlot && (
+              <MonasMediaCard
+                slot={page.supportImageSlot}
+                eyebrow="Supporting mood"
+                title={page.supportImageSlot === 'storefrontMain' ? 'Local trust comes first' : 'Atmosphere in support'}
+                body={page.intro}
+                variant="landscape"
+                className="monas-page-intro__support"
+              />
+            )}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  {
+    page.id === 'collection' && collectionIntro && collectionGrid && collectionAvailability && collectionFinal && (
+      <>
+        <section class="section-shell monas-page-section">
+          <div class="monas-piece-grid monas-piece-grid--collection">
+            {collectionGrid.cards?.map((card, index) => (
+              <MonasMediaCard
+                slot={card.imageSlot ?? 'collection02'}
+                eyebrow={card.eyebrow}
+                title={card.title}
+                body={card.body}
+                variant={index === 1 ? 'landscape' : 'portrait'}
+                className={index === 1 ? 'monas-piece-grid__wide' : undefined}
+              />
+            ))}
+            <MonasMediaCard
+              slot="ambience01"
+              eyebrow="Boutique mood"
+              title="Ambience that still serves the jewellery"
+              body="Atmosphere belongs here only where it helps the viewing-room feel."
+              variant="portrait"
+            />
+            <MonasMediaCard
+              slot="ambience02"
+              eyebrow="Material texture"
+              title="Patina, warmth, and a quieter setting"
+              body="The supporting world should reinforce the shop, not compete with the pieces."
+              variant="portrait"
+            />
+          </div>
+
+          <div class="monas-inline-note">
+            {collectionGrid.microcopy?.map((item) => (
+              <p>{item}</p>
+            ))}
+          </div>
+        </section>
+
+        <section class="section-shell monas-page-section">
+          <article class="monas-panel">
+            <div class="monas-panel__inner">
+              <p class="monas-kicker">{collectionAvailability.eyebrow}</p>
+              <h2 class="monas-panel-title">{collectionAvailability.title}</h2>
+              <p class="monas-body">{collectionAvailability.supportingCopy}</p>
+              <p class="monas-body">{collectionAvailability.body}</p>
+              <MonasCtaButtons primary={collectionAvailability.primaryCta} />
+              <div class="monas-inline-note monas-inline-note--compact">
+                {collectionAvailability.microcopy?.map((item) => (
+                  <p>{item}</p>
+                ))}
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="section-shell monas-page-section monas-page-section--tight-bottom">
+          <div class="monas-cta-row">
+            <div class="monas-cta-copy">
+              <p class="monas-kicker">{collectionFinal.eyebrow}</p>
+              <h2>{collectionFinal.title}</h2>
+              <p class="monas-body">{collectionFinal.supportingCopy}</p>
+              <p class="monas-body">{collectionFinal.body}</p>
+              <MonasCtaButtons primary={collectionFinal.primaryCta} secondary={collectionFinal.secondaryCta} />
+            </div>
+            <div class="monas-cta-data">
+              <p class="monas-kicker">In-store feel</p>
+              <h3>Pieces read best in person.</h3>
+              <p>{monasAntiquesBusinessProfile.contact.bestContactNote}</p>
+            </div>
+          </div>
+        </section>
+      </>
+    )
+  }
+
+  {
+    page.id === 'about' && aboutIntro && aboutStorefront && aboutSpecial && aboutTrust && aboutVisit && (
+      <>
+        <section class="section-shell monas-page-section">
+          <div class="monas-story-grid">
+            <MonasMediaCard
+              slot="storefrontMain"
+              eyebrow={aboutStorefront.eyebrow}
+              title={aboutStorefront.title}
+              body={aboutStorefront.supportingCopy}
+              variant="landscape"
+            />
+            <article class="monas-panel">
+              <div class="monas-panel__inner">
+                <p class="monas-kicker">Inside the shop</p>
+                <h2 class="monas-panel-title">Physical first, theatrical never</h2>
+                <p class="monas-body">{aboutStorefront.body}</p>
+                <MonasCtaButtons primary={aboutStorefront.primaryCta} />
+              </div>
+            </article>
+            <MonasMediaCard
+              slot="collection01"
+              eyebrow="Display detail"
+              title="Cases and drawers do part of the storytelling"
+              body="The display style itself helps explain why the shop feels curated rather than crowded."
+              variant="landscape"
+            />
+          </div>
+        </section>
+
+        <section class="section-shell monas-page-section">
+          <div class="monas-feature-grid">
+            {aboutSpecial.cards?.map((card, index) => (
+              <article class:list={['monas-panel', index === 1 && 'monas-panel--soft']}>
+                <div class="monas-panel__inner">
+                  {card.eyebrow && <p class="monas-kicker">{card.eyebrow}</p>}
+                  <h3 class="monas-feature-card__title">{card.title}</h3>
+                  <p class="monas-body">{card.body}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section class="section-shell monas-page-section">
+          <div class="monas-trust-grid monas-trust-grid--about">
+            <article class="monas-panel--jewel">
+              <div class="monas-panel__inner">
+                <p class="monas-kicker">{aboutTrust.eyebrow}</p>
+                <h2 class="monas-panel-title">{aboutTrust.title}</h2>
+                <p class="monas-body">{aboutTrust.supportingCopy}</p>
+                <p class="monas-body">{aboutTrust.body}</p>
+                <ul class="monas-proof-list">
+                  <li>
+                    <strong>Local presence.</strong> A real storefront in Cork, easy to recognise on the street.
+                  </li>
+                  <li>
+                    <strong>In-store emphasis.</strong> The visit is part of the experience rather than an afterthought.
+                  </li>
+                  <li>
+                    <strong>Selection-led.</strong> Distinctive pieces and quieter browsing matter more than volume.
+                  </li>
+                </ul>
+                <MonasCtaButtons primary={aboutTrust.primaryCta} />
+              </div>
+            </article>
+
+            <MonasMediaCard
+              slot="ambience01"
+              eyebrow="Atmosphere"
+              title="Old-world detail, used sparingly"
+              body="A little ornament and texture help the page feel intimate without drifting into clutter."
+              variant="portrait"
+            />
+          </div>
+        </section>
+
+        <section class="section-shell monas-page-section monas-page-section--tight-bottom">
+          <div class="monas-cta-row">
+            <div class="monas-cta-copy">
+              <p class="monas-kicker">{aboutVisit.eyebrow}</p>
+              <h2>{aboutVisit.title}</h2>
+              <p class="monas-body">{aboutVisit.supportingCopy}</p>
+              <p class="monas-body">{aboutVisit.body}</p>
+              <MonasCtaButtons primary={aboutVisit.primaryCta} secondary={aboutVisit.secondaryCta} />
+            </div>
+            <div class="monas-cta-data">
+              <p class="monas-kicker">Visit context</p>
+              <h3>{monasAntiquesBusinessProfile.location.shortLabel}</h3>
+              <p>{monasAntiquesBusinessProfile.location.locationContext}</p>
+            </div>
+          </div>
+        </section>
+      </>
+    )
+  }
+
+  {
+    page.id === 'visit' && visitHeader && visitDetails && visitMap && visitEnquiry && visitFinal && (
+      <>
+        <section class="section-shell monas-page-section">
+          <div class="monas-contact-grid">
+            <article class="monas-panel">
+              <div class="monas-panel__inner">
+                <p class="monas-kicker">{visitDetails.eyebrow}</p>
+                <h2 class="monas-panel-title">{visitDetails.title}</h2>
+                <p class="monas-body">{visitDetails.supportingCopy}</p>
+                <p class="monas-body">{visitDetails.body}</p>
+                <div class="monas-detail-stack">
+                  <div class="monas-detail-card">
+                    <span class="monas-caption">Address</span>
+                    <strong>{monasAntiquesBusinessProfile.location.shortLabel}</strong>
+                  </div>
+                  <div class="monas-detail-card">
+                    <span class="monas-caption">Phone</span>
+                    <a href={monasAntiquesBusinessProfile.contact.callHref}>
+                      {monasAntiquesBusinessProfile.contact.phone}
+                    </a>
+                  </div>
+                  <div class="monas-detail-card">
+                    <span class="monas-caption">Hours</span>
+                    <p>{monasAntiquesBusinessProfile.visit.openingHoursNote}</p>
+                  </div>
+                </div>
+                <MonasCtaButtons primary={visitHeader.primaryCta} secondary={visitHeader.secondaryCta} />
+              </div>
+            </article>
+
+            <MonasMediaCard
+              slot="storefrontMain"
+              eyebrow="Street-level view"
+              title="The simplest route is still the clearest one"
+              body={monasAntiquesBusinessProfile.location.locationContext}
+              variant="landscape"
+            />
+          </div>
+        </section>
+
+        <section class="section-shell monas-page-section">
+          <div class="monas-location-grid">
+            <article class="monas-panel--soft">
+              <div class="monas-panel__inner">
+                <p class="monas-kicker">{visitMap.eyebrow}</p>
+                <h2 class="monas-panel-title">{visitMap.title}</h2>
+                <p class="monas-body">{visitMap.supportingCopy}</p>
+                <p class="monas-body">{visitMap.body}</p>
+                <MonasCtaButtons primary={visitMap.primaryCta} />
+              </div>
+            </article>
+
+            <article class="monas-map-card">
+              <p class="monas-kicker">Location context</p>
+              <h3>City-centre, simple to reach.</h3>
+              <p>{monasAntiquesBusinessProfile.location.longLabel}</p>
+              <p>{monasAntiquesBusinessProfile.location.locationContext}</p>
+              <div class="monas-rule"></div>
+              <p>{monasAntiquesBusinessProfile.location.verification.notes}</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section-shell monas-page-section">
+          <div class="monas-contact-grid monas-contact-grid--enquiry">
+            <article class="monas-panel--jewel">
+              <div class="monas-panel__inner">
+                <p class="monas-kicker">{visitEnquiry.eyebrow}</p>
+                <h2 class="monas-panel-title">{visitEnquiry.title}</h2>
+                <p class="monas-body">{visitEnquiry.supportingCopy}</p>
+                <p class="monas-body">{visitEnquiry.body}</p>
+                <MonasCtaButtons primary={visitEnquiry.primaryCta} secondary={visitEnquiry.secondaryCta} />
+                <ul class="monas-proof-list">
+                  {visitEnquiry.microcopy?.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+
+            <MonasMediaCard
+              slot="ambience02"
+              eyebrow="Practical note"
+              title="Keep the enquiry route light"
+              body="A direct call or a visit-led question is more credible here than a fake form funnel."
+              variant="portrait"
+            />
+          </div>
+        </section>
+
+        <section class="section-shell monas-page-section monas-page-section--tight-bottom">
+          <div class="monas-cta-row">
+            <div class="monas-cta-copy">
+              <p class="monas-kicker">{visitFinal.eyebrow}</p>
+              <h2>{visitFinal.title}</h2>
+              <p class="monas-body">{visitFinal.supportingCopy}</p>
+              <p class="monas-body">{visitFinal.body}</p>
+              <MonasCtaButtons primary={visitFinal.primaryCta} secondary={visitFinal.secondaryCta} />
+            </div>
+            <div class="monas-cta-data">
+              <p class="monas-kicker">Before you go</p>
+              <h3>Call ahead for the latest details.</h3>
+              <p>{monasAntiquesBusinessProfile.contact.bestContactNote}</p>
+              <p>{monasAntiquesBusinessProfile.visit.openingHoursNote}</p>
+            </div>
+          </div>
+        </section>
+      </>
+    )
+  }
+</MonasPageShell>

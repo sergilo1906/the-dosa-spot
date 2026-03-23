@@ -27,7 +27,7 @@ import type {
 
 const SUPPORTED_EXTENSIONS = new Set(['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.webp', '.svg']);
 const POWERSHELL_METRIC_EXTENSIONS = new Set(['.jpg', '.jpeg', '.png', '.gif', '.bmp']);
-const GENERATED_OUTPUT_PATTERN =
+const LEGACY_GENERATED_OUTPUT_PATTERN =
   /^(hero-main|hero-alt-\d+|dish-\d+|gallery-\d+|interior-\d+|exterior-\d+|staff-\d+|logo-\d+|fallback-\d+)\.[a-z0-9]+$/i;
 const GENERIC_NAME_TOKENS = new Set([
   'image',
@@ -146,6 +146,10 @@ function slugify(value: string) {
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
+}
+
+function escapeRegExp(value: string) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
 function tokenizeFeaturedItem(value: string) {
@@ -893,7 +897,8 @@ function assignSelections(entries: ScoredImageCandidate[], context: ImagePipelin
 
 function assignExportFilenames(entries: ScoredImageCandidate[], context: ImagePipelineContext) {
   const counters = {
-    dish: 0,
+    'hero-main': 0,
+    'featured-dish': 0,
     gallery: 0,
     interior: 0,
     exterior: 0,
@@ -902,72 +907,112 @@ function assignExportFilenames(entries: ScoredImageCandidate[], context: ImagePi
     fallback: 0,
   };
 
-  for (const entry of entries) {
-    if (entry.exportStatus === 'discarded') continue;
-
-    const extension = entry.candidate.extension === '.jpeg' ? '.jpg' : entry.candidate.extension;
-    let fileBase = 'gallery-1';
-
-    switch (entry.selectionRole) {
+  const getRoleLabel = (selectionRole: ImagePipelineSelectionRole | null) => {
+    switch (selectionRole) {
       case 'hero-main':
-        fileBase = 'hero-main';
-        break;
+        return 'hero-main' as const;
       case 'dish':
-        counters.dish += 1;
-        fileBase = `dish-${counters.dish}`;
-        break;
+        return 'featured-dish' as const;
       case 'gallery':
       case 'hero-alt':
       case 'reserve':
-        counters.gallery += 1;
-        fileBase = `gallery-${counters.gallery}`;
-        break;
+        return 'gallery' as const;
       case 'ambience':
       case 'interior':
-        counters.interior += 1;
-        fileBase = `interior-${counters.interior}`;
-        break;
+        return 'interior' as const;
       case 'exterior':
-        counters.exterior += 1;
-        fileBase = `exterior-${counters.exterior}`;
-        break;
+        return 'exterior' as const;
       case 'staff':
-        counters.staff += 1;
-        fileBase = `staff-${counters.staff}`;
-        break;
+        return 'staff' as const;
       case 'logo':
-        counters.logo += 1;
-        fileBase = `logo-${counters.logo}`;
-        break;
+        return 'logo' as const;
       case 'fallback':
-        counters.fallback += 1;
-        fileBase = `fallback-${counters.fallback}`;
-        break;
+        return 'fallback' as const;
       default:
-        break;
+        return 'gallery' as const;
     }
+  };
+  const roleWeight = {
+    'hero-main': 0,
+    'featured-dish': 1,
+    gallery: 2,
+    interior: 3,
+    exterior: 4,
+    staff: 5,
+    logo: 6,
+    fallback: 7,
+  } satisfies Record<keyof typeof counters, number>;
+  const orderedEntries = entries
+    .filter((entry) => entry.exportStatus !== 'discarded')
+    .slice()
+    .sort((left, right) => {
+      const leftRole = getRoleLabel(left.selectionRole);
+      const rightRole = getRoleLabel(right.selectionRole);
+
+      return (
+        roleWeight[leftRole] - roleWeight[rightRole] ||
+        (left.selectionRank ?? 99) - (right.selectionRank ?? 99) ||
+        left.candidate.stableId.localeCompare(right.candidate.stableId)
+      );
+    });
+
+  for (const entry of orderedEntries) {
+    const extension = entry.candidate.extension === '.jpeg' ? '.jpg' : entry.candidate.extension;
+    const roleLabel = getRoleLabel(entry.selectionRole);
+    counters[roleLabel] += 1;
+
+    const stableSubject = (() => {
+      if (entry.candidate.stableId === 'hero-main') return '';
+
+      const normalizedId = entry.candidate.stableId
+        .replace(/^dish-/u, '')
+        .replace(/^gallery-/u, '')
+        .replace(/^interior-/u, '')
+        .replace(/^exterior-/u, '')
+        .replace(/^staff-/u, '')
+        .replace(/^logo-/u, '')
+        .replace(/^fallback-/u, '')
+        .replace(/^hero-/u, '');
+
+      return slugify(normalizedId);
+    })();
+    const indexLabel = String(counters[roleLabel]).padStart(2, '0');
+    const fileBase = [context.slug, roleLabel, stableSubject || null, indexLabel].filter(Boolean).join('-');
 
     entry.exportFilename = `${fileBase}${extension}`;
     entry.publicPath = `${context.outputPublicBase}/${entry.exportFilename}`;
   }
 }
 
-function cleanGeneratedOutputDirectory(outputDirectory: string, keepNames: Set<string>) {
+function isManagedGeneratedOutput(fileName: string, slug: string) {
+  if (LEGACY_GENERATED_OUTPUT_PATTERN.test(fileName)) {
+    return true;
+  }
+
+  const semanticPattern = new RegExp(
+    `^${escapeRegExp(slug)}-(hero-main|featured-dish|gallery|interior|exterior|staff|logo|fallback)(-[a-z0-9]+)*-\\d{2}\\.[a-z0-9]+$`,
+    'i',
+  );
+
+  return semanticPattern.test(fileName);
+}
+
+function cleanGeneratedOutputDirectory(outputDirectory: string, keepNames: Set<string>, slug: string) {
   if (!existsSync(outputDirectory)) return;
 
   for (const entry of readdirSync(outputDirectory, { withFileTypes: true })) {
     if (!entry.isFile()) continue;
-    if (!GENERATED_OUTPUT_PATTERN.test(entry.name)) continue;
+    if (!isManagedGeneratedOutput(entry.name, slug)) continue;
     if (keepNames.has(entry.name)) continue;
 
     unlinkSync(path.join(outputDirectory, entry.name));
   }
 }
 
-function exportImages(entries: ScoredImageCandidate[], outputDirectory: string) {
+function exportImages(entries: ScoredImageCandidate[], outputDirectory: string, slug: string) {
   mkdirSync(outputDirectory, { recursive: true });
   const keepNames = new Set(entries.map((entry) => entry.exportFilename).filter(Boolean) as string[]);
-  cleanGeneratedOutputDirectory(outputDirectory, keepNames);
+  cleanGeneratedOutputDirectory(outputDirectory, keepNames, slug);
 
   for (const entry of entries) {
     if (!entry.exportFilename) continue;
@@ -1309,7 +1354,7 @@ export function generateImageMap(params: {
   applyDuplicatePenalties(analyzedEntries);
   const selection = assignSelections(analyzedEntries, context);
   assignExportFilenames(analyzedEntries, context);
-  exportImages(analyzedEntries.filter((entry) => entry.exportFilename), context.outputDirectory);
+  exportImages(analyzedEntries.filter((entry) => entry.exportFilename), context.outputDirectory, context.slug);
 
   const publicPathById = new Map(
     analyzedEntries

@@ -1,7 +1,7 @@
 # Product QA Report
 
 - Business: the-dosa-spot
-- Generated: 2026-03-16T15:22:28.324Z
+- Generated: 2026-03-17T11:19:35.703Z
 - Checks run: 38
 - Passed: 28
 - Errors: 0
@@ -53,7 +53,7 @@
 - [PASS] Built images have non-empty alt text: The checked built pages do not expose empty or generic img alt text.
 - [PASS] Skip link is present on checked pages: Each checked page includes the Skip to content link.
 - [PASS] FAQ affordance is real: The visible FAQ renders as real details elements.
-- [PASS] Weak-image load is limited: Only 1 image(s) are marked weak in the current image set.
+- [PASS] Weak-image load is limited: Only 0 image(s) are marked weak in the current image set.
 - [PASS] Hero action load stays focused: The hero keeps one clear primary action and one secondary path at most.
 - [PASS] Render-ready blocks do not expose empty support copy: The assembly profile keeps core support copy populated for visible blocks.
 

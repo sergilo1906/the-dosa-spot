@@ -1,0 +1,241 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteConfig } from '../../lib/seo/site';
+import { monasAntiquesNavigation, type MonaAntiquesPageBlueprint } from './architecture';
+import { getMonasAntiquesPageCopy } from './content';
+import { monasAntiquesImageMap } from './images';
+import { monasAntiquesScope } from './scope';
+import { monasAntiquesTheme, monasAntiquesThemeInlineStyle } from './theme';
+import './theme.css';
+
+interface Props {
+  page: MonaAntiquesPageBlueprint;
+}
+
+const { page } = Astro.props;
+const canonical = new URL(page.route, siteConfig.siteUrl).toString();
+const currentPath = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
+const heroImage = monasAntiquesImageMap[page.previewImageSlot];
+const supportImage = page.supportImageSlot ? monasAntiquesImageMap[page.supportImageSlot] : null;
+const pageIndex = monasAntiquesNavigation.header.findIndex((item) => item.pageId === page.id) + 1;
+const pageCopy = getMonasAntiquesPageCopy(page.id);
+---
+
+<BaseLayout
+  title={`${monasAntiquesScope.businessName} | ${page.label} architecture`}
+  description={page.description}
+  canonical={canonical}
+  robots={monasAntiquesScope.route.robots}
+  ogImage={heroImage.src}
+  siteName={monasAntiquesScope.businessName}
+  themeColor={monasAntiquesTheme.palette.accentJewel.value}
+  jsonLd={[]}
+>
+  <div class="theme-monas" style={monasAntiquesThemeInlineStyle}>
+    <div class="monas-canvas">
+      <header class="section-shell monas-shell-nav">
+        <a class="monas-shell-nav__brand" href={monasAntiquesNavigation.header[0].href}>
+          <span class="monas-kicker">Mona's demo</span>
+          <strong>{monasAntiquesScope.businessName}</strong>
+        </a>
+
+        <nav class="monas-shell-nav__links" aria-label="Mona's page navigation">
+          {monasAntiquesNavigation.header.map((item) => (
+            <a
+              href={item.href}
+              class:list={['monas-shell-nav__link', currentPath === item.href && 'is-active']}
+              aria-current={currentPath === item.href ? 'page' : undefined}
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+
+        <a class="monas-button monas-button--primary monas-shell-nav__cta" href={monasAntiquesNavigation.headerCta.href}>
+          {monasAntiquesNavigation.headerCta.label}
+        </a>
+      </header>
+
+      <section class="section-shell">
+        <div class="monas-hero monas-hero--page">
+          <div class="monas-copy-stack">
+            <p class="monas-kicker">{pageCopy.pageEyebrow}</p>
+            <h1 class="monas-display">{pageCopy.pageTitle}</h1>
+            <p class="monas-lead">{pageCopy.pageSupportingCopy}</p>
+            <p class="monas-body">{pageCopy.pageBody}</p>
+            <div class="monas-chip-row">
+              <span class="monas-chip">Page blueprint {pageIndex}/4</span>
+              <span class="monas-chip">{page.route}</span>
+              <span class="monas-chip">Noindex demo route</span>
+              <span class="monas-chip">Mona-only scope</span>
+            </div>
+          </div>
+
+          <div class="monas-meta-stack">
+            <article class="monas-frame monas-frame--portrait">
+              <div class="monas-frame__media">
+                <img
+                  src={heroImage.src}
+                  alt={heroImage.alt}
+                  width={heroImage.width ?? undefined}
+                  height={heroImage.height ?? undefined}
+                  loading="eager"
+                  decoding="async"
+                  fetchpriority="high"
+                />
+              </div>
+              <div class="monas-frame__body">
+                <p class="monas-caption">Primary page mood</p>
+                <h2 class="monas-frame__title">{heroImage.alt}</h2>
+                <p class="monas-frame__note">This image slot anchors the tone of the page scaffold.</p>
+              </div>
+            </article>
+
+            {supportImage && (
+              <article class="monas-frame monas-frame--landscape">
+                <div class="monas-frame__media">
+                  <img
+                    src={supportImage.src}
+                    alt={supportImage.alt}
+                    width={supportImage.width ?? undefined}
+                    height={supportImage.height ?? undefined}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="monas-frame__body">
+                  <p class="monas-caption">Support image</p>
+                  <h2 class="monas-frame__title">{supportImage.alt}</h2>
+                  <p class="monas-frame__note">Used as structural support only, not as final layout instruction.</p>
+                </div>
+              </article>
+            )}
+          </div>
+        </div>
+      </section>
+
+      <section class="section-shell">
+        <div class="monas-route-grid">
+          <article class="monas-panel">
+            <div class="monas-panel__inner">
+              <p class="monas-kicker">Navigation role</p>
+              <h2 class="monas-panel-title">Minimal boutique navigation</h2>
+              <p class="monas-body">
+                {page.navLabel} sits inside a four-link header with one practical CTA. The footer repeats only the primary page paths.
+              </p>
+            </div>
+          </article>
+
+          <article class="monas-panel--soft">
+            <div class="monas-panel__inner">
+              <p class="monas-kicker">Implementation notes</p>
+              <ul class="monas-list">
+                {page.implementationNotes.map((note) => (
+                  <li>{note}</li>
+                ))}
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-shell">
+        <div class="monas-panel">
+          <div class="monas-panel__inner">
+            <p class="monas-kicker">Locked section order</p>
+            <h2 class="monas-panel-title">Build this page in this order.</h2>
+            <div class="monas-block-stack">
+              {page.blocks.map((block, index) => {
+                const blockCopy = pageCopy.blocks[block.id];
+
+                return (
+                  <article class="monas-block-card">
+                  <div class="monas-block-card__header">
+                    <div class="monas-block-card__index">0{index + 1}</div>
+                    <div class="monas-block-card__copy">
+                      <p class="monas-kicker">{block.name}</p>
+                      <h3>{blockCopy?.title ?? block.purpose}</h3>
+                    </div>
+                    <div class="monas-block-card__badges">
+                      <span class:list={['monas-badge', `monas-badge--${block.criticality}`]}>{block.criticality}</span>
+                      <span class="monas-badge monas-badge--complexity">{block.complexity}</span>
+                    </div>
+                  </div>
+
+                  <div class="monas-block-card__meta">
+                    <div>
+                      <p class="monas-caption">Supporting copy</p>
+                      <p class="monas-body">{blockCopy?.supportingCopy ?? 'No supporting copy for this block.'}</p>
+                    </div>
+                    <div>
+                      <p class="monas-caption">Body</p>
+                      <p class="monas-body">{blockCopy?.body ?? block.expectedContent}</p>
+                    </div>
+                    <div>
+                      <p class="monas-caption">CTA</p>
+                      <p class="monas-body">
+                        {blockCopy?.primaryCta?.label ?? block.cta ?? 'No dedicated CTA in this block.'}
+                        {blockCopy?.secondaryCta ? ` / ${blockCopy.secondaryCta.label}` : ''}
+                      </p>
+                    </div>
+                  </div>
+
+                  {(blockCopy?.cards?.length || blockCopy?.microcopy?.length) && (
+                    <div class="monas-block-card__extras">
+                      {blockCopy.cards && blockCopy.cards.length > 0 && (
+                        <div class="monas-block-card__extra-panel">
+                          <p class="monas-caption">Cards / labels</p>
+                          <ul class="monas-list">
+                            {blockCopy.cards.map((card) => (
+                              <li>
+                                <strong>{card.eyebrow ? `${card.eyebrow}: ` : ''}{card.title}</strong> {card.body}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+
+                      {blockCopy.microcopy && blockCopy.microcopy.length > 0 && (
+                        <div class="monas-block-card__extra-panel">
+                          <p class="monas-caption">Microcopy / notes</p>
+                          <ul class="monas-list">
+                            {blockCopy.microcopy.map((item) => (
+                              <li>{item}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </article>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="section-shell monas-footer-nav">
+        <div class="monas-cta-row">
+          <div class="monas-cta-copy">
+            <p class="monas-kicker">Footer behavior</p>
+            <h2>Repeat the page paths, then hand off to practical visit details.</h2>
+            <p class="monas-body">
+              The Mona footer stays simple: no corporate sitemap, no unrelated legal maze, and no leakage into the shared project navigation.
+            </p>
+          </div>
+          <div class="monas-cta-data">
+            <p class="monas-kicker">Page links</p>
+            <ul class="monas-list">
+              {monasAntiquesNavigation.header.map((item) => (
+                <li>
+                  <strong>{item.label}:</strong> {item.href}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+</BaseLayout>

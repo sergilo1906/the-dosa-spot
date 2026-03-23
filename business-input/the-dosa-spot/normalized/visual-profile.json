@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "fileKind": "visual-profile",
   "businessSlug": "the-dosa-spot",
-  "updatedAt": "2026-03-16T15:22:02.428Z",
+  "updatedAt": "2026-03-17T11:18:19.311Z",
   "visualFamily": "food-warm-editorial",
   "visualConfidence": "high",
   "visualScore": 29,
@@ -11,7 +11,7 @@
     "Selected Food Warm Editorial with score 29.",
     "Matched signals: sector:restaurant, tone:premium-casual, tone:warm, tone:local-trust, luxury:high, color:warm, images:high, image:dish, image:ambience.",
     "Runner-up was Neutral Reusable at 23.",
-    "Image abundance is high with 1 strong approved assets."
+    "Image abundance is high with 2 strong approved assets."
   ],
   "candidateScores": [
     {
@@ -122,7 +122,7 @@
     "brandColorTemperature": "warm",
     "brandColorCount": 4,
     "approvedImageCount": 9,
-    "strongImageCount": 1,
+    "strongImageCount": 2,
     "imageAbundance": "high",
     "imageSignals": [
       "image:ambience",

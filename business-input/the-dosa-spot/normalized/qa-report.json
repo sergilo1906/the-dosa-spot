@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "fileKind": "qa-report",
   "businessSlug": "the-dosa-spot",
-  "generatedAt": "2026-03-16T15:22:28.324Z",
+  "generatedAt": "2026-03-17T11:19:35.703Z",
   "summary": {
     "checksRun": 38,
     "passed": 28,
@@ -84,7 +84,7 @@
     "imageSummary": {
       "totalAssets": 9,
       "selectedAssets": 8,
-      "weakAssets": 1,
+      "weakAssets": 0,
       "duplicateAssets": 0
     }
   },
@@ -449,7 +449,7 @@
       "status": "pass",
       "severity": "none",
       "title": "Weak-image load is limited",
-      "summary": "Only 1 image(s) are marked weak in the current image set.",
+      "summary": "Only 0 image(s) are marked weak in the current image set.",
       "route": null
     },
     {

@@ -1,0 +1,48 @@
+---
+import { getMonasAntiquesImage, type MonaAntiquesImageSlot } from './images';
+
+interface Props {
+  slot: MonaAntiquesImageSlot;
+  eyebrow?: string;
+  title?: string;
+  body?: string;
+  variant?: 'portrait' | 'landscape' | 'square';
+  className?: string;
+  loading?: 'eager' | 'lazy';
+  priority?: boolean;
+}
+
+const {
+  slot,
+  eyebrow,
+  title,
+  body,
+  variant = 'portrait',
+  className,
+  loading = 'lazy',
+  priority = false,
+} = Astro.props;
+
+const image = getMonasAntiquesImage(slot);
+---
+
+<article class:list={['monas-frame', `monas-frame--${variant}`, className]}>
+  <div class="monas-frame__media">
+    <img
+      src={image.src}
+      alt={image.alt}
+      width={image.width ?? undefined}
+      height={image.height ?? undefined}
+      loading={loading}
+      decoding="async"
+      fetchpriority={priority ? 'high' : undefined}
+    />
+  </div>
+  {(eyebrow || title || body) && (
+    <div class="monas-frame__body">
+      {eyebrow && <p class="monas-caption">{eyebrow}</p>}
+      {title && <h3 class="monas-frame__title">{title}</h3>}
+      {body && <p class="monas-frame__note">{body}</p>}
+    </div>
+  )}
+</article>

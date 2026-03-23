@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "fileKind": "assembly-profile",
   "businessSlug": "the-dosa-spot",
-  "updatedAt": "2026-03-16T15:22:04.993Z",
+  "updatedAt": "2026-03-17T11:18:37.875Z",
   "page": {
     "defaultPresetSlug": "dosa-signature",
     "routePolicy": {
@@ -232,7 +232,7 @@
   "images": {
     "heroMain": {
       "id": "hero-main",
-      "src": "/businesses/the-dosa-spot/images/hero-main.jpg",
+      "src": "/businesses/the-dosa-spot/images/the-dosa-spot-hero-main-01.jpg",
       "alt": "A table spread at The Dosa Spot.",
       "kind": "hero",
       "ratio": "portrait",
@@ -244,7 +244,7 @@
     },
     "heroSupport": {
       "id": "dish-dosa",
-      "src": "/businesses/the-dosa-spot/images/dish-2.jpg",
+      "src": "/businesses/the-dosa-spot/images/the-dosa-spot-featured-dish-dosa-01.jpg",
       "alt": "Paneer Potato Masala Dosa served at The Dosa Spot.",
       "kind": "detail",
       "ratio": "portrait",
@@ -257,7 +257,7 @@
     "popularItems": [
       {
         "id": "dish-dosa",
-        "src": "/businesses/the-dosa-spot/images/dish-2.jpg",
+        "src": "/businesses/the-dosa-spot/images/the-dosa-spot-featured-dish-dosa-01.jpg",
         "alt": "Paneer Potato Masala Dosa served at The Dosa Spot.",
         "kind": "detail",
         "ratio": "portrait",
@@ -269,37 +269,37 @@
       },
       {
         "id": "dish-chole-bhature",
-        "src": "/businesses/the-dosa-spot/images/dish-1.jpg",
+        "src": "/businesses/the-dosa-spot/images/the-dosa-spot-featured-dish-chole-bhature-02.png",
         "alt": "Batura Chole Bhature served at The Dosa Spot.",
         "kind": "detail",
-        "ratio": "portrait",
+        "ratio": "landscape",
         "treatment": "batura chole bhature",
-        "width": 860,
-        "height": 1120,
-        "quality": "usable",
+        "width": 1536,
+        "height": 1024,
+        "quality": "strong",
         "reason": "Chosen for highlights because it supports a confirmed featured item or menu cue."
       },
       {
         "id": "dish-gulab-jamun",
-        "src": "/businesses/the-dosa-spot/images/dish-3.jpg",
+        "src": "/businesses/the-dosa-spot/images/the-dosa-spot-featured-dish-gulab-jamun-03.png",
         "alt": "Gulab Jamun served at The Dosa Spot.",
         "kind": "detail",
         "ratio": "portrait",
         "treatment": "gulab jamun",
-        "width": 860,
-        "height": 1120,
+        "width": 1024,
+        "height": 1536,
         "quality": "usable",
         "reason": "Chosen for highlights because it supports a confirmed featured item or menu cue."
       },
       {
         "id": "dish-vegetable-noodles",
-        "src": "/businesses/the-dosa-spot/images/dish-4.jpg",
+        "src": "/businesses/the-dosa-spot/images/the-dosa-spot-featured-dish-vegetable-noodles-04.png",
         "alt": "Vegetable Noodles at The Dosa Spot.",
         "kind": "detail",
         "ratio": "portrait",
         "treatment": "vegetable noodles",
-        "width": 860,
-        "height": 1120,
+        "width": 1024,
+        "height": 1536,
         "quality": "usable",
         "reason": "Chosen for highlights because it supports a confirmed featured item or menu cue."
       }
@@ -307,39 +307,39 @@
     "gallery": [
       {
         "id": "gallery-spicy-noodles",
-        "src": "/businesses/the-dosa-spot/images/gallery-2.jpg",
+        "src": "/businesses/the-dosa-spot/images/the-dosa-spot-gallery-spicy-noodles-01.png",
         "alt": "Spicy Noodles at The Dosa Spot.",
         "kind": "detail",
         "ratio": "portrait",
         "treatment": "spicy noodles",
-        "width": 860,
-        "height": 1120,
+        "width": 1024,
+        "height": 1536,
         "quality": "usable",
         "reason": "Approved for the gallery because it adds variety without redundancy."
       },
       {
-        "id": "gallery-curry-naan",
-        "src": "/businesses/the-dosa-spot/images/gallery-1.jpg",
-        "alt": "Curry Naan at The Dosa Spot.",
+        "id": "gallery-starter-bowl",
+        "src": "/businesses/the-dosa-spot/images/the-dosa-spot-gallery-starter-bowl-02.png",
+        "alt": "Starter Bowl at The Dosa Spot.",
         "kind": "detail",
         "ratio": "portrait",
-        "treatment": "curry naan",
-        "width": 860,
-        "height": 1120,
+        "treatment": "starter bowl",
+        "width": 1024,
+        "height": 1536,
         "quality": "usable",
         "reason": "Approved for the gallery because it adds variety without redundancy."
       }
     ],
     "fallback": {
       "id": "fallback-noodle-bowl",
-      "src": "/businesses/the-dosa-spot/images/fallback-1.jpg",
+      "src": "/businesses/the-dosa-spot/images/the-dosa-spot-fallback-noodle-bowl-01.png",
       "alt": "Noodle Bowl at The Dosa Spot.",
       "kind": "detail",
       "ratio": "portrait",
       "treatment": "noodle bowl",
-      "width": 860,
-      "height": 1120,
-      "quality": "weak",
+      "width": 1024,
+      "height": 1536,
+      "quality": "usable",
       "reason": "Reserved as the safest visual fallback if a stronger slot is unavailable."
     }
   },
@@ -359,7 +359,7 @@
           "body": "The clearest first order: a crisp dosa wrapped around paneer and potato masala.",
           "image": {
             "id": "dish-dosa",
-            "src": "/businesses/the-dosa-spot/images/dish-2.jpg",
+            "src": "/businesses/the-dosa-spot/images/the-dosa-spot-featured-dish-dosa-01.jpg",
             "alt": "Paneer Potato Masala Dosa served at The Dosa Spot.",
             "kind": "detail",
             "ratio": "portrait",
@@ -377,14 +377,14 @@
           "body": "Puffy bhature and chickpea curry when you want the richer, heavier plate.",
           "image": {
             "id": "dish-chole-bhature",
-            "src": "/businesses/the-dosa-spot/images/dish-1.jpg",
+            "src": "/businesses/the-dosa-spot/images/the-dosa-spot-featured-dish-chole-bhature-02.png",
             "alt": "Batura Chole Bhature served at The Dosa Spot.",
             "kind": "detail",
-            "ratio": "portrait",
+            "ratio": "landscape",
             "treatment": "batura chole bhature",
-            "width": 860,
-            "height": 1120,
-            "quality": "usable",
+            "width": 1536,
+            "height": 1024,
+            "quality": "strong",
             "reason": "Chosen for highlights because it supports a confirmed featured item or menu cue."
           },
           "reason": "Featured items are confirmed in the brief and chosen early for fast scanning."
@@ -395,13 +395,13 @@
           "body": "Warm gulab jamun for a short sweet finish after the savoury plates.",
           "image": {
             "id": "dish-gulab-jamun",
-            "src": "/businesses/the-dosa-spot/images/dish-3.jpg",
+            "src": "/businesses/the-dosa-spot/images/the-dosa-spot-featured-dish-gulab-jamun-03.png",
             "alt": "Gulab Jamun served at The Dosa Spot.",
             "kind": "detail",
             "ratio": "portrait",
             "treatment": "gulab jamun",
-            "width": 860,
-            "height": 1120,
+            "width": 1024,
+            "height": 1536,
             "quality": "usable",
             "reason": "Chosen for highlights because it supports a confirmed featured item or menu cue."
           },

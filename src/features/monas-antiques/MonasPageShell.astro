@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteConfig } from '../../lib/seo/site';
+import type { MonaAntiquesPageBlueprint } from './architecture';
+import type { MonaAntiquesPageCopy } from './content';
+import { monasAntiquesNavigation } from './architecture';
+import { monasAntiquesBusinessProfile } from './profile';
+import { monasAntiquesScope } from './scope';
+import { monasAntiquesTheme, monasAntiquesThemeInlineStyle } from './theme';
+import './theme.css';
+
+interface Props {
+  page: MonaAntiquesPageBlueprint;
+  pageCopy: MonaAntiquesPageCopy;
+}
+
+const { page, pageCopy } = Astro.props;
+
+const canonical = new URL(page.route, siteConfig.siteUrl).toString();
+const currentPath = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
+const pageTitle =
+  page.id === 'home'
+    ? `${monasAntiquesScope.businessName} | Antique jewellery boutique in Cork`
+    : `${monasAntiquesScope.businessName} | ${page.label}`;
+const description = `${pageCopy.pageSupportingCopy} ${pageCopy.pageBody}`;
+const footerLinks = monasAntiquesNavigation.header;
+const defaultOgImage = 'https://images.pexels.com/photos/20002456/pexels-photo-20002456.jpeg?cs=srgb&dl=pexels-dagmara-dombrovska-22732579-20002456.jpg&fm=jpg';
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={description}
+  canonical={canonical}
+  robots={monasAntiquesScope.route.robots}
+  ogImage={defaultOgImage}
+  siteName={monasAntiquesScope.businessName}
+  themeColor={monasAntiquesTheme.palette.accentJewel.value}
+  jsonLd={[]}
+>
+  <div class="theme-monas" style={monasAntiquesThemeInlineStyle}>
+    <div class="monas-canvas">
+      <header class="section-shell monas-shell-nav">
+        <a class="monas-shell-nav__brand" href={monasAntiquesNavigation.header[0].href}>
+          <span class="monas-kicker">Oliver Plunkett Street, Cork</span>
+          <strong>{monasAntiquesScope.businessName}</strong>
+        </a>
+
+        <nav class="monas-shell-nav__links" aria-label="Mona's page navigation">
+          {footerLinks.map((item) => (
+            <a
+              href={item.href}
+              class:list={['monas-shell-nav__link', currentPath === item.href && 'is-active']}
+              aria-current={currentPath === item.href ? 'page' : undefined}
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+
+        <a class="monas-button monas-button--primary monas-shell-nav__cta" href={monasAntiquesNavigation.headerCta.href}>
+          {monasAntiquesNavigation.headerCta.label}
+        </a>
+      </header>
+
+      <slot />
+
+      <footer class="section-shell monas-footer">
+        <div class="monas-footer__grid">
+          <div class="monas-footer__brand">
+            <p class="monas-kicker">Curated antique jewellery</p>
+            <h2 class="monas-footer__title">A quieter, more personal kind of jewellery shop.</h2>
+            <p class="monas-body">{monasAntiquesBusinessProfile.summary}</p>
+          </div>
+
+          <div class="monas-footer__nav">
+            <p class="monas-kicker">Pages</p>
+            <ul class="monas-list monas-list--plain">
+              {footerLinks.map((item) => (
+                <li>
+                  <a href={item.href}>{item.label}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="monas-footer__visit">
+            <p class="monas-kicker">Visit</p>
+            <p class="monas-footer__detail">{monasAntiquesBusinessProfile.location.shortLabel}</p>
+            <a class="monas-footer__detail-link" href={monasAntiquesBusinessProfile.contact.callHref}>
+              {monasAntiquesBusinessProfile.contact.phone}
+            </a>
+            <p class="monas-footer__note">{monasAntiquesBusinessProfile.visit.openingHoursNote}</p>
+            <div class="monas-button-row">
+              <a
+                class="monas-button monas-button--secondary"
+                href={monasAntiquesBusinessProfile.location.directionsUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Open Directions
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+</BaseLayout>

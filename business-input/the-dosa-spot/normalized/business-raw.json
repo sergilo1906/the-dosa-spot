@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "fileKind": "business-raw",
   "businessSlug": "the-dosa-spot",
-  "updatedAt": "2026-03-16T15:22:01.302Z",
+  "updatedAt": "2026-03-17T11:17:58.392Z",
   "sources": [
     {
       "id": "intake-seed",
@@ -237,14 +237,14 @@
       "dish-gulab-jamun",
       "dish-vegetable-noodles",
       "gallery-spicy-noodles",
-      "gallery-curry-naan",
       "gallery-starter-bowl",
+      "gallery-curry-naan",
       "fallback-noodle-bowl"
     ],
     "sourceFolder": "public/businesses/the-dosa-spot/images",
     "notes": [
-      "Generated from business-input/the-dosa-spot/raw/images by images:process.",
-      "Runtime image exports now live in public/businesses/the-dosa-spot/images."
+      "Resolved from Image map and the current runtime asset set.",
+      "Generated from business-input/the-dosa-spot/raw/images using images:process."
     ]
   },
   "notes": [

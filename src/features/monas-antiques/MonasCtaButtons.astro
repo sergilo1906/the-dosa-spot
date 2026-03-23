@@ -1,0 +1,36 @@
+---
+import type { MonaAntiquesBlockCtaCopy } from './content';
+import { resolveMonasAntiquesCta } from './profile';
+
+interface Props {
+  primary?: MonaAntiquesBlockCtaCopy | null;
+  secondary?: MonaAntiquesBlockCtaCopy | null;
+  className?: string;
+}
+
+const { primary = null, secondary = null, className } = Astro.props;
+
+const resolvedCtas = [resolveMonasAntiquesCta(primary), resolveMonasAntiquesCta(secondary)].filter(
+  (cta): cta is NonNullable<typeof cta> => Boolean(cta),
+);
+---
+
+{
+  resolvedCtas.length > 0 && (
+    <div class:list={['monas-button-row', className]}>
+      {resolvedCtas.map((cta, index) => (
+        <a
+          href={cta.href}
+          class:list={[
+            'monas-button',
+            index === 0 ? 'monas-button--primary' : 'monas-button--secondary',
+          ]}
+          target={cta.kind === 'external' ? '_blank' : undefined}
+          rel={cta.kind === 'external' ? 'noreferrer' : undefined}
+        >
+          {cta.label}
+        </a>
+      ))}
+    </div>
+  )
+}
